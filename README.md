@@ -1,1 +1,1 @@
-#### 许多代码来源于网络，非常感谢！
+#### Many of the code comes from the network, thanks a lot!
