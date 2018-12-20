@@ -1,0 +1,17 @@
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - echo "I am in  building stage..."
+    - GIT_BRANCH=$(git show -s --pretty=%d HEAD | cut -d ')' -f 1 | awk -F " " '{print $NF}')
+    - echo $GIT_BRANCH
+    - if [ $GIT_BRANCH == "origin/HEAD" ] || [ $GIT_BRANCH == "master" ];then GIT_BRANCH="master"
+    - fi
+    - echo $GIT_BRANCH
+    - Url="http://192.168.1.131:8080/view/bssv/job/BimProperty/buildWithParameters?mbranch="$GIT_BRANCH"&token=123456"
+    - echo $Url
+    - curl -X GET $Url --user support:Password123!@#
+    - echo "Done."
+    
