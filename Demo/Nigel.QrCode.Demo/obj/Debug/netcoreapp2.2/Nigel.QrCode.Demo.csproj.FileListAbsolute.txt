@@ -1,0 +1,14 @@
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.Demo.deps.json
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.Demo.runtimeconfig.json
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.Demo.runtimeconfig.dev.json
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.Demo.dll
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.Demo.pdb
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.dll
+E:\Code\Nigel\Nigel.QrCode.Demo\bin\Debug\netcoreapp2.2\Nigel.QrCode.pdb
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.csprojAssemblyReference.cache
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.csproj.CoreCompileInputs.cache
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.AssemblyInfoInputs.cache
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.AssemblyInfo.cs
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.csproj.CopyComplete
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.dll
+E:\Code\Nigel\Nigel.QrCode.Demo\obj\Debug\netcoreapp2.2\Nigel.QrCode.Demo.pdb

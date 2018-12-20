@@ -1,0 +1,8 @@
+E:\Code\Nigel\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.deps.json
+E:\Code\Nigel\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.dll
+E:\Code\Nigel\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.csproj.CoreCompileInputs.cache
+E:\Code\Nigel\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.AssemblyInfoInputs.cache
+E:\Code\Nigel\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.AssemblyInfo.cs
+E:\Code\Nigel\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.pdb
+E:\Code\Nigel\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.dll
+E:\Code\Nigel\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.pdb

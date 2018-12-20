@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{B2473A9B-63C9-4B13-AAE8-37F549F130B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.QrCode.Demo", "Demo\Nigel.QrCode.Demo\Nigel.QrCode.Demo.csproj", "{19346933-4570-41DC-9E95-1DB8687B31C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Security.Demo", "Demo\Nigel.Security.Demo\Nigel.Security.Demo.csproj", "{673EB780-3C59-47B0-B204-FA67AC236D00}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{0684DF7F-BBF8-46FD-B6C9-AE04697186C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Basic", "Source\Nigel.Basic\Nigel.Basic.csproj", "{3B9BC3B5-854A-4F2B-8A34-1462A2AF428F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.QrCode", "Source\Nigel.QrCode\Nigel.QrCode.csproj", "{71684B54-E1CB-4295-8DCB-7FCE9F768722}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Security", "Source\Nigel.Security\Nigel.Security.csproj", "{D932E973-AB7F-46DA-BAC2-A3A29D94DBFF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{158A98DA-F397-4B39-AD02-F5FB8BB79F7F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19346933-4570-41DC-9E95-1DB8687B31C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19346933-4570-41DC-9E95-1DB8687B31C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19346933-4570-41DC-9E95-1DB8687B31C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19346933-4570-41DC-9E95-1DB8687B31C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{673EB780-3C59-47B0-B204-FA67AC236D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{673EB780-3C59-47B0-B204-FA67AC236D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{673EB780-3C59-47B0-B204-FA67AC236D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{673EB780-3C59-47B0-B204-FA67AC236D00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9BC3B5-854A-4F2B-8A34-1462A2AF428F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9BC3B5-854A-4F2B-8A34-1462A2AF428F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9BC3B5-854A-4F2B-8A34-1462A2AF428F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9BC3B5-854A-4F2B-8A34-1462A2AF428F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71684B54-E1CB-4295-8DCB-7FCE9F768722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71684B54-E1CB-4295-8DCB-7FCE9F768722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71684B54-E1CB-4295-8DCB-7FCE9F768722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71684B54-E1CB-4295-8DCB-7FCE9F768722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D932E973-AB7F-46DA-BAC2-A3A29D94DBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D932E973-AB7F-46DA-BAC2-A3A29D94DBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D932E973-AB7F-46DA-BAC2-A3A29D94DBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D932E973-AB7F-46DA-BAC2-A3A29D94DBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{19346933-4570-41DC-9E95-1DB8687B31C1} = {B2473A9B-63C9-4B13-AAE8-37F549F130B8}
+		{673EB780-3C59-47B0-B204-FA67AC236D00} = {B2473A9B-63C9-4B13-AAE8-37F549F130B8}
+		{3B9BC3B5-854A-4F2B-8A34-1462A2AF428F} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
+		{71684B54-E1CB-4295-8DCB-7FCE9F768722} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
+		{D932E973-AB7F-46DA-BAC2-A3A29D94DBFF} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE926658-DE37-49DB-B45B-98E1592EAF16}
+	EndGlobalSection
+EndGlobal

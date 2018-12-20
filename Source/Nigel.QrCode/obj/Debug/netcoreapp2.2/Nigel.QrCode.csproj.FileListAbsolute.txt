@@ -1,0 +1,8 @@
+E:\Code\Nigel\Nigel.QrCode\bin\Debug\netcoreapp2.2\Nigel.QrCode.deps.json
+E:\Code\Nigel\Nigel.QrCode\bin\Debug\netcoreapp2.2\Nigel.QrCode.dll
+E:\Code\Nigel\Nigel.QrCode\obj\Debug\netcoreapp2.2\Nigel.QrCode.csproj.CoreCompileInputs.cache
+E:\Code\Nigel\Nigel.QrCode\obj\Debug\netcoreapp2.2\Nigel.QrCode.AssemblyInfoInputs.cache
+E:\Code\Nigel\Nigel.QrCode\obj\Debug\netcoreapp2.2\Nigel.QrCode.AssemblyInfo.cs
+E:\Code\Nigel\Nigel.QrCode\bin\Debug\netcoreapp2.2\Nigel.QrCode.pdb
+E:\Code\Nigel\Nigel.QrCode\obj\Debug\netcoreapp2.2\Nigel.QrCode.dll
+E:\Code\Nigel\Nigel.QrCode\obj\Debug\netcoreapp2.2\Nigel.QrCode.pdb
