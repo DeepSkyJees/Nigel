@@ -141,5 +141,17 @@ namespace Nigel.Basic
             throw new TypeConvertException("Type can not convert");
         }
 
+
+        /// <summary>
+        /// Formats the string.
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <param name="paramObjects">The parameter objects.</param>
+        /// <returns>System.String.</returns>
+        public static string Format(this string str, params object[] paramObjects)
+        {
+            return string.Format(str, paramObjects);
+        }
+
     }
 }
