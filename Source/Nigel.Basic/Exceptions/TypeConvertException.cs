@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Nigel.Basic.Exceptions
 {
     /// <summary>
-    /// Class TypeConvertException.
+    ///     Class TypeConvertException.
     /// </summary>
     /// <seealso cref="System.Exception" />
     public class TypeConvertException : Exception
@@ -13,9 +11,10 @@ namespace Nigel.Basic.Exceptions
         public TypeConvertException(string message)
         {
             Message = message;
-            Code = (int)ExceptionCode.ConvertTypeError;
+            Code = (int) ExceptionCode.ConvertTypeError;
         }
-        public TypeConvertException(int code,string message)
+
+        public TypeConvertException(int code, string message)
         {
             Message = message;
             Code = code;
@@ -23,17 +22,15 @@ namespace Nigel.Basic.Exceptions
 
 
         /// <summary>
-        /// Gets a message that describes the current exception.
+        ///     Gets a message that describes the current exception.
         /// </summary>
         /// <value>The message.</value>
         public override string Message { get; }
 
         /// <summary>
-        /// Gets or sets the code.
+        ///     Gets or sets the code.
         /// </summary>
         /// <value>The code.</value>
         public int Code { get; set; }
-
-
     }
 }

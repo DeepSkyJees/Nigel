@@ -1,10 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using DHaven.Faux;
+﻿using DHaven.Faux;
 
 namespace Nige.Eureka.ApiTransfer
 {
-    public class ApiTransferService:IApiTransferService
+    public class ApiTransferService : IApiTransferService
     {
         private readonly FauxCollection _collection;
 
@@ -13,7 +11,7 @@ namespace Nige.Eureka.ApiTransfer
             _collection = new FauxCollection(typeof(ApiTransferService));
         }
 
-        public  TService GetInstance<TService>() where TService : class
+        public TService GetInstance<TService>() where TService : class
         {
             var ts = _collection.GetInstance<TService>();
             return ts;

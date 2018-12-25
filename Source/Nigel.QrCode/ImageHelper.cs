@@ -1,123 +1,117 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using SkiaSharp;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
 
 namespace Nigel.QrCode
 {
     /// <summary>
-    /// Class ImageHelper.
+    ///     Class ImageHelper.
     /// </summary>
     public static class ImageHelper
     {
         /// <summary>
-        /// The maximum length
+        ///     The maximum length
         /// </summary>
-        static readonly long maxLength = 10485760;//10*1024*1024
+        private static readonly long maxLength = 10485760; //10*1024*1024
+
         /// <summary>
-        /// Gets the image format by suffix.
+        ///     Gets the image format by suffix.
         /// </summary>
         /// <param name="suffix">The suffix.</param>
         /// <returns>SkiaSharp.SKEncodedImageFormat.</returns>
-        public static SkiaSharp.SKEncodedImageFormat GetImageFormatBySuffix(string suffix)
+        public static SKEncodedImageFormat GetImageFormatBySuffix(string suffix)
         {
-            var format = SkiaSharp.SKEncodedImageFormat.Jpeg;
-            if (string.IsNullOrEmpty(suffix))
-            {
-                return format;
-            }
-            if (suffix[0] == '.')
-            {
-                suffix = suffix.Substring(1);
-            }
-            if (string.IsNullOrEmpty(suffix))
-            {
-                return format;
-            }
+            var format = SKEncodedImageFormat.Jpeg;
+            if (string.IsNullOrEmpty(suffix)) return format;
+            if (suffix[0] == '.') suffix = suffix.Substring(1);
+            if (string.IsNullOrEmpty(suffix)) return format;
             suffix = suffix.ToUpper();
             switch (suffix)
             {
                 case "PNG":
-                    format = SkiaSharp.SKEncodedImageFormat.Png;
+                    format = SKEncodedImageFormat.Png;
                     break;
                 case "GIF":
-                    format = SkiaSharp.SKEncodedImageFormat.Gif;
+                    format = SKEncodedImageFormat.Gif;
                     break;
                 case "BMP":
-                    format = SkiaSharp.SKEncodedImageFormat.Bmp;
+                    format = SKEncodedImageFormat.Bmp;
                     break;
                 case "ICON":
-                    format = SkiaSharp.SKEncodedImageFormat.Ico;
+                    format = SKEncodedImageFormat.Ico;
                     break;
                 case "ICO":
-                    format = SkiaSharp.SKEncodedImageFormat.Ico;
+                    format = SKEncodedImageFormat.Ico;
                     break;
                 case "DNG":
-                    format = SkiaSharp.SKEncodedImageFormat.Dng;
+                    format = SKEncodedImageFormat.Dng;
                     break;
                 case "WBMP":
-                    format = SkiaSharp.SKEncodedImageFormat.Wbmp;
+                    format = SKEncodedImageFormat.Wbmp;
                     break;
                 case "WEBP":
-                    format = SkiaSharp.SKEncodedImageFormat.Webp;
+                    format = SKEncodedImageFormat.Webp;
                     break;
                 case "PKM":
-                    format = SkiaSharp.SKEncodedImageFormat.Pkm;
+                    format = SKEncodedImageFormat.Pkm;
                     break;
                 case "KTX":
-                    format = SkiaSharp.SKEncodedImageFormat.Ktx;
+                    format = SKEncodedImageFormat.Ktx;
                     break;
                 case "ASTC":
-                    format = SkiaSharp.SKEncodedImageFormat.Astc;
+                    format = SKEncodedImageFormat.Astc;
                     break;
             }
+
             return format;
         }
+
         /// <summary>
-        /// Gets the image format by path.
+        ///     Gets the image format by path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>SkiaSharp.SKEncodedImageFormat.</returns>
-        public static SkiaSharp.SKEncodedImageFormat GetImageFormatByPath(string path)
+        public static SKEncodedImageFormat GetImageFormatByPath(string path)
         {
             var suffix = "";
-            if (System.IO.Path.HasExtension(path))
-            {
-                suffix = System.IO.Path.GetExtension(path);
-            }
+            if (Path.HasExtension(path)) suffix = Path.GetExtension(path);
             return GetImageFormatBySuffix(suffix);
         }
+
         /// <summary>
-        /// Gets the image information.
+        ///     Gets the image information.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns>Tuple&lt;System.Int32, System.Int32, System.Int64, SkiaSharp.SKEncodedImageFormat&gt;.</returns>
         /// <exception cref="System.Exception">
-        /// 路径不能为空
-        /// or
-        /// 文件不存在
-        /// or
-        /// 文件过大
-        /// or
-        /// 文件无效
+        ///     路径不能为空
+        ///     or
+        ///     文件不存在
+        ///     or
+        ///     文件过大
+        ///     or
+        ///     文件无效
         /// </exception>
-        public static Tuple<int, int, long, SkiaSharp.SKEncodedImageFormat> GetImageInfo(string path)
+        public static Tuple<int, int, long, SKEncodedImageFormat> GetImageInfo(string path)
         {
-            if (string.IsNullOrEmpty(path))
-            {
-                throw new Exception("路径不能为空");
-            }
-            if (!System.IO.File.Exists(path))
-            {
-                throw new Exception("文件不存在");
-            }
-            var fileStream = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read); //fileInfo.OpenRead();
+            if (string.IsNullOrEmpty(path)) throw new Exception("路径不能为空");
+            if (!File.Exists(path)) throw new Exception("文件不存在");
+            var fileStream =
+                new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read); //fileInfo.OpenRead();
             var fileLength = fileStream.Length;
             if (fileLength > maxLength)
             {
                 fileStream.Dispose();
                 throw new Exception("文件过大");
             }
-            var sKManagedStream = new SkiaSharp.SKManagedStream(fileStream, true);
-            var sKBitmap = SkiaSharp.SKBitmap.Decode(sKManagedStream);
+
+            var sKManagedStream = new SKManagedStream(fileStream, true);
+            var sKBitmap = SKBitmap.Decode(sKManagedStream);
             sKManagedStream.Dispose();
 
             if (sKBitmap.IsEmpty)
@@ -125,12 +119,14 @@ namespace Nigel.QrCode
                 sKBitmap.Dispose();
                 throw new Exception("文件无效");
             }
-            int w = sKBitmap.Width;
-            int h = sKBitmap.Height;
-            return new Tuple<int, int, long, SkiaSharp.SKEncodedImageFormat>(w, h, fileLength, GetImageFormatByPath(path));
+
+            var w = sKBitmap.Width;
+            var h = sKBitmap.Height;
+            return new Tuple<int, int, long, SKEncodedImageFormat>(w, h, fileLength, GetImageFormatByPath(path));
         }
+
         /// <summary>
-        /// Images the maximum cut by center.
+        ///     Images the maximum cut by center.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="savePath">The save path.</param>
@@ -140,21 +136,16 @@ namespace Nigel.QrCode
         public static void ImageMaxCutByCenter(string path, string savePath, int saveWidth, int saveHeight, int quality)
         {
             var bytes = ImageMaxCutByCenter(path, saveWidth, saveHeight, quality);
-            if (bytes == null || bytes.Length < 1)
-            {
-                return;
-            }
-            string saveDirPath = System.IO.Path.GetDirectoryName(savePath);
-            if (!System.IO.Directory.Exists(saveDirPath))
-            {
-                System.IO.Directory.CreateDirectory(saveDirPath);
-            }
-            System.IO.FileStream fs = new System.IO.FileStream(savePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write, System.IO.FileShare.None);
+            if (bytes == null || bytes.Length < 1) return;
+            var saveDirPath = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(saveDirPath)) Directory.CreateDirectory(saveDirPath);
+            var fs = new FileStream(savePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
         }
+
         /// <summary>
-        /// Images the maximum cut by center.
+        ///     Images the maximum cut by center.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="saveWidth">Width of the save.</param>
@@ -164,56 +155,52 @@ namespace Nigel.QrCode
         public static byte[] ImageMaxCutByCenter(string path, int saveWidth, int saveHeight, int quality)
         {
             byte[] bytes = null;
-            if (!System.IO.File.Exists(path))
-            {
-                return bytes;
-            }
-            var fileStream = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read); //fileInfo.OpenRead();
+            if (!File.Exists(path)) return bytes;
+            var fileStream =
+                new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read); //fileInfo.OpenRead();
             if (fileStream.Length > maxLength)
             {
                 fileStream.Dispose();
                 return bytes;
             }
-            var sKManagedStream = new SkiaSharp.SKManagedStream(fileStream, true);
-            var sKBitmap = SkiaSharp.SKBitmap.Decode(sKManagedStream);
+
+            var sKManagedStream = new SKManagedStream(fileStream, true);
+            var sKBitmap = SKBitmap.Decode(sKManagedStream);
             sKManagedStream.Dispose();
 
-            if (sKBitmap.IsEmpty)
-            {
-                return bytes;
-            }
+            if (sKBitmap.IsEmpty) return bytes;
 
-            if (saveWidth < 1) { saveWidth = 1; }
-            if (saveHeight < 1) { saveHeight = 1; }
-            if (quality < 1) { quality = 1; }
-            if (quality > 100) { quality = 100; }
+            if (saveWidth < 1) saveWidth = 1;
+            if (saveHeight < 1) saveHeight = 1;
+            if (quality < 1) quality = 1;
+            if (quality > 100) quality = 100;
 
-            int oW = sKBitmap.Width;
-            int oH = sKBitmap.Height;
-            int cutW = saveWidth;
-            int cutH = saveHeight;
+            var oW = sKBitmap.Width;
+            var oH = sKBitmap.Height;
+            var cutW = saveWidth;
+            var cutH = saveHeight;
             double ratio = 1;
             if (cutW > oW)
             {
-                ratio = (double)oW / (double)cutW;
-                cutH = Convert.ToInt32((double)cutH * ratio);
+                ratio = oW / (double) cutW;
+                cutH = Convert.ToInt32(cutH * ratio);
                 cutW = oW;
                 if (cutH > oH)
                 {
-                    ratio = (double)oH / (double)cutH;
-                    cutW = Convert.ToInt32((double)cutW * ratio);
+                    ratio = oH / (double) cutH;
+                    cutW = Convert.ToInt32(cutW * ratio);
                     cutH = oH;
                 }
             }
             else if (cutW < oW)
             {
-                ratio = (double)oW / (double)cutW;
+                ratio = oW / (double) cutW;
                 cutH = Convert.ToInt32(Convert.ToDouble(cutH) * ratio);
                 cutW = oW;
                 if (cutH > oH)
                 {
-                    ratio = (double)oH / (double)cutH;
-                    cutW = Convert.ToInt32((double)cutW * ratio);
+                    ratio = oH / (double) cutH;
+                    cutW = Convert.ToInt32(cutW * ratio);
                     cutH = oH;
                 }
             }
@@ -221,35 +208,36 @@ namespace Nigel.QrCode
             {
                 if (cutH > oH)
                 {
-                    ratio = (double)oH / (double)cutH;
-                    cutW = Convert.ToInt32((double)cutW * ratio);
+                    ratio = oH / (double) cutH;
+                    cutW = Convert.ToInt32(cutW * ratio);
                     cutH = oH;
                 }
             }
-            int startX = oW > cutW ? (oW / 2 - cutW / 2) : (cutW / 2 - oW / 2);
-            int startY = oH > cutH ? (oH / 2 - cutH / 2) : (cutH / 2 - oH / 2);
 
-            var sKBitmap2 = new SkiaSharp.SKBitmap(saveWidth, saveHeight);
-            var sKCanvas = new SkiaSharp.SKCanvas(sKBitmap2);
-            var sKPaint = new SkiaSharp.SKPaint
+            var startX = oW > cutW ? oW / 2 - cutW / 2 : cutW / 2 - oW / 2;
+            var startY = oH > cutH ? oH / 2 - cutH / 2 : cutH / 2 - oH / 2;
+
+            var sKBitmap2 = new SKBitmap(saveWidth, saveHeight);
+            var sKCanvas = new SKCanvas(sKBitmap2);
+            var sKPaint = new SKPaint
             {
-                FilterQuality = SkiaSharp.SKFilterQuality.Medium,
+                FilterQuality = SKFilterQuality.Medium,
                 IsAntialias = true
             };
             sKCanvas.DrawBitmap(
                 sKBitmap,
-                new SkiaSharp.SKRect
+                new SKRect
                 {
-                    Location = new SkiaSharp.SKPoint { X = startX, Y = startY },
-                    Size = new SkiaSharp.SKSize { Height = cutH, Width = cutW }
+                    Location = new SKPoint {X = startX, Y = startY},
+                    Size = new SKSize {Height = cutH, Width = cutW}
                 },
-                new SkiaSharp.SKRect
+                new SKRect
                 {
-                    Location = new SkiaSharp.SKPoint { X = 0, Y = 0 },
-                    Size = new SkiaSharp.SKSize { Height = saveHeight, Width = saveWidth }
+                    Location = new SKPoint {X = 0, Y = 0},
+                    Size = new SKSize {Height = saveHeight, Width = saveWidth}
                 }, sKPaint);
             sKCanvas.Dispose();
-            var sKImage2 = SkiaSharp.SKImage.FromBitmap(sKBitmap2);
+            var sKImage2 = SKImage.FromBitmap(sKBitmap2);
             sKBitmap2.Dispose();
             var data = sKImage2.Encode(GetImageFormatByPath(path), quality);
             sKImage2.Dispose();
@@ -258,8 +246,9 @@ namespace Nigel.QrCode
 
             return bytes;
         }
+
         /// <summary>
-        /// Images the scaling to range.
+        ///     Images the scaling to range.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="savePath">The save path.</param>
@@ -269,21 +258,16 @@ namespace Nigel.QrCode
         public static void ImageScalingToRange(string path, string savePath, int maxWidth, int maxHeight, int quality)
         {
             var bytes = ImageScalingToRange(path, maxWidth, maxHeight, quality);
-            if (bytes == null || bytes.Length < 1)
-            {
-                return;
-            }
-            string saveDirPath = System.IO.Path.GetDirectoryName(savePath);
-            if (!System.IO.Directory.Exists(saveDirPath))
-            {
-                System.IO.Directory.CreateDirectory(saveDirPath);
-            }
-            System.IO.FileStream fs = new System.IO.FileStream(savePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write, System.IO.FileShare.None);
+            if (bytes == null || bytes.Length < 1) return;
+            var saveDirPath = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(saveDirPath)) Directory.CreateDirectory(saveDirPath);
+            var fs = new FileStream(savePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
         }
+
         /// <summary>
-        /// Images the scaling to range.
+        ///     Images the scaling to range.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="maxWidth">The maximum width.</param>
@@ -293,86 +277,85 @@ namespace Nigel.QrCode
         public static byte[] ImageScalingToRange(string path, int maxWidth, int maxHeight, int quality)
         {
             byte[] bytes = null;
-            if (!System.IO.File.Exists(path))
-            {
-                return bytes;
-            }
-            var fileStream = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read); //fileInfo.OpenRead();
+            if (!File.Exists(path)) return bytes;
+            var fileStream =
+                new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read); //fileInfo.OpenRead();
             if (fileStream.Length > maxLength)
             {
                 fileStream.Dispose();
                 return bytes;
             }
-            var sKManagedStream = new SkiaSharp.SKManagedStream(fileStream, true);
-            var sKBitmap = SkiaSharp.SKBitmap.Decode(sKManagedStream);
+
+            var sKManagedStream = new SKManagedStream(fileStream, true);
+            var sKBitmap = SKBitmap.Decode(sKManagedStream);
             sKManagedStream.Dispose();
 
-            if (sKBitmap.IsEmpty)
-            {
-                return bytes;
-            }
+            if (sKBitmap.IsEmpty) return bytes;
 
-            if (maxWidth < 1) { maxWidth = 1; }
-            if (maxHeight < 1) { maxHeight = 1; }
-            if (quality < 1) { quality = 1; }
-            if (quality > 100) { quality = 100; }
+            if (maxWidth < 1) maxWidth = 1;
+            if (maxHeight < 1) maxHeight = 1;
+            if (quality < 1) quality = 1;
+            if (quality > 100) quality = 100;
 
-            int oW = sKBitmap.Width;
-            int oH = sKBitmap.Height;
-            int nW = oW;
-            int nH = oH;
+            var oW = sKBitmap.Width;
+            var oH = sKBitmap.Height;
+            var nW = oW;
+            var nH = oH;
 
-            if (nW < maxWidth && nH < maxHeight)//放大
+            if (nW < maxWidth && nH < maxHeight) //放大
             {
                 if (nW < maxWidth)
                 {
-                    var r = (double)maxWidth / (double)nW;
+                    var r = maxWidth / (double) nW;
                     nW = maxWidth;
-                    nH = (int)Math.Floor((double)nH * r);
+                    nH = (int) Math.Floor(nH * r);
                 }
+
                 if (nH < maxHeight)
                 {
-                    var r = (double)maxHeight / (double)nH;
+                    var r = maxHeight / (double) nH;
                     nH = maxHeight;
-                    nW = (int)Math.Floor((double)nW * r);
+                    nW = (int) Math.Floor(nW * r);
                 }
             }
+
             //限制超出(缩小)
             if (nW > maxWidth)
             {
-                var r = (double)maxWidth / (double)nW;
+                var r = maxWidth / (double) nW;
                 nW = maxWidth;
-                nH = (int)Math.Floor((double)nH * r);
+                nH = (int) Math.Floor(nH * r);
             }
+
             if (nH > maxHeight)
             {
-                var r = (double)maxHeight / (double)nH;
+                var r = maxHeight / (double) nH;
                 nH = maxHeight;
-                nW = (int)Math.Floor((double)nW * r);
+                nW = (int) Math.Floor(nW * r);
             }
 
 
-            var sKBitmap2 = new SkiaSharp.SKBitmap(nW, nH);
-            var sKCanvas = new SkiaSharp.SKCanvas(sKBitmap2);
-            var sKPaint = new SkiaSharp.SKPaint
+            var sKBitmap2 = new SKBitmap(nW, nH);
+            var sKCanvas = new SKCanvas(sKBitmap2);
+            var sKPaint = new SKPaint
             {
-                FilterQuality = SkiaSharp.SKFilterQuality.Medium,
+                FilterQuality = SKFilterQuality.Medium,
                 IsAntialias = true
             };
             sKCanvas.DrawBitmap(
                 sKBitmap,
-                new SkiaSharp.SKRect
+                new SKRect
                 {
-                    Location = new SkiaSharp.SKPoint { X = 0, Y = 0 },
-                    Size = new SkiaSharp.SKSize { Height = oH, Width = oW }
+                    Location = new SKPoint {X = 0, Y = 0},
+                    Size = new SKSize {Height = oH, Width = oW}
                 },
-                new SkiaSharp.SKRect
+                new SKRect
                 {
-                    Location = new SkiaSharp.SKPoint { X = 0, Y = 0 },
-                    Size = new SkiaSharp.SKSize { Height = nH, Width = nW }
+                    Location = new SKPoint {X = 0, Y = 0},
+                    Size = new SKSize {Height = nH, Width = nW}
                 }, sKPaint);
             sKCanvas.Dispose();
-            var sKImage2 = SkiaSharp.SKImage.FromBitmap(sKBitmap2);
+            var sKImage2 = SKImage.FromBitmap(sKBitmap2);
             sKBitmap2.Dispose();
             var data = sKImage2.Encode(GetImageFormatByPath(path), quality);
             sKImage2.Dispose();
@@ -381,32 +364,29 @@ namespace Nigel.QrCode
 
             return bytes;
         }
+
         /// <summary>
-        /// Images the scaling by oversized.
+        ///     Images the scaling by oversized.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="savePath">The save path.</param>
         /// <param name="maxWidth">The maximum width.</param>
         /// <param name="maxHeight">The maximum height.</param>
         /// <param name="quality">The quality.</param>
-        public static void ImageScalingByOversized(string path, string savePath, int maxWidth, int maxHeight, int quality)
+        public static void ImageScalingByOversized(string path, string savePath, int maxWidth, int maxHeight,
+            int quality)
         {
             var bytes = ImageScalingByOversized(path, maxWidth, maxHeight, quality);
-            if (bytes == null || bytes.Length < 1)
-            {
-                return;
-            }
-            string saveDirPath = System.IO.Path.GetDirectoryName(savePath);
-            if (!System.IO.Directory.Exists(saveDirPath))
-            {
-                System.IO.Directory.CreateDirectory(saveDirPath);
-            }
-            System.IO.FileStream fs = new System.IO.FileStream(savePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write, System.IO.FileShare.None);
+            if (bytes == null || bytes.Length < 1) return;
+            var saveDirPath = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(saveDirPath)) Directory.CreateDirectory(saveDirPath);
+            var fs = new FileStream(savePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
         }
+
         /// <summary>
-        /// Images the scaling by oversized.
+        ///     Images the scaling by oversized.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="maxWidth">The maximum width.</param>
@@ -416,34 +396,29 @@ namespace Nigel.QrCode
         public static byte[] ImageScalingByOversized(string path, int maxWidth, int maxHeight, int quality)
         {
             byte[] bytes = null;
-            if (!System.IO.File.Exists(path))
-            {
-                return bytes;
-            }
-            var fileStream = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read);
+            if (!File.Exists(path)) return bytes;
+            var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.Read);
             if (fileStream.Length > maxLength)
             {
                 fileStream.Dispose();
                 return bytes;
             }
-            var sKManagedStream = new SkiaSharp.SKManagedStream(fileStream, true);
-            var sKBitmap = SkiaSharp.SKBitmap.Decode(sKManagedStream);
+
+            var sKManagedStream = new SKManagedStream(fileStream, true);
+            var sKBitmap = SKBitmap.Decode(sKManagedStream);
             sKManagedStream.Dispose();
 
-            if (sKBitmap.IsEmpty)
-            {
-                return bytes;
-            }
+            if (sKBitmap.IsEmpty) return bytes;
 
-            if (maxWidth < 1) { maxWidth = 1; }
-            if (maxHeight < 1) { maxHeight = 1; }
-            if (quality < 1) { quality = 1; }
-            if (quality > 100) { quality = 100; }
+            if (maxWidth < 1) maxWidth = 1;
+            if (maxHeight < 1) maxHeight = 1;
+            if (quality < 1) quality = 1;
+            if (quality > 100) quality = 100;
 
-            int oW = sKBitmap.Width;
-            int oH = sKBitmap.Height;
-            int nW = oW;
-            int nH = oH;
+            var oW = sKBitmap.Width;
+            var oH = sKBitmap.Height;
+            var nW = oW;
+            var nH = oH;
 
             if (oW > maxWidth || oH > maxHeight)
             {
@@ -453,55 +428,59 @@ namespace Nigel.QrCode
 
                 if (nW > 0 && nH > 0)
                 {
-                    ratio = (double)nW / oW;
+                    ratio = (double) nW / oW;
                     nH = Convert.ToInt32(oH * ratio);
                     if (maxHeight < nH)
                     {
-                        ratio = (double)maxHeight / nH;
+                        ratio = (double) maxHeight / nH;
                         nW = Convert.ToInt32(nW * ratio);
                         nH = maxHeight;
                     }
                 }
+
                 if (nW < 1 && nH < 1)
                 {
                     nW = oW;
                     nH = oH;
                 }
+
                 if (nW < 1)
                 {
-                    ratio = (double)nH / oH;
+                    ratio = (double) nH / oH;
                     nW = Convert.ToInt32(oW * ratio);
                 }
+
                 if (nH < 1)
                 {
-                    ratio = (double)nW / oW;
+                    ratio = (double) nW / oW;
                     nH = Convert.ToInt32(oH * ratio);
                 }
-                var sKBitmap2 = new SkiaSharp.SKBitmap(nW, nH);
-                var sKCanvas = new SkiaSharp.SKCanvas(sKBitmap2);
-                var sKPaint = new SkiaSharp.SKPaint
+
+                var sKBitmap2 = new SKBitmap(nW, nH);
+                var sKCanvas = new SKCanvas(sKBitmap2);
+                var sKPaint = new SKPaint
                 {
-                    FilterQuality = SkiaSharp.SKFilterQuality.Medium,
+                    FilterQuality = SKFilterQuality.Medium,
                     IsAntialias = true
                 };
                 sKCanvas.DrawBitmap(
                     sKBitmap,
-                    new SkiaSharp.SKRect
+                    new SKRect
                     {
-                        Location = new SkiaSharp.SKPoint { X = 0, Y = 0 },
-                        Size = new SkiaSharp.SKSize { Height = oH, Width = oW }
+                        Location = new SKPoint {X = 0, Y = 0},
+                        Size = new SKSize {Height = oH, Width = oW}
                     },
-                    new SkiaSharp.SKRect
+                    new SKRect
                     {
-                        Location = new SkiaSharp.SKPoint { X = 0, Y = 0 },
-                        Size = new SkiaSharp.SKSize { Height = nH, Width = nW }
+                        Location = new SKPoint {X = 0, Y = 0},
+                        Size = new SKSize {Height = nH, Width = nW}
                     }, sKPaint);
                 sKCanvas.Dispose();
                 sKBitmap.Dispose();
                 sKBitmap = sKBitmap2;
             }
 
-            var sKImage = SkiaSharp.SKImage.FromBitmap(sKBitmap);
+            var sKImage = SKImage.FromBitmap(sKBitmap);
             sKBitmap.Dispose();
             var data = sKImage.Encode(GetImageFormatByPath(path), quality);
             sKImage.Dispose();
@@ -512,7 +491,7 @@ namespace Nigel.QrCode
         }
 
         /// <summary>
-        /// 生成二维码(320*320)
+        ///     生成二维码(320*320)
         /// </summary>
         /// <param name="text">文本内容</param>
         /// <param name="savePath">保存路径</param>
@@ -522,10 +501,10 @@ namespace Nigel.QrCode
         {
             var format = GetImageFormatByPath(savePath);
             byte[] bytesLogo = null;
-            if (!string.IsNullOrEmpty(logoPath) && System.IO.File.Exists(logoPath))
+            if (!string.IsNullOrEmpty(logoPath) && File.Exists(logoPath))
             {
-                var fsLogo = new System.IO.FileStream(logoPath, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read);
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                var fsLogo = new FileStream(logoPath, FileMode.Open, FileAccess.Read, FileShare.Read);
+                var ms = new MemoryStream();
                 fsLogo.CopyTo(ms);
                 fsLogo.Dispose();
                 bytesLogo = ms.ToArray();
@@ -534,111 +513,103 @@ namespace Nigel.QrCode
 
             var bytes = QRCoder(text, format, bytesLogo, keepWhiteBorderPixelVal);
 
-            if (bytes == null || bytes.Length < 1)
-            {
-                return;
-            }
+            if (bytes == null || bytes.Length < 1) return;
 
-            var saveDirPath = System.IO.Path.GetDirectoryName(savePath);
-            if (!System.IO.Directory.Exists(saveDirPath))
-            {
-                System.IO.Directory.CreateDirectory(saveDirPath);
-            }
-            var fs = new System.IO.FileStream(savePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write, System.IO.FileShare.None);
+            var saveDirPath = Path.GetDirectoryName(savePath);
+            if (!Directory.Exists(saveDirPath)) Directory.CreateDirectory(saveDirPath);
+            var fs = new FileStream(savePath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None);
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
         }
+
         /// <summary>
-        /// 生成二维码(320*320)
+        ///     生成二维码(320*320)
         /// </summary>
         /// <param name="text">文本内容</param>
         /// <param name="format">保存格式</param>
         /// <param name="logoImgae">Logo图片(缩放到真实二维码区域尺寸的1/6)</param>
         /// <param name="keepWhiteBorderPixelVal">白边处理(负值表示不做处理，最大值不超过真实二维码区域的1/10)</param>
         /// <returns>System.Byte[].</returns>
-        public static byte[] QRCoder(string text, SkiaSharp.SKEncodedImageFormat format, byte[] logoImgae = null, int keepWhiteBorderPixelVal = -1)
+        public static byte[] QRCoder(string text, SKEncodedImageFormat format, byte[] logoImgae = null,
+            int keepWhiteBorderPixelVal = -1)
         {
             byte[] reval = null;
-            int width = 320;
-            int height = 320;
-            var qRCodeWriter = new ZXing.QrCode.QRCodeWriter();
-            var hints = new Dictionary<ZXing.EncodeHintType, object>
+            var width = 320;
+            var height = 320;
+            var qRCodeWriter = new QRCodeWriter();
+            var hints = new Dictionary<EncodeHintType, object>
             {
-                {ZXing.EncodeHintType.CHARACTER_SET, "utf-8"},
-                {ZXing.EncodeHintType.QR_VERSION, 8},
-                {ZXing.EncodeHintType.ERROR_CORRECTION, ZXing.QrCode.Internal.ErrorCorrectionLevel.Q}
+                {EncodeHintType.CHARACTER_SET, "utf-8"},
+                {EncodeHintType.QR_VERSION, 8},
+                {EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.Q}
             };
-            var bitMatrix = qRCodeWriter.encode(text, ZXing.BarcodeFormat.QR_CODE, width, height, hints);
+            var bitMatrix = qRCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height, hints);
             var w = bitMatrix.Width;
             var h = bitMatrix.Height;
-            var sKBitmap = new SkiaSharp.SKBitmap(w, h);
+            var sKBitmap = new SKBitmap(w, h);
 
-            int blackStartPointX = 0;
-            int blackStartPointY = 0;
-            int blackEndPointX = w;
-            int blackEndPointY = h;
+            var blackStartPointX = 0;
+            var blackStartPointY = 0;
+            var blackEndPointX = w;
+            var blackEndPointY = h;
 
             #region --绘制二维码(同时获取真实的二维码区域起绘点和结束点的坐标)--
-            var sKCanvas = new SkiaSharp.SKCanvas(sKBitmap);
-            var sKColorBlack = SkiaSharp.SKColor.Parse("000000");
-            var sKColorWihte = SkiaSharp.SKColor.Parse("ffffff");
+
+            var sKCanvas = new SKCanvas(sKBitmap);
+            var sKColorBlack = SKColor.Parse("000000");
+            var sKColorWihte = SKColor.Parse("ffffff");
             sKCanvas.Clear(sKColorWihte);
-            bool blackStartPointIsNotWriteDown = true;
+            var blackStartPointIsNotWriteDown = true;
             for (var y = 0; y < h; y++)
+            for (var x = 0; x < w; x++)
             {
-                for (var x = 0; x < w; x++)
+                var flag = bitMatrix[x, y];
+                if (flag)
                 {
-                    var flag = bitMatrix[x, y];
-                    if (flag)
+                    if (blackStartPointIsNotWriteDown)
                     {
-                        if (blackStartPointIsNotWriteDown)
-                        {
-                            blackStartPointX = x;
-                            blackStartPointY = y;
-                            blackStartPointIsNotWriteDown = false;
-                        }
-                        blackEndPointX = x;
-                        blackEndPointY = y;
-                        sKCanvas.DrawPoint(x, y, sKColorBlack);
+                        blackStartPointX = x;
+                        blackStartPointY = y;
+                        blackStartPointIsNotWriteDown = false;
                     }
-                    else
-                    {
-                        //sKCanvas.DrawPoint(x, y, sKColorWihte);//不用绘制(背景是白色的)
-                    }
+
+                    blackEndPointX = x;
+                    blackEndPointY = y;
+                    sKCanvas.DrawPoint(x, y, sKColorBlack);
                 }
             }
+
             sKCanvas.Dispose();
+
             #endregion
 
-            int qrcodeRealWidth = blackEndPointX - blackStartPointX;
-            int qrcodeRealHeight = blackEndPointY - blackStartPointY;
+            var qrcodeRealWidth = blackEndPointX - blackStartPointX;
+            var qrcodeRealHeight = blackEndPointY - blackStartPointY;
 
             #region -- 处理白边 --
-            if (keepWhiteBorderPixelVal > -1)//指定了边框宽度
+
+            if (keepWhiteBorderPixelVal > -1) //指定了边框宽度
             {
-                var borderMaxWidth = (int)Math.Floor((double)qrcodeRealWidth / 10);
-                if (keepWhiteBorderPixelVal > borderMaxWidth)
-                {
-                    keepWhiteBorderPixelVal = borderMaxWidth;
-                }
+                var borderMaxWidth = (int) Math.Floor((double) qrcodeRealWidth / 10);
+                if (keepWhiteBorderPixelVal > borderMaxWidth) keepWhiteBorderPixelVal = borderMaxWidth;
                 var nQrcodeRealWidth = width - keepWhiteBorderPixelVal - keepWhiteBorderPixelVal;
                 var nQrcodeRealHeight = height - keepWhiteBorderPixelVal - keepWhiteBorderPixelVal;
 
-                var sKBitmap2 = new SkiaSharp.SKBitmap(width, height);
-                var sKCanvas2 = new SkiaSharp.SKCanvas(sKBitmap2);
+                var sKBitmap2 = new SKBitmap(width, height);
+                var sKCanvas2 = new SKCanvas(sKBitmap2);
                 sKCanvas2.Clear(sKColorWihte);
                 //二维码绘制到临时画布上时无需抗锯齿等处理(避免文件增大)
                 sKCanvas2.DrawBitmap(
                     sKBitmap,
-                    new SkiaSharp.SKRect
+                    new SKRect
                     {
-                        Location = new SkiaSharp.SKPoint { X = blackStartPointX, Y = blackStartPointY },
-                        Size = new SkiaSharp.SKSize { Height = qrcodeRealHeight, Width = qrcodeRealWidth }
+                        Location = new SKPoint {X = blackStartPointX, Y = blackStartPointY},
+                        Size = new SKSize {Height = qrcodeRealHeight, Width = qrcodeRealWidth}
                     },
-                    new SkiaSharp.SKRect
+                    new SKRect
                     {
-                        Location = new SkiaSharp.SKPoint { X = keepWhiteBorderPixelVal, Y = keepWhiteBorderPixelVal },
-                        Size = new SkiaSharp.SKSize { Width = nQrcodeRealWidth, Height = nQrcodeRealHeight }
+                        Location = new SKPoint {X = keepWhiteBorderPixelVal, Y = keepWhiteBorderPixelVal},
+                        Size = new SKSize {Width = nQrcodeRealWidth, Height = nQrcodeRealHeight}
                     });
 
                 blackStartPointX = keepWhiteBorderPixelVal;
@@ -650,57 +621,61 @@ namespace Nigel.QrCode
                 sKBitmap.Dispose();
                 sKBitmap = sKBitmap2;
             }
+
             #endregion
 
             #region -- 绘制LOGO --
+
             if (logoImgae != null && logoImgae.Length > 0)
             {
-                SkiaSharp.SKBitmap sKBitmapLogo = SkiaSharp.SKBitmap.Decode(logoImgae);
+                var sKBitmapLogo = SKBitmap.Decode(logoImgae);
                 if (!sKBitmapLogo.IsEmpty)
                 {
-                    var sKPaint2 = new SkiaSharp.SKPaint
+                    var sKPaint2 = new SKPaint
                     {
-                        FilterQuality = SkiaSharp.SKFilterQuality.None,
+                        FilterQuality = SKFilterQuality.None,
                         IsAntialias = true
                     };
-                    var logoTargetMaxWidth = (int)Math.Floor((double)qrcodeRealWidth / 6);
-                    var logoTargetMaxHeight = (int)Math.Floor((double)qrcodeRealHeight / 6);
-                    var qrcodeCenterX = (int)Math.Floor((double)qrcodeRealWidth / 2);
-                    var qrcodeCenterY = (int)Math.Floor((double)qrcodeRealHeight / 2);
+                    var logoTargetMaxWidth = (int) Math.Floor((double) qrcodeRealWidth / 6);
+                    var logoTargetMaxHeight = (int) Math.Floor((double) qrcodeRealHeight / 6);
+                    var qrcodeCenterX = (int) Math.Floor((double) qrcodeRealWidth / 2);
+                    var qrcodeCenterY = (int) Math.Floor((double) qrcodeRealHeight / 2);
                     var logoResultWidth = sKBitmapLogo.Width;
                     var logoResultHeight = sKBitmapLogo.Height;
                     if (logoResultWidth > logoTargetMaxWidth)
                     {
-                        var r = (double)logoTargetMaxWidth / logoResultWidth;
+                        var r = (double) logoTargetMaxWidth / logoResultWidth;
                         logoResultWidth = logoTargetMaxWidth;
-                        logoResultHeight = (int)Math.Floor(logoResultHeight * r);
+                        logoResultHeight = (int) Math.Floor(logoResultHeight * r);
                     }
+
                     if (logoResultHeight > logoTargetMaxHeight)
                     {
-                        var r = (double)logoTargetMaxHeight / logoResultHeight;
+                        var r = (double) logoTargetMaxHeight / logoResultHeight;
                         logoResultHeight = logoTargetMaxHeight;
-                        logoResultWidth = (int)Math.Floor(logoResultWidth * r);
+                        logoResultWidth = (int) Math.Floor(logoResultWidth * r);
                     }
-                    var pointX = qrcodeCenterX - (int)Math.Floor((double)logoResultWidth / 2) + blackStartPointX;
-                    var pointY = qrcodeCenterY - (int)Math.Floor((double)logoResultHeight / 2) + blackStartPointY;
 
-                    var sKCanvas3 = new SkiaSharp.SKCanvas(sKBitmap);
-                    var sKPaint = new SkiaSharp.SKPaint
+                    var pointX = qrcodeCenterX - (int) Math.Floor((double) logoResultWidth / 2) + blackStartPointX;
+                    var pointY = qrcodeCenterY - (int) Math.Floor((double) logoResultHeight / 2) + blackStartPointY;
+
+                    var sKCanvas3 = new SKCanvas(sKBitmap);
+                    var sKPaint = new SKPaint
                     {
-                        FilterQuality = SkiaSharp.SKFilterQuality.Medium,
+                        FilterQuality = SKFilterQuality.Medium,
                         IsAntialias = true
                     };
                     sKCanvas3.DrawBitmap(
                         sKBitmapLogo,
-                        new SkiaSharp.SKRect
+                        new SKRect
                         {
-                            Location = new SkiaSharp.SKPoint { X = 0, Y = 0 },
-                            Size = new SkiaSharp.SKSize { Height = sKBitmapLogo.Height, Width = sKBitmapLogo.Width }
+                            Location = new SKPoint {X = 0, Y = 0},
+                            Size = new SKSize {Height = sKBitmapLogo.Height, Width = sKBitmapLogo.Width}
                         },
-                        new SkiaSharp.SKRect
+                        new SKRect
                         {
-                            Location = new SkiaSharp.SKPoint { X = pointX, Y = pointY },
-                            Size = new SkiaSharp.SKSize { Height = logoResultHeight, Width = logoResultWidth }
+                            Location = new SKPoint {X = pointX, Y = pointY},
+                            Size = new SKSize {Height = logoResultHeight, Width = logoResultWidth}
                         }, sKPaint);
                     sKCanvas3.Dispose();
                     sKPaint.Dispose();
@@ -711,9 +686,10 @@ namespace Nigel.QrCode
                     sKBitmapLogo.Dispose();
                 }
             }
+
             #endregion
 
-            SkiaSharp.SKImage sKImage = SkiaSharp.SKImage.FromBitmap(sKBitmap);
+            var sKImage = SKImage.FromBitmap(sKBitmap);
             sKBitmap.Dispose();
             var data = sKImage.Encode(format, 75);
             sKImage.Dispose();
@@ -722,64 +698,59 @@ namespace Nigel.QrCode
 
             return reval;
         }
+
         /// <summary>
-        /// Qrs the decoder.
+        ///     Qrs the decoder.
         /// </summary>
         /// <param name="qrCodeFilePath">The qr code file path.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="System.Exception">
-        /// 文件不存在
-        /// or
-        /// 图片文件太大
+        ///     文件不存在
+        ///     or
+        ///     图片文件太大
         /// </exception>
         public static string QRDecoder(string qrCodeFilePath)
         {
-            if (!System.IO.File.Exists(qrCodeFilePath))
-            {
-                throw new Exception("文件不存在");
-            }
+            if (!File.Exists(qrCodeFilePath)) throw new Exception("文件不存在");
 
-            System.IO.FileStream fileStream = new System.IO.FileStream(qrCodeFilePath, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read);
+            var fileStream = new FileStream(qrCodeFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
             if (fileStream.Length > maxLength)
             {
                 fileStream.Dispose();
                 throw new Exception("图片文件太大");
             }
+
             return QRDecoder(fileStream);
         }
+
         /// <summary>
-        /// Qrs the decoder.
+        ///     Qrs the decoder.
         /// </summary>
         /// <param name="qrCodeBytes">The qr code bytes.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="System.Exception">
-        /// 参数qrCodeBytes不存在
-        /// or
-        /// 图片文件太大
+        ///     参数qrCodeBytes不存在
+        ///     or
+        ///     图片文件太大
         /// </exception>
         public static string QRDecoder(byte[] qrCodeBytes)
         {
-            if (qrCodeBytes == null || qrCodeBytes.Length < 1)
-            {
-                throw new Exception("参数qrCodeBytes不存在");
-            }
-            if (qrCodeBytes.Length > maxLength)
-            {
-                throw new Exception("图片文件太大");
-            }
-            System.IO.MemoryStream ms = new System.IO.MemoryStream(qrCodeBytes);
+            if (qrCodeBytes == null || qrCodeBytes.Length < 1) throw new Exception("参数qrCodeBytes不存在");
+            if (qrCodeBytes.Length > maxLength) throw new Exception("图片文件太大");
+            var ms = new MemoryStream(qrCodeBytes);
             return QRDecoder(ms);
         }
+
         /// <summary>
-        /// Qrs the decoder.
+        ///     Qrs the decoder.
         /// </summary>
         /// <param name="qrCodeFileStream">The qr code file stream.</param>
         /// <returns>System.String.</returns>
         /// <exception cref="System.Exception">未识别的图片文件</exception>
-        public static string QRDecoder(System.IO.Stream qrCodeFileStream)
+        public static string QRDecoder(Stream qrCodeFileStream)
         {
-            var sKManagedStream = new SkiaSharp.SKManagedStream(qrCodeFileStream, true);
-            var sKBitmap = SkiaSharp.SKBitmap.Decode(sKManagedStream);
+            var sKManagedStream = new SKManagedStream(qrCodeFileStream, true);
+            var sKBitmap = SKBitmap.Decode(sKManagedStream);
             sKManagedStream.Dispose();
             if (sKBitmap.IsEmpty)
             {
@@ -789,27 +760,26 @@ namespace Nigel.QrCode
 
             var w = sKBitmap.Width;
             var h = sKBitmap.Height;
-            int ps = w * h;
-            byte[] bytes = new byte[ps * 3];
-            int byteIndex = 0;
+            var ps = w * h;
+            var bytes = new byte[ps * 3];
+            var byteIndex = 0;
             for (var x = 0; x < w; x++)
+            for (var y = 0; y < h; y++)
             {
-                for (var y = 0; y < h; y++)
-                {
-                    var color = sKBitmap.GetPixel(x, y);
-                    bytes[byteIndex + 0] = color.Red;
-                    bytes[byteIndex + 1] = color.Green;
-                    bytes[byteIndex + 2] = color.Blue;
-                    byteIndex += 3;
-                }
+                var color = sKBitmap.GetPixel(x, y);
+                bytes[byteIndex + 0] = color.Red;
+                bytes[byteIndex + 1] = color.Green;
+                bytes[byteIndex + 2] = color.Blue;
+                byteIndex += 3;
             }
+
             sKBitmap.Dispose();
 
-            var qRCodeReader = new ZXing.QrCode.QRCodeReader();
-            var rGbLuminanceSource = new ZXing.RGBLuminanceSource(bytes, w, h);
-            var hybridBinarizer = new ZXing.Common.HybridBinarizer(rGbLuminanceSource);
-            var binaryBitmap = new ZXing.BinaryBitmap(hybridBinarizer);
-            var hints = new Dictionary<ZXing.DecodeHintType, object> {{ZXing.DecodeHintType.CHARACTER_SET, "utf-8"}};
+            var qRCodeReader = new QRCodeReader();
+            var rGbLuminanceSource = new RGBLuminanceSource(bytes, w, h);
+            var hybridBinarizer = new HybridBinarizer(rGbLuminanceSource);
+            var binaryBitmap = new BinaryBitmap(hybridBinarizer);
+            var hints = new Dictionary<DecodeHintType, object> {{DecodeHintType.CHARACTER_SET, "utf-8"}};
             var result = qRCodeReader.decode(binaryBitmap, hints);
 
             return result != null ? result.Text : "";

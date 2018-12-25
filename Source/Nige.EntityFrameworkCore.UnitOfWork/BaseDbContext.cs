@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Nige.EntityFrameworkCore.UnitOfWork
 {
@@ -43,7 +40,5 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
             _connectionString = connectionString;
             _databaseType = databaseType;
         }
-        
-         
     }
 }

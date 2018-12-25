@@ -15,23 +15,24 @@ using Nige.EntityFrameworkCore.UnitOfWork.PagedList;
 namespace Nige.EntityFrameworkCore.UnitOfWork
 {
     /// <summary>
-    /// Represents a default generic repository implements the <see cref="IRepository{TEntity}" /> interface.
+    ///     Represents a default generic repository implements the <see cref="IRepository{TEntity}" /> interface.
     /// </summary>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
     /// <seealso cref="Nige.EntityFrameworkCore.UnitOfWork.IRepository{TEntity}" />
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         /// <summary>
-        /// The database context
+        ///     The database context
         /// </summary>
         protected readonly DbContext DbContext;
+
         /// <summary>
-        /// The database set
+        ///     The database set
         /// </summary>
         protected readonly DbSet<TEntity> DbSet;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Repository{TEntity}" /> class.
+        ///     Initializes a new instance of the <see cref="Repository{TEntity}" /> class.
         /// </summary>
         /// <param name="dbContext">The database context.</param>
         /// <exception cref="System.ArgumentNullException">dbContext</exception>
@@ -42,10 +43,13 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Changes the table name. This require the tables in the same database.
+        ///     Changes the table name. This require the tables in the same database.
         /// </summary>
         /// <param name="table">The table.</param>
-        /// <remarks>This only been used for supporting multiple tables in the same model. This require the tables in the same database.</remarks>
+        /// <remarks>
+        ///     This only been used for supporting multiple tables in the same model. This require the tables in the same
+        ///     database.
+        /// </remarks>
         public virtual void ChangeTable(string table)
         {
             if (DbContext.Model.FindEntityType(typeof(TEntity)).Relational() is RelationalEntityTypeAnnotations
@@ -54,7 +58,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
 
 
         /// <summary>
-        /// Gets all entities. This method is not recommended
+        ///     Gets all entities. This method is not recommended
         /// </summary>
         /// <param name="predicate">The predicate.</param>
         /// <param name="orderBy">The order by.</param>
@@ -80,21 +84,23 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
 
-
-
         /// <summary>
-        /// Gets the <see cref="IPagedList{TEntity}" /> based on a predicate, orderby delegate and page information. This
-        /// method default no-tracking query.
+        ///     Gets the <see cref="IPagedList{TEntity}" /> based on a predicate, orderby delegate and page information. This
+        ///     method default no-tracking query.
         /// </summary>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
         /// <param name="pageIndex">The index of page.</param>
         /// <param name="pageSize">The size of the page.</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
-        /// <returns>An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method default no-tracking query.</remarks>
         public virtual IPagedList<TEntity> GetPagedList(Expression<Func<TEntity, bool>> predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
@@ -116,19 +122,23 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Gets the <see cref="IPagedList{TEntity}" /> based on a predicate, orderby delegate and page information. This
-        /// method default no-tracking query.
+        ///     Gets the <see cref="IPagedList{TEntity}" /> based on a predicate, orderby delegate and page information. This
+        ///     method default no-tracking query.
         /// </summary>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
         /// <param name="pageIndex">The index of page.</param>
         /// <param name="pageSize">The size of the page.</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
         /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-        /// <returns>An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <returns>
+        ///     An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method default no-tracking query.</remarks>
         public virtual Task<IPagedList<TEntity>> GetPagedListAsync(Expression<Func<TEntity, bool>> predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
@@ -151,8 +161,8 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Gets the <see cref="IPagedList{TResult}" /> based on a predicate, orderby delegate and page information. This
-        /// method default no-tracking query.
+        ///     Gets the <see cref="IPagedList{TResult}" /> based on a predicate, orderby delegate and page information. This
+        ///     method default no-tracking query.
         /// </summary>
         /// <typeparam name="TResult">The type of the t result.</typeparam>
         /// <param name="selector">The selector for projection.</param>
@@ -161,10 +171,14 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         /// <param name="include">A function to include navigation properties</param>
         /// <param name="pageIndex">The index of page.</param>
         /// <param name="pageSize">The size of the page.</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
-        /// <returns>An <see cref="IPagedList{TResult}" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="IPagedList{TResult}" /> that contains elements that satisfy the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method default no-tracking query.</remarks>
         public virtual IPagedList<TResult> GetPagedList<TResult>(Expression<Func<TEntity, TResult>> selector,
             Expression<Func<TEntity, bool>> predicate = null,
@@ -188,8 +202,8 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Gets the <see cref="IPagedList{TEntity}" /> based on a predicate, orderby delegate and page information. This
-        /// method default no-tracking query.
+        ///     Gets the <see cref="IPagedList{TEntity}" /> based on a predicate, orderby delegate and page information. This
+        ///     method default no-tracking query.
         /// </summary>
         /// <typeparam name="TResult">The type of the t result.</typeparam>
         /// <param name="selector">The selector for projection.</param>
@@ -198,11 +212,15 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         /// <param name="include">A function to include navigation properties</param>
         /// <param name="pageIndex">The index of page.</param>
         /// <param name="pageSize">The size of the page.</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
         /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-        /// <returns>An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <returns>
+        ///     An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method default no-tracking query.</remarks>
         public virtual Task<IPagedList<TResult>> GetPagedListAsync<TResult>(Expression<Func<TEntity, TResult>> selector,
             Expression<Func<TEntity, bool>> predicate = null,
@@ -228,16 +246,21 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
 
 
         /// <summary>
-        /// Gets the first or default entity based on a predicate, orderby delegate and include delegate. This method defaults
-        /// to a read-only, no-tracking query.
+        ///     Gets the first or default entity based on a predicate, orderby delegate and include delegate. This method defaults
+        ///     to a read-only, no-tracking query.
         /// </summary>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
-        /// <returns>An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <param name="disableTracking">
+        ///     <c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy
+        ///     the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method defaults to a read-only, no-tracking query.</remarks>
         public virtual TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
@@ -258,15 +281,20 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
 
 
         /// <summary>
-        /// get first or default as an asynchronous operation.
+        ///     get first or default as an asynchronous operation.
         /// </summary>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
-        /// <returns>An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <param name="disableTracking">
+        ///     <c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy
+        ///     the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <inheritdoc />
         /// <remarks>Ex: This method defaults to a read-only, no-tracking query.</remarks>
         public virtual async Task<TEntity> GetFirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate = null,
@@ -287,18 +315,23 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Gets the first or default entity based on a predicate, orderby delegate and include delegate. This method defaults
-        /// to a read-only, no-tracking query.
+        ///     Gets the first or default entity based on a predicate, orderby delegate and include delegate. This method defaults
+        ///     to a read-only, no-tracking query.
         /// </summary>
         /// <typeparam name="TResult">The type of the t result.</typeparam>
         /// <param name="selector">The selector for projection.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
-        /// <returns>An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <param name="disableTracking">
+        ///     <c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy
+        ///     the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method defaults to a read-only, no-tracking query.</remarks>
         public virtual TResult GetFirstOrDefault<TResult>(Expression<Func<TEntity, TResult>> selector,
             Expression<Func<TEntity, bool>> predicate = null,
@@ -319,17 +352,22 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// get first or default as an asynchronous operation.
+        ///     get first or default as an asynchronous operation.
         /// </summary>
         /// <typeparam name="TResult">The type of the t result.</typeparam>
         /// <param name="selector">The selector for projection.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
-        /// .</param>
-        /// <returns>An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy the condition specified by
-        /// <paramref name="predicate" />.</returns>
+        /// <param name="disableTracking">
+        ///     <c>true</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="T:Nige.EntityFrameworkCore.UnitOfWork.PagedList.IPagedList`1" /> that contains elements that satisfy
+        ///     the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <inheritdoc />
         /// <remarks>Ex: This method defaults to a read-only, no-tracking query.</remarks>
         public virtual async Task<TResult> GetFirstOrDefaultAsync<TResult>(Expression<Func<TEntity, TResult>> selector,
@@ -352,11 +390,14 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
 
 
         /// <summary>
-        /// Uses raw SQL queries to fetch the specified <typeparamref name="TEntity" /> data.
+        ///     Uses raw SQL queries to fetch the specified <typeparamref name="TEntity" /> data.
         /// </summary>
         /// <param name="sql">The raw SQL.</param>
         /// <param name="parameters">The parameters.</param>
-        /// <returns>An <see cref="T:System.Linq.IQueryable`1" /> that contains elements that satisfy the condition specified by raw SQL.</returns>
+        /// <returns>
+        ///     An <see cref="T:System.Linq.IQueryable`1" /> that contains elements that satisfy the condition specified by
+        ///     raw SQL.
+        /// </returns>
         public virtual IQueryable<TEntity> FromSql(string sql, params object[] parameters)
         {
             return DbSet.FromSql(sql, parameters);
@@ -364,8 +405,8 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
 
 
         /// <summary>
-        /// Finds an entity with the given primary key values. If found, is attached to the context and returned. If no entity
-        /// is found, then null is returned.
+        ///     Finds an entity with the given primary key values. If found, is attached to the context and returned. If no entity
+        ///     is found, then null is returned.
         /// </summary>
         /// <param name="keyValues">The values of the primary key for the entity to be found.</param>
         /// <returns>The found entity or null.</returns>
@@ -375,8 +416,8 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Finds an entity with the given primary key values. If found, is attached to the context and returned. If no entity
-        /// is found, then null is returned.
+        ///     Finds an entity with the given primary key values. If found, is attached to the context and returned. If no entity
+        ///     is found, then null is returned.
         /// </summary>
         /// <param name="keyValues">The values of the primary key for the entity to be found.</param>
         /// <returns>A <see cref="Task{TEntity}" /> that represents the asynchronous insert operation.</returns>
@@ -386,20 +427,22 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Finds an entity with the given primary key values. If found, is attached to the context and returned. If no entity
-        /// is found, then null is returned.
+        ///     Finds an entity with the given primary key values. If found, is attached to the context and returned. If no entity
+        ///     is found, then null is returned.
         /// </summary>
         /// <param name="keyValues">The values of the primary key for the entity to be found.</param>
         /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
-        /// <returns>A <see cref="Task{TEntity}" /> that represents the asynchronous find operation. The task result contains the
-        /// found entity or null.</returns>
+        /// <returns>
+        ///     A <see cref="Task{TEntity}" /> that represents the asynchronous find operation. The task result contains the
+        ///     found entity or null.
+        /// </returns>
         public virtual Task<TEntity> FindAsync(object[] keyValues, CancellationToken cancellationToken)
         {
             return DbSet.FindAsync(keyValues, cancellationToken);
         }
 
         /// <summary>
-        /// Gets the count based on a predicate.
+        ///     Gets the count based on a predicate.
         /// </summary>
         /// <param name="predicate">The predicate.</param>
         /// <returns>System.Int32.</returns>
@@ -411,7 +454,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Inserts a new entity synchronously.
+        ///     Inserts a new entity synchronously.
         /// </summary>
         /// <param name="entity">The entity to insert.</param>
         public virtual void Add(TEntity entity)
@@ -420,7 +463,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Inserts a range of entities synchronously.
+        ///     Inserts a range of entities synchronously.
         /// </summary>
         /// <param name="entities">The entities to insert.</param>
         public virtual void AddRange(params TEntity[] entities)
@@ -429,7 +472,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Inserts a range of entities synchronously.
+        ///     Inserts a range of entities synchronously.
         /// </summary>
         /// <param name="entities">The entities to insert.</param>
         public virtual void AddRange(IEnumerable<TEntity> entities)
@@ -438,10 +481,13 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Adds the asynchronous.
+        ///     Adds the asynchronous.
         /// </summary>
         /// <param name="entity">The entity to insert.</param>
-        /// <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">
+        ///     A <see cref="T:System.Threading.CancellationToken" /> to observe while waiting for the
+        ///     task to complete.
+        /// </param>
         /// <returns>A <see cref="T:System.Threading.Tasks.Task" /> that represents the asynchronous insert operation.</returns>
         public virtual Task AddAsync(TEntity entity,
             CancellationToken cancellationToken = default(CancellationToken))
@@ -450,7 +496,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Adds the range asynchronous.
+        ///     Adds the range asynchronous.
         /// </summary>
         /// <param name="entities">The entities.</param>
         /// <returns>Task.</returns>
@@ -461,7 +507,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
 
 
         /// <summary>
-        /// Adds the range asynchronous.
+        ///     Adds the range asynchronous.
         /// </summary>
         /// <param name="entities">The entities.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -473,7 +519,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Updates the specified entity.
+        ///     Updates the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
         public virtual void Update(TEntity entity)
@@ -482,7 +528,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Updates the specified entities.
+        ///     Updates the specified entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
         public virtual void Update(params TEntity[] entities)
@@ -491,7 +537,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Updates the specified entities.
+        ///     Updates the specified entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
         public virtual void Update(IEnumerable<TEntity> entities)
@@ -500,7 +546,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Deletes the specified entity.
+        ///     Deletes the specified entity.
         /// </summary>
         /// <param name="entity">The entity to delete.</param>
         public virtual void Delete(TEntity entity)
@@ -509,7 +555,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Deletes the entity by the specified primary key.
+        ///     Deletes the entity by the specified primary key.
         /// </summary>
         /// <param name="id">The primary key value.</param>
         public virtual void Delete(object id)
@@ -532,7 +578,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Deletes the specified entities.
+        ///     Deletes the specified entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
         public virtual void Delete(params TEntity[] entities)
@@ -541,7 +587,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Deletes the specified entities.
+        ///     Deletes the specified entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
         public virtual void Delete(IEnumerable<TEntity> entities)
@@ -550,7 +596,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
         }
 
         /// <summary>
-        /// Updates the specified entity.
+        ///     Updates the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
         public virtual void UpdateAsync(TEntity entity)

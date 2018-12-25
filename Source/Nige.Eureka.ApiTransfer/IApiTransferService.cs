@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Nige.Eureka.ApiTransfer
+﻿namespace Nige.Eureka.ApiTransfer
 {
     public interface IApiTransferService
     {

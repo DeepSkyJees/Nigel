@@ -1,16 +1,14 @@
-﻿using System;
-using Nigel.Basic.Security;
+﻿using Nigel.Basic.Security;
 
 namespace Nigel.Security.Demo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            var rsa =    RsaCrypt.GetRsaKeyAsync().Result;
-            string eContent = "Test".ToRsaEncrypt(rsa);
-            string dContent = eContent.RsaDecrypt(rsa);
+            var rsa = RsaCrypt.GetRsaKeyAsync().Result;
+            var eContent = "Test".ToRsaEncrypt(rsa);
+            var dContent = eContent.RsaDecrypt(rsa);
         }
-
     }
 }

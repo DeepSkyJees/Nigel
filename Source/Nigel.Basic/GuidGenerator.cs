@@ -3,73 +3,79 @@
 namespace Nigel.Basic
 {
     /// <summary>
-    /// Class GuidGenerator.
+    ///     Class GuidGenerator.
     /// </summary>
     public static class GuidGenerator
     {
         // number of bytes in guid
         /// <summary>
-        /// The byte array size
+        ///     The byte array size
         /// </summary>
         public const int ByteArraySize = 16;
 
         // multiplex variant info
         /// <summary>
-        /// The variant byte
+        ///     The variant byte
         /// </summary>
         public const int VariantByte = 8;
+
         /// <summary>
-        /// The variant byte mask
+        ///     The variant byte mask
         /// </summary>
         public const int VariantByteMask = 0x3f;
+
         /// <summary>
-        /// The variant byte shift
+        ///     The variant byte shift
         /// </summary>
         public const int VariantByteShift = 0x80;
 
         // multiplex version info
         /// <summary>
-        /// The version byte
+        ///     The version byte
         /// </summary>
         public const int VersionByte = 7;
+
         /// <summary>
-        /// The version byte mask
+        ///     The version byte mask
         /// </summary>
         public const int VersionByteMask = 0x0f;
+
         /// <summary>
-        /// The version byte shift
+        ///     The version byte shift
         /// </summary>
         public const int VersionByteShift = 4;
 
         // indexes within the guid array for certain boundaries
         /// <summary>
-        /// The timestamps byte
+        ///     The timestamps byte
         /// </summary>
         private const byte TimestampsByte = 0;
+
         /// <summary>
-        /// The unique identifier clock sequence byte
+        ///     The unique identifier clock sequence byte
         /// </summary>
         private const byte GuidClockSequenceByte = 8;
+
         /// <summary>
-        /// The node byte
+        ///     The node byte
         /// </summary>
         private const byte NodeByte = 10;
 
         // offset to move from 1/1/0001, which is 0-time for .NET, to gregorian 0-time of 10/15/1582
         /// <summary>
-        /// The gregorian calendar start
+        ///     The gregorian calendar start
         /// </summary>
         private static readonly DateTimeOffset GregorianCalendarStart =
             new DateTimeOffset(1582, 10, 15, 0, 0, 0, TimeSpan.Zero);
 
 
         /// <summary>
-        /// The see date time
+        ///     The see date time
         /// </summary>
-        private static DateTime? seedDateTime = null;
+        private static DateTime? seedDateTime;
 
         /// <summary>
-        /// Initializes static members of the <see cref="GuidGenerator"/> class.
+        ///     Initializes static members of the <see cref="GuidGenerator" /> class.
         /// </summary>
         static GuidGenerator()
         {
@@ -83,29 +89,30 @@ namespace Nigel.Basic
 
         // random clock sequence and node
         /// <summary>
-        /// Gets or sets the default clock sequence.
+        ///     Gets or sets the default clock sequence.
         /// </summary>
         /// <value>The default clock sequence.</value>
         public static byte[] DefaultClockSequence { get; set; }
+
         /// <summary>
-        /// Gets or sets the default node.
+        ///     Gets or sets the default node.
         /// </summary>
         /// <value>The default node.</value>
         public static byte[] DefaultNode { get; set; }
 
         /// <summary>
-        /// Gets the version.
+        ///     Gets the version.
         /// </summary>
         /// <param name="guid">The unique identifier.</param>
         /// <returns>GuidVersion.</returns>
         public static GuidVersion GetVersion(this Guid guid)
         {
             var bytes = guid.ToByteArray();
-            return (GuidVersion)((bytes[VersionByte] & 0xFF) >> VersionByteShift);
+            return (GuidVersion) ((bytes[VersionByte] & 0xFF) >> VersionByteShift);
         }
 
         /// <summary>
-        /// Gets the date time offset.
+        ///     Gets the date time offset.
         /// </summary>
         /// <param name="guid">The unique identifier.</param>
         /// <returns>DateTimeOffset.</returns>
@@ -115,7 +122,7 @@ namespace Nigel.Basic
 
             // reverse the version
             bytes[VersionByte] &= VersionByteMask;
-            bytes[VersionByte] |= (byte)GuidVersion.TimeBased >> VersionByteShift;
+            bytes[VersionByte] |= (byte) GuidVersion.TimeBased >> VersionByteShift;
 
             var timestampsBytes = new byte[8];
             Array.Copy(bytes, TimestampsByte, timestampsBytes, 0, 8);
@@ -127,7 +134,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Gets the date time.
+        ///     Gets the date time.
         /// </summary>
         /// <param name="guid">The unique identifier.</param>
         /// <returns>DateTime.</returns>
@@ -137,7 +144,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Gets the local date time.
+        ///     Gets the local date time.
         /// </summary>
         /// <param name="guid">The unique identifier.</param>
         /// <returns>DateTime.</returns>
@@ -147,7 +154,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Gets the UTC date time.
+        ///     Gets the UTC date time.
         /// </summary>
         /// <param name="guid">The unique identifier.</param>
         /// <returns>DateTime.</returns>
@@ -157,7 +164,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Generates the time based unique identifier.
+        ///     Generates the time based unique identifier.
         /// </summary>
         /// <returns>Guid.</returns>
         public static Guid GenerateTimeBasedGuid()
@@ -166,7 +173,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Generates the time based unique identifier.
+        ///     Generates the time based unique identifier.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <returns>Guid.</returns>
@@ -176,7 +183,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Generates the time based unique identifier.
+        ///     Generates the time based unique identifier.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <returns>Guid.</returns>
@@ -186,7 +193,7 @@ namespace Nigel.Basic
         }
 
         /// <summary>
-        /// Generates the time based unique identifier.
+        ///     Generates the time based unique identifier.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <param name="clockSequence">The clock sequence.</param>
@@ -198,10 +205,8 @@ namespace Nigel.Basic
         }
 
 
-     
-
         /// <summary>
-        /// Generates the time based unique identifier.
+        ///     Generates the time based unique identifier.
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <param name="clockSequence">The clock sequence.</param>
@@ -209,26 +214,20 @@ namespace Nigel.Basic
         /// <param name="needReverse">if set to <c>true</c> [need reverse].</param>
         /// <returns>Guid.</returns>
         /// <exception cref="System.ArgumentNullException">
-        /// clockSequence
-        /// or
-        /// node
+        ///     clockSequence
+        ///     or
+        ///     node
         /// </exception>
         /// <exception cref="System.ArgumentOutOfRangeException">
-        /// clockSequence - The clockSequence must be 2 bytes.
-        /// or
-        /// node - The node must be 6 bytes.
+        ///     clockSequence - The clockSequence must be 2 bytes.
+        ///     or
+        ///     node - The node must be 6 bytes.
         /// </exception>
         public static Guid GenerateTimeBasedGuid(DateTimeOffset dateTime, byte[] clockSequence, byte[] node)
         {
-            if (seedDateTime == null)
-            {
-                seedDateTime = dateTime.DateTime;
-            }
+            if (seedDateTime == null) seedDateTime = dateTime.DateTime;
 
-            if (seedDateTime.Value.Second != dateTime.Second)
-            {
-                seedDateTime = dateTime.DateTime;
-            }
+            if (seedDateTime.Value.Second != dateTime.Second) seedDateTime = dateTime.DateTime;
             dateTime = seedDateTime.Value.AddTicks(1);
             if (clockSequence == null)
                 throw new ArgumentNullException(nameof(clockSequence));
@@ -261,31 +260,34 @@ namespace Nigel.Basic
 
             // set the version
             guid[VersionByte] &= VersionByteMask;
-            guid[VersionByte] |= (byte)GuidVersion.TimeBased << VersionByteShift;
+            guid[VersionByte] |= (byte) GuidVersion.TimeBased << VersionByteShift;
             seedDateTime = seedDateTime.Value.AddTicks(1);
             return new Guid(guid);
         }
     }
 
     /// <summary>
-    /// Enum GuidVersion
+    ///     Enum GuidVersion
     /// </summary>
     public enum GuidVersion
     {
         /// <summary>
-        /// The time based
+        ///     The time based
         /// </summary>
         TimeBased = 0x01,
+
         /// <summary>
-        /// The reserved
+        ///     The reserved
         /// </summary>
         Reserved = 0x02,
+
         /// <summary>
-        /// The name based
+        ///     The name based
         /// </summary>
         NameBased = 0x03,
+
         /// <summary>
-        /// The random
+        ///     The random
         /// </summary>
         Random = 0x04
     }

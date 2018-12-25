@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace Nigel.Basic.Utility
 {
@@ -21,7 +18,8 @@ namespace Nigel.Basic.Utility
         public static readonly string CellphoneRegexString = CellphoneRegex.ToString();
 
         /// <summary>
-        ///     A regular expression for validating Email Addresses. Taken from http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
+        ///     A regular expression for validating Email Addresses. Taken from
+        ///     http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
         /// </summary>
         public static readonly Regex EmailRegex = new Regex(@"^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$");
 
@@ -31,9 +29,11 @@ namespace Nigel.Basic.Utility
         public static readonly string EmailRegexString = EmailRegex.ToString();
 
         /// <summary>
-        ///     A regular expression for validating IPAddresses. Taken from http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
+        ///     A regular expression for validating IPAddresses. Taken from
+        ///     http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
         /// </summary>
-        public static readonly Regex IPAddressRegex = new Regex(@"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
+        public static readonly Regex IPAddressRegex =
+            new Regex(@"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
 
         /// <summary>
         ///     The ip address regex string

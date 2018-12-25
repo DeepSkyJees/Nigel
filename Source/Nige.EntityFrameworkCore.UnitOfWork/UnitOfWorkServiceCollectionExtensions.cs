@@ -12,7 +12,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
     public static class UnitOfWorkServiceCollectionExtensions
     {
         /// <summary>
-        /// Registers the unit of work given context as a service in the <see cref="IServiceCollection" />.
+        ///     Registers the unit of work given context as a service in the <see cref="IServiceCollection" />.
         /// </summary>
         /// <typeparam name="TContext">The type of the db context.</typeparam>
         /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
@@ -32,7 +32,7 @@ namespace Nige.EntityFrameworkCore.UnitOfWork
             return services;
         }
 
-        
+
         /// <summary>
         ///     Configurations the unit of work options.
         /// </summary>
