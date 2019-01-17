@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Nigel.Basic.Exceptions;
 
 namespace Nigel.Basic
@@ -16,6 +20,7 @@ namespace Nigel.Basic
         {
             return !s.IsNullOrEmpty();
         }
+
 
 
         public static DateTime ToDateTime(this string dateTimeString)
@@ -113,6 +118,31 @@ namespace Nigel.Basic
         public static string Format(this string str, params object[] paramObjects)
         {
             return string.Format(str, paramObjects);
+        }
+
+        public static JObject ToJObject(this string defaultString)
+        {
+            var jObject = JObject.Parse(defaultString);
+            return jObject;
+        }
+
+        public static T To<T>(this string defaultString)
+        {
+            var obj = JsonConvert.DeserializeObject<T>(defaultString);
+            return obj;
+        }
+
+
+        /// <summary>
+        ///     To the list.
+        /// </summary>
+        /// <param name="commaSplitString">The comma split string.</param>
+        /// <param name="splitChar">The split character.</param>
+        /// <returns>List&lt;System.String&gt;.</returns>
+        public static List<string> ToList(this string commaSplitString, char splitChar = ',')
+        {
+            var stringList = commaSplitString.Split(splitChar).ToList();
+            return stringList;
         }
     }
 }
