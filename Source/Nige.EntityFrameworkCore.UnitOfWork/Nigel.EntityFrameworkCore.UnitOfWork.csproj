@@ -2,6 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
+    <PackageLicenseUrl />
+    <PackageProjectUrl>https://github.com/NigelYu/Nigel/tree/master/Source/Nige.EntityFrameworkCore.UnitOfWork</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

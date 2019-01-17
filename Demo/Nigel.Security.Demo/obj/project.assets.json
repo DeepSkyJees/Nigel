@@ -229,7 +229,7 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Nigel.Security/1.0.0": {
+      "Nigel.Security/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
@@ -755,7 +755,7 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "Nigel.Security/1.0.0": {
+    "Nigel.Security/1.0.1": {
       "type": "project",
       "path": "../../Source/Nigel.Security/Nigel.Security.csproj",
       "msbuildProject": "../../Source/Nigel.Security/Nigel.Security.csproj"
@@ -764,7 +764,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NETCore.App >= 2.2.0",
-      "Nigel.Security >= 1.0.0"
+      "Nigel.Security >= 1.0.1"
     ]
   },
   "packageFolders": {

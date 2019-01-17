@@ -24,9 +24,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Basic.UnitTest", "Nigel.Basic.UnitTest\Nigel.Basic.UnitTest.csproj", "{A2EDF3F8-8657-4535-8AD0-24685939191B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nige.EntityFrameworkCore.UnitOfWork", "Source\Nige.EntityFrameworkCore.UnitOfWork\Nige.EntityFrameworkCore.UnitOfWork.csproj", "{1047C5FE-CDA9-427C-B4C5-371FB09D6137}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.EntityFrameworkCore.UnitOfWork", "Source\Nige.EntityFrameworkCore.UnitOfWork\Nigel.EntityFrameworkCore.UnitOfWork.csproj", "{1047C5FE-CDA9-427C-B4C5-371FB09D6137}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nige.Eureka.ApiTransfer", "Source\Nige.Eureka.ApiTransfer\Nige.Eureka.ApiTransfer.csproj", "{ECA25ADB-97DF-47B7-B784-5B2BB1AADD8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Eureka.ApiTransfer", "Source\Nige.Eureka.ApiTransfer\Nigel.Eureka.ApiTransfer.csproj", "{ECA25ADB-97DF-47B7-B784-5B2BB1AADD8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nigel.Eureka.Faux", "Source\Nige.Eureka.Faux\Nigel.Eureka.Faux.csproj", "{4602C94B-5997-426B-ACA8-89B5128C3900}"
 EndProject

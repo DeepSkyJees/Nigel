@@ -251,7 +251,7 @@
           "lib/netstandard2.0/zxing.dll": {}
         }
       },
-      "Nigel.QrCode/1.0.0": {
+      "Nigel.QrCode/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
@@ -879,7 +879,7 @@
         "zxing.net.nuspec"
       ]
     },
-    "Nigel.QrCode/1.0.0": {
+    "Nigel.QrCode/1.0.1": {
       "type": "project",
       "path": "../../Source/Nigel.QrCode/Nigel.QrCode.csproj",
       "msbuildProject": "../../Source/Nigel.QrCode/Nigel.QrCode.csproj"
@@ -888,7 +888,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NETCore.App >= 2.2.0",
-      "Nigel.QrCode >= 1.0.0"
+      "Nigel.QrCode >= 1.0.1"
     ]
   },
   "packageFolders": {

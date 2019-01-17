@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\Nige.Eureka.ApiTransfer\Nige.Eureka.ApiTransfer.csproj" />
+    <ProjectReference Include="..\..\Source\Nige.Eureka.ApiTransfer\Nigel.Eureka.ApiTransfer.csproj" />
     <ProjectReference Include="..\..\Source\Nige.Eureka.Faux\Nigel.Eureka.Faux.csproj" />
   </ItemGroup>
 
