@@ -21,6 +21,20 @@ namespace Nigel.Basic
             return !s.IsNullOrEmpty();
         }
 
+        /// <summary>
+        ///     Determines whether [is not empty or null or white] [the specified default string].
+        /// </summary>
+        /// <param name="defaultString">The default string.</param>
+        /// <returns><c>true</c> if [is not empty or null or white] [the specified default string]; otherwise, <c>false</c>.</returns>
+        public static bool IsNotEmptyOrNullOrWhite(this string defaultString)
+        {
+            if (string.IsNullOrEmpty(defaultString)) return false;
+
+            if (string.IsNullOrWhiteSpace(defaultString)) return false;
+
+            return true;
+        }
+
 
 
         public static DateTime ToDateTime(this string dateTimeString)
