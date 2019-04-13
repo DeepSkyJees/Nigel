@@ -158,5 +158,28 @@ namespace Nigel.Basic
             var stringList = commaSplitString.Split(splitChar).ToList();
             return stringList;
         }
+
+
+        public static bool Contains(this String str, String substring,
+                                   StringComparison comp)
+        {
+            if (substring == null)
+                throw new ArgumentNullException("substring",
+                                                "substring cannot be null.");
+            else if (!Enum.IsDefined(typeof(StringComparison), comp))
+                throw new ArgumentException("comp is not a member of StringComparison",
+                                            "comp");
+
+            return str.IndexOf(substring, comp) >= 0;
+        }
+
+
+        public static bool Contains(this String str, String substring)
+        {
+            if (substring == null)
+                throw new ArgumentNullException("substring",
+                                                "substring cannot be null.");
+            return str.IndexOf(substring) >= 0;
+        }
     }
 }

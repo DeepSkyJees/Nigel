@@ -689,7 +689,7 @@
       ]
     },
     "Newtonsoft.Json/12.0.1": {
-      "sha512": "jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+      "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "type": "package",
       "path": "newtonsoft.json/12.0.1",
       "files": [
@@ -735,23 +735,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\": {},
+    "C:\\Users\\nigel-yu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.2",
+    "version": "1.0.3",
     "restore": {
-      "projectUniqueName": "E:\\Code\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj",
+      "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj",
       "projectName": "Nigel.Basic",
-      "projectPath": "E:\\Code\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj",
-      "packagesPath": "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\Nigel\\Source\\Nigel.Basic\\obj\\",
+      "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj",
+      "packagesPath": "C:\\Users\\nigel-yu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Basic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yuliang.HUAGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nigel-yu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -759,7 +759,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.1.209:10081/repository/nuget-group": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

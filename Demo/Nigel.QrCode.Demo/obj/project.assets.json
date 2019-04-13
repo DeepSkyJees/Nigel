@@ -892,23 +892,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\": {},
+    "C:\\Users\\nigel-yu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
+      "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
       "projectName": "Nigel.QrCode.Demo",
-      "projectPath": "E:\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
-      "packagesPath": "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\obj\\",
+      "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
+      "packagesPath": "C:\\Users\\nigel-yu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yuliang.HUAGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nigel-yu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -916,14 +916,13 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.1.209:10081/repository/nuget-group": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "E:\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
-              "projectPath": "E:\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
+            "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
+              "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
             }
           }
         }

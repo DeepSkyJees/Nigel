@@ -874,23 +874,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\": {},
+    "C:\\Users\\nigel-yu\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.1",
     "restore": {
-      "projectUniqueName": "E:\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj",
+      "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj",
       "projectName": "Nigel.QrCode",
-      "projectPath": "E:\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj",
-      "packagesPath": "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\",
-      "outputPath": "E:\\Code\\Nigel\\Source\\Nigel.QrCode\\obj\\",
+      "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj",
+      "packagesPath": "C:\\Users\\nigel-yu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yuliang.HUAGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nigel-yu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -898,7 +898,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.1.209:10081/repository/nuget-group": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
