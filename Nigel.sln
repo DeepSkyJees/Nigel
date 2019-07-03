@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{B2473A9B-63C9-4B13-AAE8-37F549F130B8}"
 EndProject
@@ -28,9 +28,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.EntityFrameworkCore.U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Eureka.ApiTransfer", "Source\Nige.Eureka.ApiTransfer\Nigel.Eureka.ApiTransfer.csproj", "{ECA25ADB-97DF-47B7-B784-5B2BB1AADD8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nigel.Eureka.Faux", "Source\Nige.Eureka.Faux\Nigel.Eureka.Faux.csproj", "{4602C94B-5997-426B-ACA8-89B5128C3900}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Eureka.Faux", "Source\Nige.Eureka.Faux\Nigel.Eureka.Faux.csproj", "{4602C94B-5997-426B-ACA8-89B5128C3900}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.GenericHost.Demo", "Demo\Nigel.GenericHost.Demo\Nigel.GenericHost.Demo.csproj", "{EDC688C8-A48B-4ED2-8FDF-C9F8C9BBD033}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.Transactions.RedisStorage", "Source\Orleans.Transactions.RedisStorage\Orleans.Transactions.RedisStorage.csproj", "{F9902A1B-84CE-48D6-B903-8B27C500621D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nigel.Security.461Demo", "Demo\Nigel.Security.461Demo\Nigel.Security.461Demo.csproj", "{F91599AA-E382-432C-8F28-9D0060C1B5ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +82,14 @@ Global
 		{EDC688C8-A48B-4ED2-8FDF-C9F8C9BBD033}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDC688C8-A48B-4ED2-8FDF-C9F8C9BBD033}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDC688C8-A48B-4ED2-8FDF-C9F8C9BBD033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9902A1B-84CE-48D6-B903-8B27C500621D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9902A1B-84CE-48D6-B903-8B27C500621D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9902A1B-84CE-48D6-B903-8B27C500621D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9902A1B-84CE-48D6-B903-8B27C500621D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F91599AA-E382-432C-8F28-9D0060C1B5ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F91599AA-E382-432C-8F28-9D0060C1B5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F91599AA-E382-432C-8F28-9D0060C1B5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F91599AA-E382-432C-8F28-9D0060C1B5ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +104,8 @@ Global
 		{ECA25ADB-97DF-47B7-B784-5B2BB1AADD8C} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
 		{4602C94B-5997-426B-ACA8-89B5128C3900} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
 		{EDC688C8-A48B-4ED2-8FDF-C9F8C9BBD033} = {B2473A9B-63C9-4B13-AAE8-37F549F130B8}
+		{F9902A1B-84CE-48D6-B903-8B27C500621D} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
+		{F91599AA-E382-432C-8F28-9D0060C1B5ED} = {B2473A9B-63C9-4B13-AAE8-37F549F130B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE926658-DE37-49DB-B45B-98E1592EAF16}

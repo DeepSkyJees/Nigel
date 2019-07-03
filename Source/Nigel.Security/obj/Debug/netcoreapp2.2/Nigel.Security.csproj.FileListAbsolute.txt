@@ -15,4 +15,3 @@ E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.Assem
 E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.AssemblyInfo.cs
 E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.dll
 E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.pdb
-E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.csprojAssemblyReference.cache

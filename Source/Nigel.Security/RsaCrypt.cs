@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NETCore.Encrypt;
 
-namespace Nigel.Basic.Security
+namespace Nigel.Security
 {
     /// <summary>
     /// </summary>
@@ -134,5 +134,6 @@ namespace Nigel.Basic.Security
                 throw ex;
             }
         }
+        
     }
 }

@@ -1,6 +1,4 @@
-﻿using Nigel.Basic.Security;
-
-namespace Nigel.Security.Demo
+﻿namespace Nigel.Security.Demo
 {
     internal class Program
     {
