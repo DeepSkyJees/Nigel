@@ -18,9 +18,8 @@ E:\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.csprojAssem
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.deps.json
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.dll
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.pdb
-C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.csprojAssemblyReference.cache
-C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.csproj.CoreCompileInputs.cache
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.AssemblyInfoInputs.cache
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.AssemblyInfo.cs
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.dll
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.pdb
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.csprojAssemblyReference.cache

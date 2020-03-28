@@ -16,3 +16,11 @@ E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.Assem
 E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.dll
 E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.pdb
 E:\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.csprojAssemblyReference.cache
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\bin\Debug\netcoreapp2.2\Nigel.Security.deps.json
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\bin\Debug\netcoreapp2.2\Nigel.Security.dll
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\bin\Debug\netcoreapp2.2\Nigel.Security.pdb
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.csprojAssemblyReference.cache
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.AssemblyInfoInputs.cache
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.AssemblyInfo.cs
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.dll
+C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Security\obj\Debug\netcoreapp2.2\Nigel.Security.pdb

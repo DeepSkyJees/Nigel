@@ -21,21 +21,6 @@ namespace Nigel.Basic
             return !s.IsNullOrEmpty();
         }
 
-        /// <summary>
-        ///     Determines whether [is not empty or null or white] [the specified default string].
-        /// </summary>
-        /// <param name="defaultString">The default string.</param>
-        /// <returns><c>true</c> if [is not empty or null or white] [the specified default string]; otherwise, <c>false</c>.</returns>
-        public static bool IsNotEmptyOrNullOrWhite(this string defaultString)
-        {
-            if (string.IsNullOrEmpty(defaultString)) return false;
-
-            if (string.IsNullOrWhiteSpace(defaultString)) return false;
-
-            return true;
-        }
-
-
 
         public static DateTime ToDateTime(this string dateTimeString)
         {
@@ -180,6 +165,27 @@ namespace Nigel.Basic
                 throw new ArgumentNullException("substring",
                                                 "substring cannot be null.");
             return str.IndexOf(substring) >= 0;
+        }
+
+        public static Guid ToGuid(this string guidString)
+        {
+            var convartResult = Guid.TryParse(guidString, out Guid guid);
+            if (convartResult)
+                return guid;
+            return Guid.Empty;
+        }
+
+        /// <summary>
+        /// 不为Null,空字符串、空格
+        /// </summary>
+        /// <param name="strValue">The string value.</param>
+        /// <returns>
+        ///   <c>true</c> if [is not null all] [the specified string value]; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsNotNullAll(this string strValue)
+        {
+            return string.IsNullOrEmpty(strValue) && string.IsNullOrWhiteSpace(strValue);
+
         }
     }
 }

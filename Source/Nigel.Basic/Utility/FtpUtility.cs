@@ -126,7 +126,7 @@ namespace Nigel.Basic.Utility
             string fileName)
         {
             var hasDirectory = CreateFtpDirectory(ftpUrl, ftpDirectoryFullPath);
-            if (!hasDirectory.IsNotEmptyOrNullOrWhite())
+            if (!hasDirectory.IsNotNullAll())
             {
                 var ftpWebRequest = CreateFtpWebRequest(ftpUrl, ftpDirectoryFullPath, fileName,
                     WebRequestMethods.Ftp.UploadFile);
@@ -342,7 +342,7 @@ namespace Nigel.Basic.Utility
             string webRequestMethod = WebRequestMethods.Ftp.DeleteFile)
         {
             FtpWebRequest ftpRequest = null;
-            if (fileName.IsNotEmptyOrNullOrWhite())
+            if (fileName.IsNotNullAll())
                 ftpRequest = (FtpWebRequest)WebRequest.Create(new Uri($"{ftpUrl}/{ftpDirectoryFullPath}/{fileName}"));
             else
                 ftpRequest = (FtpWebRequest)WebRequest.Create(new Uri($"{ftpUrl}/{ftpDirectoryFullPath}"));
