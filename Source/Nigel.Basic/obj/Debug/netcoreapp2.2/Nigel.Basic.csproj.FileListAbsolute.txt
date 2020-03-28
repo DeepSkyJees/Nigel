@@ -14,7 +14,6 @@ E:\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.AssemblyInf
 E:\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.AssemblyInfo.cs
 E:\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.dll
 E:\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.pdb
-E:\Code\Nigel\Source\Nigel.Basic\obj\Debug\netcoreapp2.2\Nigel.Basic.csprojAssemblyReference.cache
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.deps.json
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.dll
 C:\Users\nigel-yu\Desktop\Code\Nigel\Source\Nigel.Basic\bin\Debug\netcoreapp2.2\Nigel.Basic.pdb

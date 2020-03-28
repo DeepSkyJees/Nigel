@@ -1,4 +1,4 @@
-﻿namespace Nigel.Basic.Security
+﻿namespace Nigel.Security
 {
     /// <summary>
     /// </summary>

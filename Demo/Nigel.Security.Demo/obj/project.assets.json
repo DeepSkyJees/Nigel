@@ -2,10 +2,10 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "NETCore.Encrypt/2.0.8": {
+      "NETCore.Encrypt/2.0.7": {
         "type": "package",
         "dependencies": {
-          "Newtonsoft.Json": "12.0.1"
+          "Newtonsoft.Json": "11.0.2"
         },
         "compile": {
           "lib/netstandard2.0/NETCore.Encrypt.dll": {}
@@ -14,7 +14,7 @@
           "lib/netstandard2.0/NETCore.Encrypt.dll": {}
         }
       },
-      "Newtonsoft.Json/12.0.1": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -23,82 +23,80 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
-      "Nigel.Security/3.1.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+      "Nigel.Security/1.0.2": {
+        "type": "package",
         "dependencies": {
-          "NETCore.Encrypt": "2.0.8"
+          "NETCore.Encrypt": "2.0.7"
         },
         "compile": {
-          "bin/placeholder/Nigel.Security.dll": {}
+          "lib/netcoreapp2.2/Nigel.Security.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Nigel.Security.dll": {}
+          "lib/netcoreapp2.2/Nigel.Security.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "NETCore.Encrypt/2.0.8": {
-      "sha512": "Z4iKzGFNG5kWgn/jbvm6AJs8iPa/Ke6S8YQUJHF9vb5W4EXixBREz4/0v4t6H9Pr7G+n7MCOKUWvKlAJJrabsw==",
+    "NETCore.Encrypt/2.0.7": {
+      "sha512": "uQThFMJSO/iQaOfB+fZIhMC49cJdYqdKiKemyAqFO/64y7NTSUThYIncozs84kxSLHlIJ9kVcPLaS/NbFIryLg==",
       "type": "package",
-      "path": "netcore.encrypt/2.0.8",
+      "path": "netcore.encrypt/2.0.7",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/NETCore.Encrypt.dll",
-        "netcore.encrypt.2.0.8.nupkg.sha512",
+        "netcore.encrypt.2.0.7.nupkg.sha512",
         "netcore.encrypt.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.1": {
-      "sha512": "pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.1",
+      "path": "newtonsoft.json/11.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
-        "lib/net20/Newtonsoft.Json.pdb",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
-        "lib/net35/Newtonsoft.Json.pdb",
         "lib/net35/Newtonsoft.Json.xml",
         "lib/net40/Newtonsoft.Json.dll",
-        "lib/net40/Newtonsoft.Json.pdb",
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
-        "lib/net45/Newtonsoft.Json.pdb",
         "lib/net45/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
-        "lib/netstandard1.0/Newtonsoft.Json.pdb",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
-        "lib/netstandard1.3/Newtonsoft.Json.pdb",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
-        "lib/netstandard2.0/Newtonsoft.Json.pdb",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.pdb",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.pdb",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.1.nupkg.sha512",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
     },
-    "Nigel.Security/3.1.0": {
-      "type": "project",
-      "path": "../../Source/Nigel.Security/Nigel.Security.csproj",
-      "msbuildProject": "../../Source/Nigel.Security/Nigel.Security.csproj"
+    "Nigel.Security/1.0.2": {
+      "sha512": "iBLlyGnEtfIGjr18ALePtczpUTTjeVfgSJUjlKprHthyHrh4ZdaiAS2mWrinuWpHgzE64DwvWUOyaNOUK1Y0sQ==",
+      "type": "package",
+      "path": "nigel.security/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.2/Nigel.Security.dll",
+        "lib/netstandard2.0/Nigel.Security.dll",
+        "nigel.security.1.0.2.nupkg.sha512",
+        "nigel.security.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Nigel.Security >= 3.1.0"
+      "Nigel.Security >= 1.0.2"
     ]
   },
   "packageFolders": {
@@ -130,11 +128,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Security\\Nigel.Security.csproj": {
-              "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Security\\Nigel.Security.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -145,6 +139,12 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "dependencies": {
+          "Nigel.Security": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
