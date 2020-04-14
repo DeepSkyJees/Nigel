@@ -1400,7 +1400,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "3.1.0",
+    "version": "3.1.2",
     "restore": {
       "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj",
       "projectName": "Nigel.Basic",
@@ -1464,7 +1464,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

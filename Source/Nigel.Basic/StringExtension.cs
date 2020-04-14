@@ -11,9 +11,9 @@ namespace Nigel.Basic
     {
         public static bool IsNullOrEmpty(this string s)
         {
-            if (string.IsNullOrWhiteSpace(s) || string.IsNullOrEmpty(s)) return false;
+            if (string.IsNullOrWhiteSpace(s) || string.IsNullOrEmpty(s)) return true;
 
-            return true;
+            return false;
         }
 
         public static bool IsNotNullOrEmpty(this string s)
@@ -184,7 +184,7 @@ namespace Nigel.Basic
         /// </returns>
         public static bool IsNotNullAll(this string strValue)
         {
-            return string.IsNullOrEmpty(strValue) && string.IsNullOrWhiteSpace(strValue);
+            return !string.IsNullOrEmpty(strValue) && !string.IsNullOrWhiteSpace(strValue);
 
         }
     }
