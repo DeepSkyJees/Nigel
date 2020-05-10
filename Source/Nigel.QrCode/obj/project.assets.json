@@ -26,13 +26,16 @@
           "build/netstandard2.0/_._": {}
         }
       },
-      "SkiaSharp/1.68.1.1": {
+      "SkiaSharp/1.68.2.1": {
         "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.3"
+        },
         "compile": {
-          "lib/netstandard1.3/SkiaSharp.dll": {}
+          "lib/netstandard2.0/SkiaSharp.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/SkiaSharp.dll": {}
+          "lib/netstandard2.0/SkiaSharp.dll": {}
         },
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
@@ -55,6 +58,15 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
         }
       },
       "ZXing.Net/0.16.5": {
@@ -216,36 +228,44 @@
         "netstandard.library.nuspec"
       ]
     },
-    "SkiaSharp/1.68.1.1": {
-      "sha512": "fJteGIKAMmLD9tSQgdvZqLqECub6B55pK1MH5QyanLOr8JQ8uUMKKcrAcpocNnmIS/YsUJOL4AD7dO6mAwP7mQ==",
+    "SkiaSharp/1.68.2.1": {
+      "sha512": "ecEdDOeukBHW4bjvk6MZrGIAh3TyPyY1ImBKobuPs7PukKKkkZtiPxe35u2UXO9E68ulX4iMTNj/PmEaawPsRQ==",
       "type": "package",
-      "path": "skiasharp/1.68.1.1",
+      "path": "skiasharp/1.68.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
         "THIRD-PARTY-NOTICES.txt",
         "build/net45/SkiaSharp.targets",
+        "build/net462/SkiaSharp.targets",
         "build/tizen40/SkiaSharp.targets",
         "buildTransitive/net45/SkiaSharp.targets",
-        "lib/MonoAndroid/SkiaSharp.dll",
-        "lib/MonoAndroid/SkiaSharp.xml",
-        "lib/Xamarin.Mac20/SkiaSharp.dll",
-        "lib/Xamarin.Mac20/SkiaSharp.xml",
-        "lib/Xamarin.TVOS/SkiaSharp.dll",
-        "lib/Xamarin.TVOS/SkiaSharp.xml",
-        "lib/Xamarin.WatchOS/SkiaSharp.dll",
-        "lib/Xamarin.WatchOS/SkiaSharp.xml",
-        "lib/Xamarin.iOS/SkiaSharp.dll",
-        "lib/Xamarin.iOS/SkiaSharp.xml",
+        "buildTransitive/net462/SkiaSharp.targets",
+        "lib/monoandroid1.0/SkiaSharp.dll",
+        "lib/monoandroid1.0/SkiaSharp.xml",
         "lib/net45/SkiaSharp.dll",
         "lib/net45/SkiaSharp.xml",
+        "lib/net462/SkiaSharp.dll",
+        "lib/net462/SkiaSharp.xml",
         "lib/netstandard1.3/SkiaSharp.dll",
         "lib/netstandard1.3/SkiaSharp.xml",
+        "lib/netstandard2.0/SkiaSharp.dll",
+        "lib/netstandard2.0/SkiaSharp.xml",
         "lib/tizen40/SkiaSharp.dll",
         "lib/tizen40/SkiaSharp.xml",
-        "lib/uap10.0/SkiaSharp.dll",
-        "lib/uap10.0/SkiaSharp.xml",
+        "lib/uap10.0.10240/SkiaSharp.dll",
+        "lib/uap10.0.10240/SkiaSharp.xml",
+        "lib/uap10.0.16299/SkiaSharp.dll",
+        "lib/uap10.0.16299/SkiaSharp.xml",
+        "lib/xamarinios1.0/SkiaSharp.dll",
+        "lib/xamarinios1.0/SkiaSharp.xml",
+        "lib/xamarinmac2.0/SkiaSharp.dll",
+        "lib/xamarinmac2.0/SkiaSharp.xml",
+        "lib/xamarintvos1.0/SkiaSharp.dll",
+        "lib/xamarintvos1.0/SkiaSharp.xml",
+        "lib/xamarinwatchos1.0/SkiaSharp.dll",
+        "lib/xamarinwatchos1.0/SkiaSharp.xml",
         "runtimes/osx/native/libSkiaSharp.dylib",
         "runtimes/tizen-armel/native/libSkiaSharp.so",
         "runtimes/tizen-x86/native/libSkiaSharp.so",
@@ -260,9 +280,30 @@
         "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
-        "skiasharp.1.68.1.1.nupkg.sha512",
+        "skiasharp.1.68.2.1.nupkg.sha512",
         "skiasharp.nuspec",
         "xamarin.interactive/SkiaSharp.Workbooks.dll"
+      ]
+    },
+    "System.Memory/4.5.3": {
+      "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "type": "package",
+      "path": "system.memory/4.5.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.3.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "ZXing.Net/0.16.5": {
@@ -372,7 +413,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "SkiaSharp >= 1.68.1.1",
+      "SkiaSharp >= 1.68.2.1",
       "ZXing.Net >= 0.16.5"
     ]
   },
@@ -381,7 +422,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "3.1.0",
+    "version": "3.1.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj",
       "projectName": "Nigel.QrCode",
@@ -419,7 +460,7 @@
         "dependencies": {
           "SkiaSharp": {
             "target": "Package",
-            "version": "[1.68.1.1, )"
+            "version": "[1.68.2.1, )"
           },
           "ZXing.Net": {
             "target": "Package",

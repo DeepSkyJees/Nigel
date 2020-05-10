@@ -4,11 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageProjectUrl>https://github.com/NigelYu/Nigel/tree/master/Source/Nigel.QrCode</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.1.0</Version>
+    <Version>3.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="1.68.1.1" />
+    <PackageReference Include="SkiaSharp" Version="1.68.2.1" />
     <PackageReference Include="ZXing.Net" Version="0.16.5" />
   </ItemGroup>
 

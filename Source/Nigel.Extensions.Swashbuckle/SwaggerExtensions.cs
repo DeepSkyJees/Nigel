@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Swashbuckle.AspNetCore.SwaggerUI;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -16,14 +17,29 @@ namespace Nigel.Extensions.Swashbuckle
         {
             c.SwaggerDoc(options.Name, new OpenApiInfo { Title = options.Title, Version = options.Version });
             if (options.IncludeSecurity)
+            {
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description =
-                        "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                          "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.ApiKey
+                });//Json Token认证方式，此方式为全局添加
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    { 
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference(){
+                                Id = "Bearer",
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        }, Array.Empty<string>() 
+                    }
                 });
+            }
+
 
             var xmlFiles = Directory.GetFiles(AppContext.BaseDirectory, "*.xml");
             for (int i = 0; i < xmlFiles.Length; i++)
