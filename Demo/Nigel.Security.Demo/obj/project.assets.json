@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net6.0": {
       "Microsoft.AspNetCore.Http.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -167,9 +167,9 @@
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         }
       },
-      "Nigel.Basic/5.0.1": {
+      "Nigel.Basic/6.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Newtonsoft.Json": "13.0.1",
@@ -431,15 +431,15 @@
         "version.txt"
       ]
     },
-    "Nigel.Basic/5.0.1": {
+    "Nigel.Basic/6.0.0": {
       "type": "project",
       "path": "../../Source/Nigel.Basic/Nigel.Basic.csproj",
       "msbuildProject": "../../Source/Nigel.Basic/Nigel.Basic.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "Nigel.Basic >= 5.0.1",
+    "net6.0": [
+      "Nigel.Basic >= 6.0.0",
       "Nigel.Security >= 3.1.0"
     ]
   },
@@ -464,7 +464,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -472,8 +472,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
             "E:\\GitHub\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj": {
               "projectPath": "E:\\GitHub\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj"
@@ -488,8 +488,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Nigel.Security": {
             "target": "Package",

@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net6.0": {
       "SkiaSharp/2.80.3": {
         "type": "package",
         "dependencies": {
@@ -50,9 +50,9 @@
           "lib/netcoreapp3.1/zxing.dll": {}
         }
       },
-      "Nigel.QrCode/5.0.0": {
+      "Nigel.QrCode/6.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "SkiaSharp": "2.80.3",
           "ZXing.Net": "0.16.6"
@@ -248,15 +248,15 @@
         "zxing.net.nuspec"
       ]
     },
-    "Nigel.QrCode/5.0.0": {
+    "Nigel.QrCode/6.0.0": {
       "type": "project",
       "path": "../../Source/Nigel.QrCode/Nigel.QrCode.csproj",
       "msbuildProject": "../../Source/Nigel.QrCode/Nigel.QrCode.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "Nigel.QrCode >= 5.0.0"
+    "net6.0": [
+      "Nigel.QrCode >= 6.0.0"
     ]
   },
   "packageFolders": {
@@ -280,7 +280,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -288,8 +288,8 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
             "E:\\GitHub\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
               "projectPath": "E:\\GitHub\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
@@ -304,8 +304,8 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "imports": [
           "net461",
           "net462",
