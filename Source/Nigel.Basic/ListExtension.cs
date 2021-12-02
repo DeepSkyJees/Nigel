@@ -107,5 +107,14 @@ namespace Nigel.Basic
 
             return intersectResult;
         }
+
+        public static IEnumerable<TSource> ToNotNull<TSource>(this IEnumerable<TSource> source)
+        {
+            if (source == null)
+            {
+                source = new List<TSource>();
+            }
+            return source;
+        }
     }
 }

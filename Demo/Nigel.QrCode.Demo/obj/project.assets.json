@@ -1,32 +1,8 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "Microsoft.NETCore.Platforms/1.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        }
-      },
-      "NETStandard.Library/2.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0"
-        },
-        "compile": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "runtime": {
-          "lib/netstandard1.0/_._": {}
-        },
-        "build": {
-          "build/netstandard2.0/_._": {}
-        }
-      },
-      "SkiaSharp/1.68.2.1": {
+    "net5.0": {
+      "SkiaSharp/2.80.3": {
         "type": "package",
         "dependencies": {
           "System.Memory": "4.5.3"
@@ -42,13 +18,9 @@
             "assetType": "native",
             "rid": "osx"
           },
-          "runtimes/tizen-armel/native/libSkiaSharp.so": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
             "assetType": "native",
-            "rid": "tizen-armel"
-          },
-          "runtimes/tizen-x86/native/libSkiaSharp.so": {
-            "assetType": "native",
-            "rid": "tizen-x86"
+            "rid": "win-arm64"
           },
           "runtimes/win-x64/native/libSkiaSharp.dll": {
             "assetType": "native",
@@ -69,24 +41,21 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "ZXing.Net/0.16.5": {
+      "ZXing.Net/0.16.6": {
         "type": "package",
-        "dependencies": {
-          "NETStandard.Library": "2.0.0"
-        },
         "compile": {
-          "lib/netcoreapp3.0/zxing.dll": {}
+          "lib/netcoreapp3.1/zxing.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.0/zxing.dll": {}
+          "lib/netcoreapp3.1/zxing.dll": {}
         }
       },
-      "Nigel.QrCode/3.1.1": {
+      "Nigel.QrCode/5.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "SkiaSharp": "1.68.2.1",
-          "ZXing.Net": "0.16.5"
+          "SkiaSharp": "2.80.3",
+          "ZXing.Net": "0.16.6"
         },
         "compile": {
           "bin/placeholder/Nigel.QrCode.dll": {}
@@ -98,168 +67,50 @@
     }
   },
   "libraries": {
-    "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "O2ojf4CHYv3x9aUseLFZe90GfbgI7ei3rVfPF0SpUYUZvc6Jd0yO3kAS5s1Lt+Qxp9kJbku7DZ6tvhgCS9mu8w==",
+    "SkiaSharp/2.80.3": {
+      "sha512": "qX6tGNP3+MXNYe2pKm0PCRiJ/cx+LTeLaggwZifB7sUMXhECfKKKHJq45VqZKt37xQegnCCdf1jHXwmHeJQs5Q==",
       "type": "package",
-      "path": "microsoft.netcore.platforms/1.1.0",
-      "files": [
-        ".nupkg.metadata",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/netstandard1.0/_._",
-        "microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-        "microsoft.netcore.platforms.nuspec",
-        "runtime.json"
-      ]
-    },
-    "NETStandard.Library/2.0.0": {
-      "sha512": "49ZAcrnNn56GIJwGoiaI7NpwcEJ8mjUyfSqVYIJMDhOBzPe8HSHS74swF2H0v8fzj7pxLfcYjS9P5PdIqsTQxw==",
-      "type": "package",
-      "path": "netstandard.library/2.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "build/NETStandard.Library.targets",
-        "build/netstandard2.0/NETStandard.Library.targets",
-        "build/netstandard2.0/ref/Microsoft.Win32.Primitives.dll",
-        "build/netstandard2.0/ref/System.AppContext.dll",
-        "build/netstandard2.0/ref/System.Collections.Concurrent.dll",
-        "build/netstandard2.0/ref/System.Collections.NonGeneric.dll",
-        "build/netstandard2.0/ref/System.Collections.Specialized.dll",
-        "build/netstandard2.0/ref/System.Collections.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.Composition.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.EventBasedAsync.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.Primitives.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.TypeConverter.dll",
-        "build/netstandard2.0/ref/System.ComponentModel.dll",
-        "build/netstandard2.0/ref/System.Console.dll",
-        "build/netstandard2.0/ref/System.Core.dll",
-        "build/netstandard2.0/ref/System.Data.Common.dll",
-        "build/netstandard2.0/ref/System.Data.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Contracts.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Debug.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.FileVersionInfo.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Process.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.StackTrace.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.TextWriterTraceListener.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Tools.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.TraceSource.dll",
-        "build/netstandard2.0/ref/System.Diagnostics.Tracing.dll",
-        "build/netstandard2.0/ref/System.Drawing.Primitives.dll",
-        "build/netstandard2.0/ref/System.Drawing.dll",
-        "build/netstandard2.0/ref/System.Dynamic.Runtime.dll",
-        "build/netstandard2.0/ref/System.Globalization.Calendars.dll",
-        "build/netstandard2.0/ref/System.Globalization.Extensions.dll",
-        "build/netstandard2.0/ref/System.Globalization.dll",
-        "build/netstandard2.0/ref/System.IO.Compression.FileSystem.dll",
-        "build/netstandard2.0/ref/System.IO.Compression.ZipFile.dll",
-        "build/netstandard2.0/ref/System.IO.Compression.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.DriveInfo.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.Primitives.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.Watcher.dll",
-        "build/netstandard2.0/ref/System.IO.FileSystem.dll",
-        "build/netstandard2.0/ref/System.IO.IsolatedStorage.dll",
-        "build/netstandard2.0/ref/System.IO.MemoryMappedFiles.dll",
-        "build/netstandard2.0/ref/System.IO.Pipes.dll",
-        "build/netstandard2.0/ref/System.IO.UnmanagedMemoryStream.dll",
-        "build/netstandard2.0/ref/System.IO.dll",
-        "build/netstandard2.0/ref/System.Linq.Expressions.dll",
-        "build/netstandard2.0/ref/System.Linq.Parallel.dll",
-        "build/netstandard2.0/ref/System.Linq.Queryable.dll",
-        "build/netstandard2.0/ref/System.Linq.dll",
-        "build/netstandard2.0/ref/System.Net.Http.dll",
-        "build/netstandard2.0/ref/System.Net.NameResolution.dll",
-        "build/netstandard2.0/ref/System.Net.NetworkInformation.dll",
-        "build/netstandard2.0/ref/System.Net.Ping.dll",
-        "build/netstandard2.0/ref/System.Net.Primitives.dll",
-        "build/netstandard2.0/ref/System.Net.Requests.dll",
-        "build/netstandard2.0/ref/System.Net.Security.dll",
-        "build/netstandard2.0/ref/System.Net.Sockets.dll",
-        "build/netstandard2.0/ref/System.Net.WebHeaderCollection.dll",
-        "build/netstandard2.0/ref/System.Net.WebSockets.Client.dll",
-        "build/netstandard2.0/ref/System.Net.WebSockets.dll",
-        "build/netstandard2.0/ref/System.Net.dll",
-        "build/netstandard2.0/ref/System.Numerics.dll",
-        "build/netstandard2.0/ref/System.ObjectModel.dll",
-        "build/netstandard2.0/ref/System.Reflection.Extensions.dll",
-        "build/netstandard2.0/ref/System.Reflection.Primitives.dll",
-        "build/netstandard2.0/ref/System.Reflection.dll",
-        "build/netstandard2.0/ref/System.Resources.Reader.dll",
-        "build/netstandard2.0/ref/System.Resources.ResourceManager.dll",
-        "build/netstandard2.0/ref/System.Resources.Writer.dll",
-        "build/netstandard2.0/ref/System.Runtime.CompilerServices.VisualC.dll",
-        "build/netstandard2.0/ref/System.Runtime.Extensions.dll",
-        "build/netstandard2.0/ref/System.Runtime.Handles.dll",
-        "build/netstandard2.0/ref/System.Runtime.InteropServices.RuntimeInformation.dll",
-        "build/netstandard2.0/ref/System.Runtime.InteropServices.dll",
-        "build/netstandard2.0/ref/System.Runtime.Numerics.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Formatters.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Json.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Primitives.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.Xml.dll",
-        "build/netstandard2.0/ref/System.Runtime.Serialization.dll",
-        "build/netstandard2.0/ref/System.Runtime.dll",
-        "build/netstandard2.0/ref/System.Security.Claims.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Algorithms.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Csp.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Encoding.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.Primitives.dll",
-        "build/netstandard2.0/ref/System.Security.Cryptography.X509Certificates.dll",
-        "build/netstandard2.0/ref/System.Security.Principal.dll",
-        "build/netstandard2.0/ref/System.Security.SecureString.dll",
-        "build/netstandard2.0/ref/System.ServiceModel.Web.dll",
-        "build/netstandard2.0/ref/System.Text.Encoding.Extensions.dll",
-        "build/netstandard2.0/ref/System.Text.Encoding.dll",
-        "build/netstandard2.0/ref/System.Text.RegularExpressions.dll",
-        "build/netstandard2.0/ref/System.Threading.Overlapped.dll",
-        "build/netstandard2.0/ref/System.Threading.Tasks.Parallel.dll",
-        "build/netstandard2.0/ref/System.Threading.Tasks.dll",
-        "build/netstandard2.0/ref/System.Threading.Thread.dll",
-        "build/netstandard2.0/ref/System.Threading.ThreadPool.dll",
-        "build/netstandard2.0/ref/System.Threading.Timer.dll",
-        "build/netstandard2.0/ref/System.Threading.dll",
-        "build/netstandard2.0/ref/System.Transactions.dll",
-        "build/netstandard2.0/ref/System.ValueTuple.dll",
-        "build/netstandard2.0/ref/System.Web.dll",
-        "build/netstandard2.0/ref/System.Windows.dll",
-        "build/netstandard2.0/ref/System.Xml.Linq.dll",
-        "build/netstandard2.0/ref/System.Xml.ReaderWriter.dll",
-        "build/netstandard2.0/ref/System.Xml.Serialization.dll",
-        "build/netstandard2.0/ref/System.Xml.XDocument.dll",
-        "build/netstandard2.0/ref/System.Xml.XPath.XDocument.dll",
-        "build/netstandard2.0/ref/System.Xml.XPath.dll",
-        "build/netstandard2.0/ref/System.Xml.XmlDocument.dll",
-        "build/netstandard2.0/ref/System.Xml.XmlSerializer.dll",
-        "build/netstandard2.0/ref/System.Xml.dll",
-        "build/netstandard2.0/ref/System.dll",
-        "build/netstandard2.0/ref/mscorlib.dll",
-        "build/netstandard2.0/ref/netstandard.dll",
-        "build/netstandard2.0/ref/netstandard.xml",
-        "lib/netstandard1.0/_._",
-        "netstandard.library.2.0.0.nupkg.sha512",
-        "netstandard.library.nuspec"
-      ]
-    },
-    "SkiaSharp/1.68.2.1": {
-      "sha512": "ecEdDOeukBHW4bjvk6MZrGIAh3TyPyY1ImBKobuPs7PukKKkkZtiPxe35u2UXO9E68ulX4iMTNj/PmEaawPsRQ==",
-      "type": "package",
-      "path": "skiasharp/1.68.2.1",
+      "path": "skiasharp/2.80.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.txt",
         "THIRD-PARTY-NOTICES.txt",
-        "build/net45/SkiaSharp.targets",
+        "build/monoandroid1.0/SkiaSharp.targets",
+        "build/monoandroid1.0/arm/libSkiaSharp.so",
+        "build/monoandroid1.0/arm64/libSkiaSharp.so",
+        "build/monoandroid1.0/x64/libSkiaSharp.so",
+        "build/monoandroid1.0/x86/libSkiaSharp.so",
         "build/net462/SkiaSharp.targets",
         "build/tizen40/SkiaSharp.targets",
-        "buildTransitive/net45/SkiaSharp.targets",
+        "build/tizen40/arm/libSkiaSharp.so",
+        "build/tizen40/x86/libSkiaSharp.so",
+        "build/xamarinios1.0/SkiaSharp.targets",
+        "build/xamarinios1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinios1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinios1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinios1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinmac2.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/SkiaSharp.targets",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarintvos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarintvos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarintvos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "build/xamarinwatchos1.0/SkiaSharp.targets",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Info.plist",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/Modules/module.modulemap",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/_CodeSignature/CodeResources",
+        "build/xamarinwatchos1.0/libSkiaSharp.framework/libSkiaSharp",
+        "buildTransitive/monoandroid1.0/SkiaSharp.targets",
         "buildTransitive/net462/SkiaSharp.targets",
+        "buildTransitive/tizen40/SkiaSharp.targets",
+        "buildTransitive/xamarinios1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinmac2.0/SkiaSharp.targets",
+        "buildTransitive/xamarintvos1.0/SkiaSharp.targets",
+        "buildTransitive/xamarinwatchos1.0/SkiaSharp.targets",
+        "interactive-extensions/dotnet/SkiaSharp.DotNet.Interactive.dll",
         "lib/monoandroid1.0/SkiaSharp.dll",
         "lib/monoandroid1.0/SkiaSharp.xml",
-        "lib/net45/SkiaSharp.dll",
-        "lib/net45/SkiaSharp.xml",
         "lib/net462/SkiaSharp.dll",
         "lib/net462/SkiaSharp.xml",
         "lib/netstandard1.3/SkiaSharp.dll",
@@ -281,22 +132,23 @@
         "lib/xamarinwatchos1.0/SkiaSharp.dll",
         "lib/xamarinwatchos1.0/SkiaSharp.xml",
         "runtimes/osx/native/libSkiaSharp.dylib",
-        "runtimes/tizen-armel/native/libSkiaSharp.so",
-        "runtimes/tizen-x86/native/libSkiaSharp.so",
+        "runtimes/win-arm64/native/libSkiaSharp.dll",
         "runtimes/win-x64/native/libSkiaSharp.dll",
         "runtimes/win-x86/native/libSkiaSharp.dll",
         "runtimes/win10-arm/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-arm/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-arm/nativeassets/uap10.0/libSkiaSharp.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libEGL.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libGLESv2.dll",
+        "runtimes/win10-arm64/nativeassets/uap10.0/libSkiaSharp.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-x64/nativeassets/uap10.0/libSkiaSharp.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libEGL.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libGLESv2.dll",
         "runtimes/win10-x86/nativeassets/uap10.0/libSkiaSharp.dll",
-        "skiasharp.1.68.2.1.nupkg.sha512",
-        "skiasharp.nuspec",
-        "xamarin.interactive/SkiaSharp.Workbooks.dll"
+        "skiasharp.2.80.3.nupkg.sha512",
+        "skiasharp.nuspec"
       ]
     },
     "System.Memory/4.5.3": {
@@ -320,153 +172,127 @@
         "version.txt"
       ]
     },
-    "ZXing.Net/0.16.5": {
-      "sha512": "FYZht7J1G8U3l7muiXl+OiBvJ7PkvsQKDgOhqUZe7/Sps7ys+ICWwLoYNygEOLPR476x8tJDB2we8V0a6bbz8A==",
+    "ZXing.Net/0.16.6": {
+      "sha512": "0+6EcJ7Ve1BocwqvqpAmgMa7xF3wxqROcM3KvAE6WGNIqXLA5YEziLjRX+kKYVrcttlFRz1IaoRSzt/o6Ttviw==",
       "type": "package",
-      "path": "zxing.net/0.16.5",
+      "path": "zxing.net/0.16.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/MonoAndroid/zxing.monoandroid.dll",
-        "lib/MonoAndroid/zxing.monoandroid.pdb",
-        "lib/MonoAndroid/zxing.monoandroid.xml",
         "lib/native/zxing.XML",
-        "lib/native/zxing.pdb",
         "lib/native/zxing.pri",
         "lib/native/zxing.winmd",
         "lib/net20-cf/zxing.ce2.0.dll",
-        "lib/net20-cf/zxing.ce2.0.pdb",
         "lib/net20-cf/zxing.ce2.0.xml",
         "lib/net20/zxing.XML",
         "lib/net20/zxing.dll",
-        "lib/net20/zxing.pdb",
         "lib/net35-cf/zxing.ce3.5.dll",
-        "lib/net35-cf/zxing.ce3.5.pdb",
         "lib/net35-cf/zxing.ce3.5.xml",
         "lib/net35/zxing.XML",
         "lib/net35/zxing.dll",
-        "lib/net35/zxing.pdb",
         "lib/net40/zxing.XML",
         "lib/net40/zxing.dll",
-        "lib/net40/zxing.pdb",
         "lib/net40/zxing.presentation.XML",
         "lib/net40/zxing.presentation.dll",
-        "lib/net40/zxing.presentation.pdb",
         "lib/net45/zxing.XML",
         "lib/net45/zxing.dll",
-        "lib/net45/zxing.pdb",
         "lib/net45/zxing.presentation.XML",
         "lib/net45/zxing.presentation.dll",
-        "lib/net45/zxing.presentation.pdb",
         "lib/net461/zxing.XML",
         "lib/net461/zxing.dll",
-        "lib/net461/zxing.pdb",
         "lib/net461/zxing.presentation.XML",
         "lib/net461/zxing.presentation.dll",
-        "lib/net461/zxing.presentation.pdb",
         "lib/net47/zxing.XML",
         "lib/net47/zxing.dll",
-        "lib/net47/zxing.pdb",
         "lib/net47/zxing.presentation.XML",
         "lib/net47/zxing.presentation.dll",
-        "lib/net47/zxing.presentation.pdb",
         "lib/net48/zxing.XML",
         "lib/net48/zxing.dll",
-        "lib/net48/zxing.pdb",
         "lib/net48/zxing.presentation.XML",
         "lib/net48/zxing.presentation.dll",
-        "lib/net48/zxing.presentation.pdb",
         "lib/netcoreapp3.0/zxing.dll",
-        "lib/netcoreapp3.0/zxing.pdb",
         "lib/netcoreapp3.0/zxing.xml",
+        "lib/netcoreapp3.1/zxing.dll",
+        "lib/netcoreapp3.1/zxing.xml",
         "lib/netstandard1.0/zxing.dll",
-        "lib/netstandard1.0/zxing.pdb",
         "lib/netstandard1.0/zxing.xml",
         "lib/netstandard1.1/zxing.dll",
-        "lib/netstandard1.1/zxing.pdb",
         "lib/netstandard1.1/zxing.xml",
         "lib/netstandard1.3/zxing.dll",
-        "lib/netstandard1.3/zxing.pdb",
         "lib/netstandard1.3/zxing.xml",
         "lib/netstandard2.0/zxing.dll",
-        "lib/netstandard2.0/zxing.pdb",
         "lib/netstandard2.0/zxing.xml",
+        "lib/netstandard2.1/zxing.dll",
+        "lib/netstandard2.1/zxing.xml",
         "lib/portable-win+net40+sl4+sl5+wp7+wp71+wp8/zxing.portable.XML",
         "lib/portable-win+net40+sl4+sl5+wp7+wp71+wp8/zxing.portable.dll",
-        "lib/portable-win+net40+sl4+sl5+wp7+wp71+wp8/zxing.portable.pdb",
         "lib/sl3-wp/zxing.wp7.0.XML",
         "lib/sl3-wp/zxing.wp7.0.dll",
-        "lib/sl3-wp/zxing.wp7.0.pdb",
         "lib/sl4-wp71/zxing.wp7.1.XML",
         "lib/sl4-wp71/zxing.wp7.1.dll",
-        "lib/sl4-wp71/zxing.wp7.1.pdb",
         "lib/sl4/zxing.sl4.XML",
         "lib/sl4/zxing.sl4.dll",
-        "lib/sl4/zxing.sl4.pdb",
         "lib/sl5/zxing.sl5.XML",
         "lib/sl5/zxing.sl5.dll",
-        "lib/sl5/zxing.sl5.pdb",
         "lib/uap10/zxing.dll",
-        "lib/uap10/zxing.pdb",
         "lib/uap10/zxing.pri",
         "lib/uap10/zxing.xml",
         "lib/windows8-managed/zxing.winrt.XML",
         "lib/windows8-managed/zxing.winrt.dll",
-        "lib/windows8-managed/zxing.winrt.pdb",
         "lib/windows8/zxing.XML",
-        "lib/windows8/zxing.pdb",
         "lib/windows8/zxing.pri",
         "lib/windows8/zxing.winmd",
         "lib/wp8/zxing.wp8.0.XML",
         "lib/wp8/zxing.wp8.0.dll",
-        "lib/wp8/zxing.wp8.0.pdb",
-        "zxing.net.0.16.5.nupkg.sha512",
+        "zxing.net.0.16.6.nupkg.sha512",
         "zxing.net.nuspec"
       ]
     },
-    "Nigel.QrCode/3.1.1": {
+    "Nigel.QrCode/5.0.0": {
       "type": "project",
       "path": "../../Source/Nigel.QrCode/Nigel.QrCode.csproj",
       "msbuildProject": "../../Source/Nigel.QrCode/Nigel.QrCode.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "Nigel.QrCode >= 3.1.1"
+    "net5.0": [
+      "Nigel.QrCode >= 5.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nigel-yu\\.nuget\\packages\\": {},
+    "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
+      "projectUniqueName": "E:\\GitHub\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
       "projectName": "Nigel.QrCode.Demo",
-      "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
-      "packagesPath": "C:\\Users\\nigel-yu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Demo\\Nigel.QrCode.Demo\\obj\\",
+      "projectPath": "E:\\GitHub\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
+      "packagesPath": "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\",
+      "outputPath": "E:\\GitHub\\Nigel\\Demo\\Nigel.QrCode.Demo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nigel-yu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yuliang.HUAGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://192.168.1.108:10081/repository/nuget-group": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
-              "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
+            "E:\\GitHub\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
+              "projectPath": "E:\\GitHub\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
             }
           }
         }
@@ -478,7 +304,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
+      "net5.0": {
+        "targetAlias": "net5.0",
         "imports": [
           "net461",
           "net462",
@@ -494,7 +321,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
