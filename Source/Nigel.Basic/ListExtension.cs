@@ -37,7 +37,6 @@ namespace Nigel.Basic
             return intersectResult;
         }
 
-
         /// <summary>
         ///     Intersects the specified t source list.
         /// </summary>
@@ -70,7 +69,6 @@ namespace Nigel.Basic
 
             return intersectResult;
         }
-
 
         /// <summary>
         ///     Excepts the specified t source list.

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using SkiaSharp;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using SkiaSharp;
 using ZXing;
 using ZXing.Common;
 using ZXing.QrCode;
@@ -36,33 +36,43 @@ namespace Nigel.QrCode
                 case "PNG":
                     format = SKEncodedImageFormat.Png;
                     break;
+
                 case "GIF":
                     format = SKEncodedImageFormat.Gif;
                     break;
+
                 case "BMP":
                     format = SKEncodedImageFormat.Bmp;
                     break;
+
                 case "ICON":
                     format = SKEncodedImageFormat.Ico;
                     break;
+
                 case "ICO":
                     format = SKEncodedImageFormat.Ico;
                     break;
+
                 case "DNG":
                     format = SKEncodedImageFormat.Dng;
                     break;
+
                 case "WBMP":
                     format = SKEncodedImageFormat.Wbmp;
                     break;
+
                 case "WEBP":
                     format = SKEncodedImageFormat.Webp;
                     break;
+
                 case "PKM":
                     format = SKEncodedImageFormat.Pkm;
                     break;
+
                 case "KTX":
                     format = SKEncodedImageFormat.Ktx;
                     break;
+
                 case "ASTC":
                     format = SKEncodedImageFormat.Astc;
                     break;
@@ -182,24 +192,24 @@ namespace Nigel.QrCode
             double ratio = 1;
             if (cutW > oW)
             {
-                ratio = oW / (double) cutW;
+                ratio = oW / (double)cutW;
                 cutH = Convert.ToInt32(cutH * ratio);
                 cutW = oW;
                 if (cutH > oH)
                 {
-                    ratio = oH / (double) cutH;
+                    ratio = oH / (double)cutH;
                     cutW = Convert.ToInt32(cutW * ratio);
                     cutH = oH;
                 }
             }
             else if (cutW < oW)
             {
-                ratio = oW / (double) cutW;
+                ratio = oW / (double)cutW;
                 cutH = Convert.ToInt32(Convert.ToDouble(cutH) * ratio);
                 cutW = oW;
                 if (cutH > oH)
                 {
-                    ratio = oH / (double) cutH;
+                    ratio = oH / (double)cutH;
                     cutW = Convert.ToInt32(cutW * ratio);
                     cutH = oH;
                 }
@@ -208,7 +218,7 @@ namespace Nigel.QrCode
             {
                 if (cutH > oH)
                 {
-                    ratio = oH / (double) cutH;
+                    ratio = oH / (double)cutH;
                     cutW = Convert.ToInt32(cutW * ratio);
                     cutH = oH;
                 }
@@ -228,13 +238,13 @@ namespace Nigel.QrCode
                 sKBitmap,
                 new SKRect
                 {
-                    Location = new SKPoint {X = startX, Y = startY},
-                    Size = new SKSize {Height = cutH, Width = cutW}
+                    Location = new SKPoint { X = startX, Y = startY },
+                    Size = new SKSize { Height = cutH, Width = cutW }
                 },
                 new SKRect
                 {
-                    Location = new SKPoint {X = 0, Y = 0},
-                    Size = new SKSize {Height = saveHeight, Width = saveWidth}
+                    Location = new SKPoint { X = 0, Y = 0 },
+                    Size = new SKSize { Height = saveHeight, Width = saveWidth }
                 }, sKPaint);
             sKCanvas.Dispose();
             var sKImage2 = SKImage.FromBitmap(sKBitmap2);
@@ -306,34 +316,33 @@ namespace Nigel.QrCode
             {
                 if (nW < maxWidth)
                 {
-                    var r = maxWidth / (double) nW;
+                    var r = maxWidth / (double)nW;
                     nW = maxWidth;
-                    nH = (int) Math.Floor(nH * r);
+                    nH = (int)Math.Floor(nH * r);
                 }
 
                 if (nH < maxHeight)
                 {
-                    var r = maxHeight / (double) nH;
+                    var r = maxHeight / (double)nH;
                     nH = maxHeight;
-                    nW = (int) Math.Floor(nW * r);
+                    nW = (int)Math.Floor(nW * r);
                 }
             }
 
             //限制超出(缩小)
             if (nW > maxWidth)
             {
-                var r = maxWidth / (double) nW;
+                var r = maxWidth / (double)nW;
                 nW = maxWidth;
-                nH = (int) Math.Floor(nH * r);
+                nH = (int)Math.Floor(nH * r);
             }
 
             if (nH > maxHeight)
             {
-                var r = maxHeight / (double) nH;
+                var r = maxHeight / (double)nH;
                 nH = maxHeight;
-                nW = (int) Math.Floor(nW * r);
+                nW = (int)Math.Floor(nW * r);
             }
-
 
             var sKBitmap2 = new SKBitmap(nW, nH);
             var sKCanvas = new SKCanvas(sKBitmap2);
@@ -346,13 +355,13 @@ namespace Nigel.QrCode
                 sKBitmap,
                 new SKRect
                 {
-                    Location = new SKPoint {X = 0, Y = 0},
-                    Size = new SKSize {Height = oH, Width = oW}
+                    Location = new SKPoint { X = 0, Y = 0 },
+                    Size = new SKSize { Height = oH, Width = oW }
                 },
                 new SKRect
                 {
-                    Location = new SKPoint {X = 0, Y = 0},
-                    Size = new SKSize {Height = nH, Width = nW}
+                    Location = new SKPoint { X = 0, Y = 0 },
+                    Size = new SKSize { Height = nH, Width = nW }
                 }, sKPaint);
             sKCanvas.Dispose();
             var sKImage2 = SKImage.FromBitmap(sKBitmap2);
@@ -428,11 +437,11 @@ namespace Nigel.QrCode
 
                 if (nW > 0 && nH > 0)
                 {
-                    ratio = (double) nW / oW;
+                    ratio = (double)nW / oW;
                     nH = Convert.ToInt32(oH * ratio);
                     if (maxHeight < nH)
                     {
-                        ratio = (double) maxHeight / nH;
+                        ratio = (double)maxHeight / nH;
                         nW = Convert.ToInt32(nW * ratio);
                         nH = maxHeight;
                     }
@@ -446,13 +455,13 @@ namespace Nigel.QrCode
 
                 if (nW < 1)
                 {
-                    ratio = (double) nH / oH;
+                    ratio = (double)nH / oH;
                     nW = Convert.ToInt32(oW * ratio);
                 }
 
                 if (nH < 1)
                 {
-                    ratio = (double) nW / oW;
+                    ratio = (double)nW / oW;
                     nH = Convert.ToInt32(oH * ratio);
                 }
 
@@ -467,13 +476,13 @@ namespace Nigel.QrCode
                     sKBitmap,
                     new SKRect
                     {
-                        Location = new SKPoint {X = 0, Y = 0},
-                        Size = new SKSize {Height = oH, Width = oW}
+                        Location = new SKPoint { X = 0, Y = 0 },
+                        Size = new SKSize { Height = oH, Width = oW }
                     },
                     new SKRect
                     {
-                        Location = new SKPoint {X = 0, Y = 0},
-                        Size = new SKSize {Height = nH, Width = nW}
+                        Location = new SKPoint { X = 0, Y = 0 },
+                        Size = new SKSize { Height = nH, Width = nW }
                     }, sKPaint);
                 sKCanvas.Dispose();
                 sKBitmap.Dispose();
@@ -561,27 +570,27 @@ namespace Nigel.QrCode
             sKCanvas.Clear(sKColorWihte);
             var blackStartPointIsNotWriteDown = true;
             for (var y = 0; y < h; y++)
-            for (var x = 0; x < w; x++)
-            {
-                var flag = bitMatrix[x, y];
-                if (flag)
+                for (var x = 0; x < w; x++)
                 {
-                    if (blackStartPointIsNotWriteDown)
+                    var flag = bitMatrix[x, y];
+                    if (flag)
                     {
-                        blackStartPointX = x;
-                        blackStartPointY = y;
-                        blackStartPointIsNotWriteDown = false;
-                    }
+                        if (blackStartPointIsNotWriteDown)
+                        {
+                            blackStartPointX = x;
+                            blackStartPointY = y;
+                            blackStartPointIsNotWriteDown = false;
+                        }
 
-                    blackEndPointX = x;
-                    blackEndPointY = y;
-                    sKCanvas.DrawPoint(x, y, sKColorBlack);
+                        blackEndPointX = x;
+                        blackEndPointY = y;
+                        sKCanvas.DrawPoint(x, y, sKColorBlack);
+                    }
                 }
-            }
 
             sKCanvas.Dispose();
 
-            #endregion
+            #endregion --绘制二维码(同时获取真实的二维码区域起绘点和结束点的坐标)--
 
             var qrcodeRealWidth = blackEndPointX - blackStartPointX;
             var qrcodeRealHeight = blackEndPointY - blackStartPointY;
@@ -590,7 +599,7 @@ namespace Nigel.QrCode
 
             if (keepWhiteBorderPixelVal > -1) //指定了边框宽度
             {
-                var borderMaxWidth = (int) Math.Floor((double) qrcodeRealWidth / 10);
+                var borderMaxWidth = (int)Math.Floor((double)qrcodeRealWidth / 10);
                 if (keepWhiteBorderPixelVal > borderMaxWidth) keepWhiteBorderPixelVal = borderMaxWidth;
                 var nQrcodeRealWidth = width - keepWhiteBorderPixelVal - keepWhiteBorderPixelVal;
                 var nQrcodeRealHeight = height - keepWhiteBorderPixelVal - keepWhiteBorderPixelVal;
@@ -603,13 +612,13 @@ namespace Nigel.QrCode
                     sKBitmap,
                     new SKRect
                     {
-                        Location = new SKPoint {X = blackStartPointX, Y = blackStartPointY},
-                        Size = new SKSize {Height = qrcodeRealHeight, Width = qrcodeRealWidth}
+                        Location = new SKPoint { X = blackStartPointX, Y = blackStartPointY },
+                        Size = new SKSize { Height = qrcodeRealHeight, Width = qrcodeRealWidth }
                     },
                     new SKRect
                     {
-                        Location = new SKPoint {X = keepWhiteBorderPixelVal, Y = keepWhiteBorderPixelVal},
-                        Size = new SKSize {Width = nQrcodeRealWidth, Height = nQrcodeRealHeight}
+                        Location = new SKPoint { X = keepWhiteBorderPixelVal, Y = keepWhiteBorderPixelVal },
+                        Size = new SKSize { Width = nQrcodeRealWidth, Height = nQrcodeRealHeight }
                     });
 
                 blackStartPointX = keepWhiteBorderPixelVal;
@@ -622,7 +631,7 @@ namespace Nigel.QrCode
                 sKBitmap = sKBitmap2;
             }
 
-            #endregion
+            #endregion -- 处理白边 --
 
             #region -- 绘制LOGO --
 
@@ -636,28 +645,28 @@ namespace Nigel.QrCode
                         FilterQuality = SKFilterQuality.None,
                         IsAntialias = true
                     };
-                    var logoTargetMaxWidth = (int) Math.Floor((double) qrcodeRealWidth / 6);
-                    var logoTargetMaxHeight = (int) Math.Floor((double) qrcodeRealHeight / 6);
-                    var qrcodeCenterX = (int) Math.Floor((double) qrcodeRealWidth / 2);
-                    var qrcodeCenterY = (int) Math.Floor((double) qrcodeRealHeight / 2);
+                    var logoTargetMaxWidth = (int)Math.Floor((double)qrcodeRealWidth / 6);
+                    var logoTargetMaxHeight = (int)Math.Floor((double)qrcodeRealHeight / 6);
+                    var qrcodeCenterX = (int)Math.Floor((double)qrcodeRealWidth / 2);
+                    var qrcodeCenterY = (int)Math.Floor((double)qrcodeRealHeight / 2);
                     var logoResultWidth = sKBitmapLogo.Width;
                     var logoResultHeight = sKBitmapLogo.Height;
                     if (logoResultWidth > logoTargetMaxWidth)
                     {
-                        var r = (double) logoTargetMaxWidth / logoResultWidth;
+                        var r = (double)logoTargetMaxWidth / logoResultWidth;
                         logoResultWidth = logoTargetMaxWidth;
-                        logoResultHeight = (int) Math.Floor(logoResultHeight * r);
+                        logoResultHeight = (int)Math.Floor(logoResultHeight * r);
                     }
 
                     if (logoResultHeight > logoTargetMaxHeight)
                     {
-                        var r = (double) logoTargetMaxHeight / logoResultHeight;
+                        var r = (double)logoTargetMaxHeight / logoResultHeight;
                         logoResultHeight = logoTargetMaxHeight;
-                        logoResultWidth = (int) Math.Floor(logoResultWidth * r);
+                        logoResultWidth = (int)Math.Floor(logoResultWidth * r);
                     }
 
-                    var pointX = qrcodeCenterX - (int) Math.Floor((double) logoResultWidth / 2) + blackStartPointX;
-                    var pointY = qrcodeCenterY - (int) Math.Floor((double) logoResultHeight / 2) + blackStartPointY;
+                    var pointX = qrcodeCenterX - (int)Math.Floor((double)logoResultWidth / 2) + blackStartPointX;
+                    var pointY = qrcodeCenterY - (int)Math.Floor((double)logoResultHeight / 2) + blackStartPointY;
 
                     var sKCanvas3 = new SKCanvas(sKBitmap);
                     var sKPaint = new SKPaint
@@ -669,13 +678,13 @@ namespace Nigel.QrCode
                         sKBitmapLogo,
                         new SKRect
                         {
-                            Location = new SKPoint {X = 0, Y = 0},
-                            Size = new SKSize {Height = sKBitmapLogo.Height, Width = sKBitmapLogo.Width}
+                            Location = new SKPoint { X = 0, Y = 0 },
+                            Size = new SKSize { Height = sKBitmapLogo.Height, Width = sKBitmapLogo.Width }
                         },
                         new SKRect
                         {
-                            Location = new SKPoint {X = pointX, Y = pointY},
-                            Size = new SKSize {Height = logoResultHeight, Width = logoResultWidth}
+                            Location = new SKPoint { X = pointX, Y = pointY },
+                            Size = new SKSize { Height = logoResultHeight, Width = logoResultWidth }
                         }, sKPaint);
                     sKCanvas3.Dispose();
                     sKPaint.Dispose();
@@ -687,7 +696,7 @@ namespace Nigel.QrCode
                 }
             }
 
-            #endregion
+            #endregion -- 绘制LOGO --
 
             var sKImage = SKImage.FromBitmap(sKBitmap);
             sKBitmap.Dispose();
@@ -764,14 +773,14 @@ namespace Nigel.QrCode
             var bytes = new byte[ps * 3];
             var byteIndex = 0;
             for (var x = 0; x < w; x++)
-            for (var y = 0; y < h; y++)
-            {
-                var color = sKBitmap.GetPixel(x, y);
-                bytes[byteIndex + 0] = color.Red;
-                bytes[byteIndex + 1] = color.Green;
-                bytes[byteIndex + 2] = color.Blue;
-                byteIndex += 3;
-            }
+                for (var y = 0; y < h; y++)
+                {
+                    var color = sKBitmap.GetPixel(x, y);
+                    bytes[byteIndex + 0] = color.Red;
+                    bytes[byteIndex + 1] = color.Green;
+                    bytes[byteIndex + 2] = color.Blue;
+                    byteIndex += 3;
+                }
 
             sKBitmap.Dispose();
 
@@ -779,7 +788,7 @@ namespace Nigel.QrCode
             var rGbLuminanceSource = new RGBLuminanceSource(bytes, w, h);
             var hybridBinarizer = new HybridBinarizer(rGbLuminanceSource);
             var binaryBitmap = new BinaryBitmap(hybridBinarizer);
-            var hints = new Dictionary<DecodeHintType, object> {{DecodeHintType.CHARACTER_SET, "utf-8"}};
+            var hints = new Dictionary<DecodeHintType, object> { { DecodeHintType.CHARACTER_SET, "utf-8" } };
             var result = qRCodeReader.decode(binaryBitmap, hints);
 
             return result != null ? result.Text : "";

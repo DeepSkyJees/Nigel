@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Nigel.Basic.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Nigel.Basic
 {
@@ -30,6 +30,7 @@ namespace Nigel.Basic
 
             return false;
         }
+
         [Obsolete]
         public static bool IsNotNullOrEmpty(this string s)
         {
@@ -40,7 +41,6 @@ namespace Nigel.Basic
         {
             return !s.IsNoneValue();
         }
-
 
         public static DateTime ToDateTime(this string dateTimeString)
         {
@@ -97,7 +97,6 @@ namespace Nigel.Basic
             return new DateTime(year, month, day);
         }
 
-
         public static int ToInt(this string intString)
         {
             var isInt = int.TryParse(intString, out var intResult);
@@ -112,7 +111,6 @@ namespace Nigel.Basic
             throw new TypeConvertException("Type can not convert");
         }
 
-
         public static double ToDouble(this string doubleString)
         {
             var isDouble = double.TryParse(doubleString, out var doubleResult);
@@ -126,7 +124,6 @@ namespace Nigel.Basic
             if (isFloat) return floatResult;
             throw new TypeConvertException("Type can not convert");
         }
-
 
         /// <summary>
         ///     Formats the string.
@@ -151,7 +148,6 @@ namespace Nigel.Basic
             return obj;
         }
 
-
         /// <summary>
         ///     To the list.
         /// </summary>
@@ -163,7 +159,6 @@ namespace Nigel.Basic
             var stringList = commaSplitString.Split(splitChar).ToList();
             return stringList;
         }
-
 
         public static bool Contains(this String str, String substring,
                                    StringComparison comp)
@@ -177,7 +172,6 @@ namespace Nigel.Basic
 
             return str.IndexOf(substring, comp) >= 0;
         }
-
 
         public static bool Contains(this String str, String substring)
         {
@@ -205,7 +199,6 @@ namespace Nigel.Basic
         public static bool IsNotNullAll(this string strValue)
         {
             return !string.IsNullOrEmpty(strValue) && !string.IsNullOrWhiteSpace(strValue);
-
         }
     }
 }

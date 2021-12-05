@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nigel.Basic.Exceptions
 {
-    public class ConfigExceprion:Exception
+    public class ConfigExceprion : Exception
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="AppException"/> class.
         /// </summary>

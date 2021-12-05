@@ -11,7 +11,7 @@ namespace Nigel.Basic.Exceptions
         public TypeConvertException(string message)
         {
             Message = message;
-            Code = (int) ExceptionCode.ConvertTypeError;
+            Code = (int)ExceptionCode.ConvertTypeError;
         }
 
         public TypeConvertException(int code, string message)
@@ -19,7 +19,6 @@ namespace Nigel.Basic.Exceptions
             Message = message;
             Code = code;
         }
-
 
         /// <summary>
         ///     Gets a message that describes the current exception.

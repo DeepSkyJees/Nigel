@@ -189,7 +189,6 @@ namespace Nigel.Basic
         }
     }
 
-
     public struct EnumModel
     {
         public EnumModel(Enum um)
@@ -203,7 +202,6 @@ namespace Nigel.Basic
         public string name { get; set; }
         public string text { get; set; }
     }
-
 
     public struct EnumObject
     {

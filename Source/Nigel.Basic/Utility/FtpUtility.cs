@@ -83,7 +83,6 @@ namespace Nigel.Basic.Utility
             return true;
         }
 
-
         /// <summary>
         ///     Remotes the FTP dir exists.
         /// </summary>
@@ -113,7 +112,6 @@ namespace Nigel.Basic.Utility
                 throw e;
             }
         }
-
 
         /// <summary>
         ///     Uploads the FTP file.
@@ -182,7 +180,6 @@ namespace Nigel.Basic.Utility
             }
         }
 
-
         /// <summary>
         ///     Gets the FTP file name list.
         /// </summary>
@@ -238,7 +235,6 @@ namespace Nigel.Basic.Utility
             deleteFtpDirectoryResponse.Close();
         }
 
-
         /// <summary>
         ///     Creates the FTP directory.
         /// </summary>
@@ -258,7 +254,6 @@ namespace Nigel.Basic.Utility
                 ftpRequest.UseBinary = true;
                 ftpRequest.Method = WebRequestMethods.Ftp.MakeDirectory;
 
-
                 var makeDirectoryResponse = (FtpWebResponse)ftpRequest.GetResponse();
                 var ftpStream = makeDirectoryResponse.GetResponseStream();
                 ftpStream?.Close();
@@ -277,7 +272,6 @@ namespace Nigel.Basic.Utility
                 throw e;
             }
         }
-
 
         /// <summary>
         ///     Downloads the FTP file.

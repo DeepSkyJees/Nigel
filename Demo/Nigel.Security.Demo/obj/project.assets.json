@@ -188,7 +188,7 @@
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         }
       },
-      "Nigel.Basic/6.0.1": {
+      "Nigel.Basic/6.1.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -478,7 +478,7 @@
         "version.txt"
       ]
     },
-    "Nigel.Basic/6.0.1": {
+    "Nigel.Basic/6.1.0": {
       "type": "project",
       "path": "../../Source/Nigel.Basic/Nigel.Basic.csproj",
       "msbuildProject": "../../Source/Nigel.Basic/Nigel.Basic.csproj"
@@ -486,7 +486,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Nigel.Basic >= 6.0.1",
+      "Nigel.Basic >= 6.1.0",
       "Nigel.Security >= 3.1.0"
     ]
   },
