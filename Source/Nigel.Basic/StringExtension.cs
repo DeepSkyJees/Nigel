@@ -9,6 +9,7 @@ namespace Nigel.Basic
 {
     public static class StringExtension
     {
+        [Obsolete]
         public static bool IsNullOrEmpty(this string s)
         {
             if (string.IsNullOrWhiteSpace(s) || string.IsNullOrEmpty(s)) return true;
@@ -16,9 +17,28 @@ namespace Nigel.Basic
             return false;
         }
 
+        public static bool IsEmptyString(this string s)
+        {
+            if (string.IsNullOrEmpty(s)) return true;
+
+            return false;
+        }
+
+        public static bool IsNoneValue(this string s)
+        {
+            if (string.IsNullOrWhiteSpace(s) || string.IsNullOrEmpty(s)) return true;
+
+            return false;
+        }
+        [Obsolete]
         public static bool IsNotNullOrEmpty(this string s)
         {
             return !s.IsNullOrEmpty();
+        }
+
+        public static bool HasTrueValue(this string s)
+        {
+            return !s.IsNoneValue();
         }
 
 

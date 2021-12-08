@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <PackageProjectUrl>https://github.com/NigelYu/Nigel/tree/master/Source/Nigel.QrCode</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>3.1.1</Version>
+    <Version>5.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="1.68.2.1" />
-    <PackageReference Include="ZXing.Net" Version="0.16.5" />
+    <PackageReference Include="SkiaSharp" Version="2.80.3" />
+    <PackageReference Include="ZXing.Net" Version="0.16.6" />
   </ItemGroup>
 
 </Project>

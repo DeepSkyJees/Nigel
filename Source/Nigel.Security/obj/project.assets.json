@@ -1,17 +1,17 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
-      "NETCore.Encrypt/2.0.9": {
+    "net5.0": {
+      "NETCore.Encrypt/2.1.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
-          "lib/netstandard2.0/NETCore.Encrypt.dll": {}
+          "lib/netstandard2.1/NETCore.Encrypt.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/NETCore.Encrypt.dll": {}
+          "lib/netstandard2.1/NETCore.Encrypt.dll": {}
         }
       },
       "Newtonsoft.Json/12.0.1": {
@@ -26,15 +26,15 @@
     }
   },
   "libraries": {
-    "NETCore.Encrypt/2.0.9": {
-      "sha512": "XiltR4bpe2uD/JVzoIc1sLSvAo70NgQ5F+RjVK3xBMSykYiZxbvhc0ouhB6Jv6+swBbWgFZJKkiP5HsMkYKnOw==",
+    "NETCore.Encrypt/2.1.0": {
+      "sha512": "ympQvdmUOTEzV21FG3iU+UikClN4wCZ/CLjdxDBNfNn1Jr4Nr9yrPoYyCMNYU0KIgsGTnrcIA8m0sS+ocf2YdA==",
       "type": "package",
-      "path": "netcore.encrypt/2.0.9",
+      "path": "netcore.encrypt/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/NETCore.Encrypt.dll",
-        "netcore.encrypt.2.0.9.nupkg.sha512",
+        "lib/netstandard2.1/NETCore.Encrypt.dll",
+        "netcore.encrypt.2.1.0.nupkg.sha512",
         "netcore.encrypt.nuspec"
       ]
     },
@@ -79,39 +79,41 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
-      "NETCore.Encrypt >= 2.0.9"
+    "net5.0": [
+      "NETCore.Encrypt >= 2.1.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nigel-yu\\.nuget\\packages\\": {},
+    "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "3.1.1",
+    "version": "5.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Security\\Nigel.Security.csproj",
+      "projectUniqueName": "E:\\GitHub\\Nigel\\Source\\Nigel.Security\\Nigel.Security.csproj",
       "projectName": "Nigel.Security",
-      "projectPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Security\\Nigel.Security.csproj",
-      "packagesPath": "C:\\Users\\nigel-yu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nigel-yu\\Desktop\\Code\\Nigel\\Source\\Nigel.Security\\obj\\",
+      "projectPath": "E:\\GitHub\\Nigel\\Source\\Nigel.Security\\Nigel.Security.csproj",
+      "packagesPath": "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\",
+      "outputPath": "E:\\GitHub\\Nigel\\Source\\Nigel.Security\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nigel-yu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yuliang.HUAGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net5.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://192.168.1.108:10081/repository/nuget-group": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "projectReferences": {}
         }
       },
@@ -122,11 +124,12 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
+      "net5.0": {
+        "targetAlias": "net5.0",
         "dependencies": {
           "NETCore.Encrypt": {
             "target": "Package",
-            "version": "[2.0.9, )"
+            "version": "[2.1.0, )"
           }
         },
         "imports": [
@@ -144,7 +147,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
