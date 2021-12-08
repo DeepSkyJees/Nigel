@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Nigel.Basic.Exceptions;
@@ -112,7 +113,44 @@ namespace Nigel.Basic
             throw new TypeConvertException("Type can not convert");
         }
 
+        public static string ChangeStringDouble(this string param, int decimals)
+        {
+            try
+            {
+                if (param == null)
+                    return "";
+                var numString = string.Empty;
+                var charString = string.Empty;
+                foreach (var c in param)
+                    if (c >= 48 && c <= 57 || c == 46)
+                        numString += c;
+                    else
+                        charString += c;
 
+                var number = Math.Round(double.Parse(numString), decimals);
+                return number + charString;
+            }
+            catch (Exception e)
+            {
+                return param;
+            }
+        }
+
+        public static double ToDouble(this string param, int decimals)
+        {
+            if (param == null)
+                return 0;
+            var numString = string.Empty;
+            var charString = string.Empty;
+            foreach (var c in param)
+                if (c >= 48 && c <= 57 || c == 46)
+                    numString += c;
+                else
+                    charString += c;
+
+            var number = Math.Round(double.Parse(numString), decimals);
+            return number;
+        }
         public static double ToDouble(this string doubleString)
         {
             var isDouble = double.TryParse(doubleString, out var doubleResult);
@@ -206,6 +244,58 @@ namespace Nigel.Basic
         {
             return !string.IsNullOrEmpty(strValue) && !string.IsNullOrWhiteSpace(strValue);
 
+        }
+
+      
+
+        public static double GetNumber(this string param)
+        {
+            /**  \\d+\\.?\\d*
+            * \d 表示数字
+            * + 表示前面的数字有一个或多个（至少出现一次）
+            * \. 此处需要注意，. 表示任何原子，此处进行转义，表示单纯的 小数点
+            * ? 表示0个或1个
+            * * 表示0次或者多次
+            */
+            var r = new Regex("\\d+\\.?\\d*");
+            var ismatch = r.IsMatch(param);
+            if (ismatch)
+            {
+                var mc = r.Matches(param);
+                var result = mc[0].Value;
+                return Convert.ToDouble(result);
+            }
+
+            throw new Exception("未获取到数字类型");
+        }
+
+        public static string RemoveNumber(this string key)
+        {
+            return Regex.Replace(key, @"\d", "");
+        }
+
+        /// <summary>
+        /// 单词变成复数形式
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public static string ToPlural(this string word)
+        {
+            Regex plural1 = new Regex("(?<keep>[^aeiou])y$");
+            Regex plural2 = new Regex("(?<keep>[aeiou]y)$");
+            Regex plural3 = new Regex("(?<keep>[sxzh])$");
+            Regex plural4 = new Regex("(?<keep>[^sxzhy])$");
+
+            if (plural1.IsMatch(word))
+                return plural1.Replace(word, "${keep}ies");
+            if (plural2.IsMatch(word))
+                return plural2.Replace(word, "${keep}s");
+            if (plural3.IsMatch(word))
+                return plural3.Replace(word, "${keep}es");
+            if (plural4.IsMatch(word))
+                return plural4.Replace(word, "${keep}s");
+
+            return word;
         }
     }
 }
