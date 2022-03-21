@@ -188,7 +188,7 @@
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         }
       },
-      "Nigel.Basic/6.1.3": {
+      "Nigel.Basic/6.1.5": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -478,7 +478,7 @@
         "version.txt"
       ]
     },
-    "Nigel.Basic/6.1.3": {
+    "Nigel.Basic/6.1.5": {
       "type": "project",
       "path": "../../Source/Nigel.Basic/Nigel.Basic.csproj",
       "msbuildProject": "../../Source/Nigel.Basic/Nigel.Basic.csproj"
@@ -486,7 +486,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Nigel.Basic >= 6.1.3",
+      "Nigel.Basic >= 6.1.5",
       "Nigel.Security >= 3.1.0"
     ]
   },
@@ -559,7 +559,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

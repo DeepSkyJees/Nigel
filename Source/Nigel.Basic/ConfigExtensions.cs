@@ -22,6 +22,20 @@ namespace Nigel.Basic
             return envValue;
         }
 
+        public static string GetConnectionStringValue(this IConfiguration config, string name)
+        {
+            string envValue = Environment.GetEnvironmentVariable(name);
+            if (envValue.IsNoneValue())
+            {
+                envValue = config.GetConnectionString(name);
+                if (envValue.IsNoneValue())
+                {
+                    throw new ConfigExceprion("配置异常：{0}配置无效，请重新处理", name);
+                }
+            }
+            return envValue;
+        }
+
         public static Dictionary<string, string> GetEnvConfigListValue(this IConfiguration config, List<string> nameList)
         {
             Dictionary<string, string> configDic = new Dictionary<string, string>();

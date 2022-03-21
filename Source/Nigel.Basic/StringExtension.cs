@@ -298,7 +298,7 @@ namespace Nigel.Basic
         /// </summary>
         /// <param name="exp">输入的表达式字符串</param>
         /// <returns>返回计算值，为double类型</returns>
-        public static double Compute(string exp)
+        public static double Compute(this string exp)
         {
             if (!checkRules(exp))
             {
@@ -468,7 +468,7 @@ namespace Nigel.Basic
         /// </summary>
         /// <param name="expStrings">字符串数组（中缀表达式）</param>
         /// <returns>字符串数组（后缀表达式）</returns>
-        public static string[] toRPN(string[] expStrings)
+        private static string[] toRPN(string[] expStrings)
         {
             Stack<string> stack = new Stack<string>();
             List<string> rpn = new List<string>();
