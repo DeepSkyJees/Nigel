@@ -35,7 +35,7 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration/6.0.0": {
+      "Microsoft.Extensions.Configuration/6.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
@@ -148,16 +148,16 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "NETCore.Encrypt/2.0.8": {
+      "NETCore.Encrypt/2.1.0": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1"
         },
         "compile": {
-          "lib/netstandard2.0/NETCore.Encrypt.dll": {}
+          "lib/netstandard2.1/NETCore.Encrypt.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/NETCore.Encrypt.dll": {}
+          "lib/netstandard2.1/NETCore.Encrypt.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -173,16 +173,17 @@
           }
         }
       },
-      "Nigel.Security/3.1.0": {
+      "Nigel.Security/6.0.1": {
         "type": "package",
         "dependencies": {
-          "NETCore.Encrypt": "2.0.8"
+          "NETCore.Encrypt": "2.1.0",
+          "Nigel.Basic": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Nigel.Security.dll": {}
+          "lib/net6.0/Nigel.Security.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Nigel.Security.dll": {}
+          "lib/net6.0/Nigel.Security.dll": {}
         }
       },
       "Serilog/2.9.0": {
@@ -249,7 +250,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
-          "Microsoft.Extensions.Configuration": "6.0.0",
+          "Microsoft.Extensions.Configuration": "6.0.1",
           "Newtonsoft.Json": "13.0.1",
           "Serilog.Extensions.Logging": "3.1.0"
         },
@@ -289,10 +290,10 @@
         "microsoft.aspnetcore.http.features.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration/6.0.0": {
-      "sha512": "tq2wXyh3fL17EMF2bXgRhU7JrbO3on93MRKYxzz4JzzvuGSA1l0W3GI9/tl8EO89TH+KWEymP7bcFway6z9fXg==",
+    "Microsoft.Extensions.Configuration/6.0.1": {
+      "sha512": "BUyFU9t+HzlSE7ri4B+AQN2BgTgHv/uM82s5ZkgU1BApyzWzIl48nDsG5wR1t0pniNuuyTBzG3qCW8152/NtSw==",
       "type": "package",
-      "path": "microsoft.extensions.configuration/6.0.0",
+      "path": "microsoft.extensions.configuration/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -303,7 +304,7 @@
         "lib/net461/Microsoft.Extensions.Configuration.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
-        "microsoft.extensions.configuration.6.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.6.0.1.nupkg.sha512",
         "microsoft.extensions.configuration.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -404,15 +405,15 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "NETCore.Encrypt/2.0.8": {
-      "sha512": "Z4iKzGFNG5kWgn/jbvm6AJs8iPa/Ke6S8YQUJHF9vb5W4EXixBREz4/0v4t6H9Pr7G+n7MCOKUWvKlAJJrabsw==",
+    "NETCore.Encrypt/2.1.0": {
+      "sha512": "ympQvdmUOTEzV21FG3iU+UikClN4wCZ/CLjdxDBNfNn1Jr4Nr9yrPoYyCMNYU0KIgsGTnrcIA8m0sS+ocf2YdA==",
       "type": "package",
-      "path": "netcore.encrypt/2.0.8",
+      "path": "netcore.encrypt/2.1.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netstandard2.0/NETCore.Encrypt.dll",
-        "netcore.encrypt.2.0.8.nupkg.sha512",
+        "lib/netstandard2.1/NETCore.Encrypt.dll",
+        "netcore.encrypt.2.1.0.nupkg.sha512",
         "netcore.encrypt.nuspec"
       ]
     },
@@ -443,15 +444,15 @@
         "packageIcon.png"
       ]
     },
-    "Nigel.Security/3.1.0": {
-      "sha512": "YPJy8gYTNvwAWAL4dnqwuRhbCMTVRefulveVtt2hUv7cbvEKf8lr5P52K8SVricRdCcEJSTGfT6kR9RFz8iupA==",
+    "Nigel.Security/6.0.1": {
+      "sha512": "2IgIxSWT3LJiEgMJz0fMuvMHYCCD+kibchA1tNIaG7CIc/AvojYfITWMYrNeQeEezLzCs+oFWiDzQJxE6Wl4Qg==",
       "type": "package",
-      "path": "nigel.security/3.1.0",
+      "path": "nigel.security/6.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netcoreapp3.1/Nigel.Security.dll",
-        "nigel.security.3.1.0.nupkg.sha512",
+        "lib/net6.0/Nigel.Security.dll",
+        "nigel.security.6.0.1.nupkg.sha512",
         "nigel.security.nuspec"
       ]
     },
@@ -543,7 +544,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Nigel.Basic >= 6.1.6",
-      "Nigel.Security >= 3.1.0"
+      "Nigel.Security >= 6.0.1"
     ]
   },
   "packageFolders": {
@@ -598,7 +599,7 @@
         "dependencies": {
           "Nigel.Security": {
             "target": "Package",
-            "version": "[3.1.0, )"
+            "version": "[6.0.1, )"
           }
         },
         "imports": [

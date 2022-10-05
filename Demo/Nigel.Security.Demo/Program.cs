@@ -1,5 +1,4 @@
 ﻿using Nigel.Basic;
-using Nigel.Basic.Security;
 
 namespace Nigel.Security.Demo
 {

@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="NETCore.Encrypt" Version="2.1.0" />
-    <PackageReference Include="Nigel.Basic" Version="6.0.0" />
+    <PackageReference Include="Nigel.Basic" Version="6.1.7" />
   </ItemGroup>
 
 </Project>
