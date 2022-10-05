@@ -1,9 +1,9 @@
-﻿using System;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Serilog;
+using System;
+using System.Net;
+using System.Threading.Tasks;
 
 namespace Nigel.Basic.Exceptions
 {
@@ -53,43 +53,40 @@ namespace Nigel.Basic.Exceptions
         {
             //记录异常日志
             ILogger log;
-            var errorCode = "error";
-            var statusCode = HttpStatusCode.BadRequest;
+            var errorMessage = ExceptionCode.SystemUnKnownError.ToString();
+            int statusCode = (int)HttpStatusCode.BadRequest;
             var exceptionType = exception.GetType();
+            var errorCode = (int)ExceptionCode.SystemUnKnownError;
             switch (exception)
-            {
-                case Exception e when exceptionType == typeof(UnauthorizedAccessException):
-                    statusCode = HttpStatusCode.Unauthorized;
+            { 
+
+                case TypeConvertException e when exceptionType == typeof(TypeConvertException):
+                    statusCode = (int)HttpStatusCode.InternalServerError;
+                    errorMessage = $"{ExceptionCode.UnauthorizedFailed.ToString()},{e.Message}";
                     //记录异常日志
-                    log = Log.ForContext<ExceptionHandlerMiddleware>();
-                    log.Error($"Code={statusCode},message={e.Message}");
+                    log = Log.ForContext<TypeConvertException>();
+                    log.Error($"TypeConvertException:Code={statusCode},message={e.Message}");
                     break;
 
-                case AppException e when exceptionType == typeof(AppException):
-                    statusCode = HttpStatusCode.BadRequest;
-                    errorCode = e.Message;
-                    log = Log.ForContext<AppException>();
-                    log.Error($"Code={statusCode},message={e.Message}");
+                case BizException e when exceptionType == typeof(BizException):
+                    statusCode = (int)HttpStatusCode.BadRequest;
+                    errorMessage = $"{ExceptionCode.SystemUnKnownError.ToString()},{e.Message}";
+                    log = Log.ForContext<BizException>();
+                    log.Error($"BizException:Code={statusCode},message={e.Message}");
                     break;
 
                 default:
-                    statusCode = HttpStatusCode.InternalServerError;
-                    errorCode = "Internal Server Error";
+                    statusCode = context.Response.StatusCode; 
                     log = Log.ForContext<Exception>();
                     log.Error(exception, exception.Message);
                     break;
             }
 
             // var response = new { code = statusCode, message = errorCode };
-            var response = ResponseData.SetResult(errorCode, statusCode, errorCode);
+            var response = ApiResponseResult.GetErrorResponseResult(statusCode,errorCode,errorMessage);
             var payload = JsonConvert.SerializeObject(response);
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)statusCode;
-
-            ////记录异常日志
-            //ILog log = LogManager.GetLogger(typeof(PopException));
-            //log.Error(payload);
-
             return context.Response.WriteAsync(payload);
         }
     }

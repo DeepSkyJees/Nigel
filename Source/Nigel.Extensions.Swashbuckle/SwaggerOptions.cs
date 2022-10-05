@@ -37,7 +37,6 @@
         /// <value>The name.</value>
         public string Name { get; set; }
 
-
         /// <summary>
         /// Gets or sets the title.
         /// </summary>

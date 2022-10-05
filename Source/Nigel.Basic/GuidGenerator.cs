@@ -68,7 +68,6 @@ namespace Nigel.Basic
         private static readonly DateTimeOffset GregorianCalendarStart =
             new DateTimeOffset(1582, 10, 15, 0, 0, 0, TimeSpan.Zero);
 
-
         /// <summary>
         ///     The see date time
         /// </summary>
@@ -108,7 +107,7 @@ namespace Nigel.Basic
         public static GuidVersion GetVersion(this Guid guid)
         {
             var bytes = guid.ToByteArray();
-            return (GuidVersion) ((bytes[VersionByte] & 0xFF) >> VersionByteShift);
+            return (GuidVersion)((bytes[VersionByte] & 0xFF) >> VersionByteShift);
         }
 
         /// <summary>
@@ -122,7 +121,7 @@ namespace Nigel.Basic
 
             // reverse the version
             bytes[VersionByte] &= VersionByteMask;
-            bytes[VersionByte] |= (byte) GuidVersion.TimeBased >> VersionByteShift;
+            bytes[VersionByte] |= (byte)GuidVersion.TimeBased >> VersionByteShift;
 
             var timestampsBytes = new byte[8];
             Array.Copy(bytes, TimestampsByte, timestampsBytes, 0, 8);
@@ -204,7 +203,6 @@ namespace Nigel.Basic
             return GenerateTimeBasedGuid(new DateTimeOffset(dateTime), clockSequence, node);
         }
 
-
         /// <summary>
         ///     Generates the time based unique identifier.
         /// </summary>
@@ -245,7 +243,6 @@ namespace Nigel.Basic
             var guid = new byte[ByteArraySize];
             var timestamps = BitConverter.GetBytes(ticks);
 
-
             // copy node
             Array.Copy(node, 0, guid, NodeByte, Math.Min(6, node.Length));
 
@@ -260,7 +257,7 @@ namespace Nigel.Basic
 
             // set the version
             guid[VersionByte] &= VersionByteMask;
-            guid[VersionByte] |= (byte) GuidVersion.TimeBased << VersionByteShift;
+            guid[VersionByte] |= (byte)GuidVersion.TimeBased << VersionByteShift;
             seedDateTime = seedDateTime.Value.AddTicks(1);
             return new Guid(guid);
         }

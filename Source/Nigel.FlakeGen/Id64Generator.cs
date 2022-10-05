@@ -7,8 +7,8 @@ namespace Nigel.FlakeGen
 {
     public static class Id64Gen
     {
-        private static  Id64Generator id64Generator;
-       
+        private static Id64Generator id64Generator;
+
         public static long GetGenerateId()
         {
             return Instance.GenerateId();
@@ -23,7 +23,8 @@ namespace Nigel.FlakeGen
         {
             get
             {
-                if (id64Generator == null) {
+                if (id64Generator == null)
+                {
                     id64Generator = new Id64Generator();
                 }
                 return id64Generator;
@@ -114,7 +115,7 @@ namespace Nigel.FlakeGen
         #region Public Properties
 
         /// <summary>
-        /// Indicates how many times the given generator had to wait 
+        /// Indicates how many times the given generator had to wait
         /// for next millisecond <see cref="TillNextMillis"/> since startup.
         /// </summary>
         public int NextMillisecondWait { get; set; }
@@ -197,7 +198,6 @@ namespace Nigel.FlakeGen
             return GetEnumerator();
         }
 
-
         #endregion Public Methods
 
         #region Private Properties
@@ -209,11 +209,7 @@ namespace Nigel.FlakeGen
 
         #endregion Private Properties
 
-        #region Public Methods
-        #endregion Public Methods
 
-        #region Private Static Methods
-        #endregion Private Static Methods
 
         #region Private Methods
 

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using NETCore.Encrypt;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using NETCore.Encrypt;
 
 namespace Nigel.Security
 {
@@ -61,7 +61,6 @@ namespace Nigel.Security
                 throw ex;
             }
         }
-
 
         /// <summary>
         ///     NetFramework RSA 加密
@@ -134,6 +133,5 @@ namespace Nigel.Security
                 throw ex;
             }
         }
-        
     }
 }

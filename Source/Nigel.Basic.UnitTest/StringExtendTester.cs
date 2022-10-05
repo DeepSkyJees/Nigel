@@ -2,10 +2,10 @@ using Xunit;
 
 namespace Nigel.Basic.UnitTest
 {
-    public class UnitTest1
+    public class StringExtendTester
     {
         [Fact]
-        public void Test1()
+        public void StringToDateTime()
         {
             var dateTime = "20180707".ToDateTime();
 

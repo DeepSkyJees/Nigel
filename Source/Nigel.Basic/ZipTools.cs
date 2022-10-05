@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Nigel.Basic
 {
@@ -27,8 +23,8 @@ namespace Nigel.Basic
                 byte[] zippedData = Compress(rawData);
                 return (string)(Convert.ToBase64String(zippedData));
             }
-
         }
+
         /// <summary>
         /// GZip压缩
         /// </summary>
@@ -42,6 +38,7 @@ namespace Nigel.Basic
             compressedzipStream.Close();
             return ms.ToArray();
         }
+
         /// <summary>
         /// 将传入的二进制字符串资料以GZip算法解压缩
         /// </summary>
@@ -59,6 +56,7 @@ namespace Nigel.Basic
                 return (string)(System.Text.Encoding.UTF8.GetString(Decompress(zippedData)));
             }
         }
+
         /// <summary>
         /// ZIP解压
         /// </summary>

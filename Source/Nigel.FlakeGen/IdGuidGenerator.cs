@@ -82,7 +82,7 @@ namespace Nigel.FlakeGen
             this.epoch = epoch == 0 ? (ulong)new DateTime(1970, 1, 1).Ticks / 10 : epoch;
         }
 
-        #endregion Public Constructors
+        #endregion Private Constructors
 
         #region Public Methods
 
