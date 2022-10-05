@@ -8,10 +8,14 @@
           "System.Memory": "4.5.3"
         },
         "compile": {
-          "lib/netstandard2.0/SkiaSharp.dll": {}
+          "lib/netstandard2.0/SkiaSharp.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/SkiaSharp.dll": {}
+          "lib/netstandard2.0/SkiaSharp.dll": {
+            "related": ".xml"
+          }
         },
         "runtimeTargets": {
           "runtimes/osx/native/libSkiaSharp.dylib": {
@@ -44,10 +48,14 @@
       "ZXing.Net/0.16.6": {
         "type": "package",
         "compile": {
-          "lib/netcoreapp3.1/zxing.dll": {}
+          "lib/netcoreapp3.1/zxing.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netcoreapp3.1/zxing.dll": {}
+          "lib/netcoreapp3.1/zxing.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Nigel.QrCode/6.0.0": {
@@ -260,23 +268,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\yuliang\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\GitHub\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
+      "projectUniqueName": "F:\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
       "projectName": "Nigel.QrCode.Demo",
-      "projectPath": "E:\\GitHub\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
-      "packagesPath": "C:\\Users\\yuliang.HUAGUI\\.nuget\\packages\\",
-      "outputPath": "E:\\GitHub\\Nigel\\Demo\\Nigel.QrCode.Demo\\obj\\",
+      "projectPath": "F:\\Nigel\\Demo\\Nigel.QrCode.Demo\\Nigel.QrCode.Demo.csproj",
+      "packagesPath": "C:\\Users\\yuliang\\.nuget\\packages\\",
+      "outputPath": "F:\\Nigel\\Demo\\Nigel.QrCode.Demo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\yuliang.HUAGUI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yuliang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -284,16 +293,16 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://192.168.1.108:10081/repository/nuget-group": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.cdn.azure.cn/v3/index.json": {}
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "http://192.168.1.108:10081/repository/nuget-hosted": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\GitHub\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
-              "projectPath": "E:\\GitHub\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
+            "F:\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
+              "projectPath": "F:\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
             }
           }
         }
@@ -313,7 +322,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -322,8 +332,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://192.168.1.108:10081/repository/nuget-hosted'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
 }

@@ -1,120 +1,89 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
-using Nigel.Basic;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure.Internal;
-using Pomelo.EntityFrameworkCore.MySql.Migrations;
-using System;
+﻿using Nigel.Extensions.EntityFramework;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
+using Nigel.Basic;
 
-namespace Nigel.Extensions.EntityFramework
+namespace HuaGui.BimModel.Data.MyMigration
 {
     /// <summary>
-    /// Class MySqlMigrationSqlGenerator.
+    /// Class DbDescriptionHelper.
     /// </summary>
-    /// <seealso cref="Microsoft.EntityFrameworkCore.Migrations.MySqlMigrationsSqlGenerator" />
-    public class MyMigrationSqlGenerator : MySqlMigrationsSqlGenerator
+    internal class DbDescriptionHelper
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyMigrationSqlGenerator"/> class.
+        /// The database descriptions
         /// </summary>
-        /// <param name="dependencies">The dependencies.</param>
-        /// <param name="migrationsAnnotations">The migrations annotations.</param>
-        /// <param name="options">The options.</param>
-        public MyMigrationSqlGenerator(MigrationsSqlGeneratorDependencies dependencies, IRelationalAnnotationProvider migrationsAnnotations, IMySqlOptions options) : base(dependencies, migrationsAnnotations, options)
-        {
-        }
+        private static List<DbDescription> _dbDescriptions;
 
         /// <summary>
-        /// Generates the specified operation.
+        /// 获取描述信息
         /// </summary>
-        /// <param name="operation">The operation.</param>
-        /// <param name="model">The model.</param>
-        /// <param name="builder">The builder.</param>
-        protected override void Generate(MigrationOperation operation, IModel model, MigrationCommandListBuilder builder)
+        /// <param name="tableName">Name of the table.</param>
+        /// <param name="columnName">Name of the column.</param>
+        /// <returns>System.String.</returns>
+        internal static string GetDescription(string tableName, string columnName = "")
         {
-            base.Generate(operation, model, builder);
-            if (operation is CreateTableOperation || operation is AlterTableOperation)
-                CreateTableComment(operation, model, builder);
-            if (operation is AddColumnOperation || operation is AlterColumnOperation)
-                CreateColumnComment(operation, model, builder);
-        }
-
-        /// <summary>
-        /// Creates the column comment.
-        /// </summary>
-        /// <param name="operation">The operation.</param>
-        /// <param name="model">The model.</param>
-        /// <param name="builder">The builder.</param>
-        /// <exception cref="NotImplementedException"></exception>
-        private void CreateTableComment(MigrationOperation operation, IModel model, MigrationCommandListBuilder builder)
-        {
-            string tableName = string.Empty;
-            if (operation is AlterTableOperation tableOperation)
+            //初始化信息，设为单例模式
+            if (_dbDescriptions == null)
             {
-                tableName = tableOperation.Name;
+                _dbDescriptions = GetDescription();
             }
-            if (operation is CreateTableOperation t)
+
+            //根据条件取出描述信息并返回
+            if (!tableName.IsNoneValue())
             {
-                var addColumnsOperation = t.Columns;
-                tableName = t.Name;
-                foreach (var item in addColumnsOperation)
+                if (!columnName.IsNoneValue())
                 {
-                    CreateColumnComment(item, model, builder);
+                    return _dbDescriptions.FirstOrDefault(p => p.Name == tableName)?.Description;
                 }
+
+                return _dbDescriptions.FirstOrDefault(p => p.Name == tableName)?.Column.FirstOrDefault(p => p.Name == columnName)?.Description;
             }
-            if (tableName.IsNoneValue())
-                throw new Exception("Create table comment error.");
-            var description = DbDescriptionHelper.GetDescription(tableName);
-            if (description.IsNotNullAll())
-            {
-                var sqlHelper = Dependencies.SqlGenerationHelper;
-                builder
-                    .Append($"ALTER TABLE {sqlHelper.DelimitIdentifier(tableName)} COMMENT '{description}'")
-                    .AppendLine(sqlHelper.StatementTerminator).EndCommand();
-            }
+
+            return string.Empty;
         }
 
         /// <summary>
-        /// Creates the table comment.
+        /// 初始化得到全部的类和字段的描述信息
         /// </summary>
-        /// <param name="operation">The operation.</param>
-        /// <param name="model">The model.</param>
-        /// <param name="builder">The builder.</param>
-        /// <exception cref="NotImplementedException"></exception>
-        private void CreateColumnComment(MigrationOperation operation, IModel model, MigrationCommandListBuilder builder)
+        /// <returns>List&lt;DbDescription&gt;.</returns>
+        internal static List<DbDescription> GetDescription()
         {
-            string tableName = string.Empty;
-            string columnName = string.Empty;
-            string columnType = string.Empty;
-            if (operation is AlterColumnOperation alterColumnOperation)
+            var result = new List<DbDescription>();
+            //加载dll
+            var assembly = Assembly.Load("HuaGui.BimModel.Data");
+            var types = assembly.GetTypes();
+            //取到HuaGui.BimModel.Data.Models的所有对象的信息
+            var modelTypes = types.Where(t => t.Namespace == "HuaGui.BimModel.Data.Models").ToList();
+            foreach (var modelType in modelTypes)
             {
-                tableName = alterColumnOperation.Table;
-                columnName = alterColumnOperation.Name;
-                columnType = GetColumnType(alterColumnOperation.Schema,
-                    alterColumnOperation.Table, alterColumnOperation.Name, alterColumnOperation, model);
+                DbDescription description = new DbDescription()
+                {
+                    Column = new List<DbDescription>()
+                };
+                //获取类的描述信息
+                var attribute = modelType.GetCustomAttribute<DescriptionAttribute>();
+                description.Name = modelType.Name.ToPlural();
+
+                description.Description = attribute?.Description;
+                //获取当前类的属性
+                var fields = modelType.GetProperties();
+                foreach (var fieldInfo in fields)
+                {
+                    //获取属性的描述信息
+                    attribute = fieldInfo.GetCustomAttribute<DescriptionAttribute>();
+                    description.Column.Add(new DbDescription
+                    {
+                        Name = fieldInfo.Name,
+                        Description = attribute?.Description
+                    });
+                }
+                result.Add(description);
             }
 
-            bool isKey = false;
-            if (operation is AddColumnOperation addColumnOperation)
-            {
-                tableName = addColumnOperation.Table;
-                columnName = addColumnOperation.Name;
-                var annotations = addColumnOperation.GetAnnotations().ToList();
-                isKey = annotations.Any(c => c.Name == "MySql:ValueGenerationStrategy");
-                columnType = GetColumnType(addColumnOperation.Schema, addColumnOperation.Table,
-                    addColumnOperation.Name, addColumnOperation, model);
-            }
-            if (columnName.IsNoneValue() || tableName.IsNoneValue() || columnType.IsNoneValue())
-                throw new Exception($"Create column comment error.{ columnName }/{tableName}/{columnType}");
-
-            string description = DbDescriptionHelper.GetDescription(tableName, columnName);
-            if (description.IsNotNullAll())
-            {
-                var sqlHelper = Dependencies.SqlGenerationHelper;
-                builder.Append($"ALTER TABLE {sqlHelper.DelimitIdentifier(tableName)} MODIFY COLUMN {columnName} {columnType} {(isKey ? "AUTO_INCREMENT" : "")} COMMENT '{description}'")
-                    .AppendLine(sqlHelper.StatementTerminator).EndCommand();
-            }
+            return result;
         }
     }
 }

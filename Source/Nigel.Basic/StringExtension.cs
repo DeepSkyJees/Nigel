@@ -4,6 +4,7 @@ using Nigel.Basic.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -32,6 +33,8 @@ namespace Nigel.Basic
 
             return false;
         }
+
+
 
         [Obsolete]
         public static bool IsNotNullOrEmpty(this string s)
@@ -565,5 +568,41 @@ namespace Nigel.Basic
                     return -1;
             }
         }
+
+        /// <summary>
+        /// 检测串值是否为合法的网址格式
+        /// </summary>
+        /// <param name="strValue">要检测的String值</param>
+        /// <returns>成功返回true 失败返回false</returns>
+        public static bool CheckIsUrlFormat(this string strValue)
+        {
+            if (Regex.IsMatch(strValue, @"((http|ftp|https)://)(([a-zA-Z0-9\._-]+\.[a-zA-Z]{2,6})|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,4})*(/[a-zA-Z0-9\&%_\./-~-]*)?"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 获取md5加密值
+        /// </summary>
+        /// <param name="strValue">The string value.</param>
+        /// <returns></returns>
+        public static string GetMd5String(this string strValue)
+        {
+            byte[] buffer = Encoding.Default.GetBytes(strValue);
+            MD5 md5 = MD5.Create();
+            byte[] bufferNew = md5.ComputeHash(buffer);
+            StringBuilder strNew = new StringBuilder();
+            for (int i = 0; i < bufferNew.Length; i++)
+            {
+                strNew.Append(bufferNew[i].ToString("x2"));  //对bufferNew字节数组中的每个元素进行十六进制转换然后拼接成strNew字符串
+            }
+            return strNew.ToString();
+        }
+
     }
 }

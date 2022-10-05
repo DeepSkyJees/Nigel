@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Source\Nigel.Basic\Nigel.Basic.csproj" />
+    <ProjectReference Include="..\Nigel.Basic\Nigel.Basic.csproj" />
   </ItemGroup>
 
 </Project>

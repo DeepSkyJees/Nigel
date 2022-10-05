@@ -3,29 +3,29 @@ using System.Globalization;
 
 namespace Nigel.Basic.Exceptions
 {
-    public class ConfigExceprion : Exception
+    public class ConfigException : Exception
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppException"/> class.
+        /// Initializes a new instance of the <see cref="BizException"/> class.
         /// </summary>
-        public ConfigExceprion()
+        public ConfigException()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppException"/> class.
+        /// Initializes a new instance of the <see cref="BizException"/> class.
         /// </summary>
         /// <param name="message">The message that describes the error.</param>
-        public ConfigExceprion(string message) : base(message)
+        public ConfigException(string message) : base(message)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppException"/> class.
+        /// Initializes a new instance of the <see cref="BizException"/> class.
         /// </summary>
         /// <param name="message">The message.</param>
         /// <param name="args">The arguments.</param>
-        public ConfigExceprion(string message, params object[] args)
+        public ConfigException(string message, params object[] args)
             : base(string.Format(CultureInfo.CurrentCulture, message, args))
         {
         }
