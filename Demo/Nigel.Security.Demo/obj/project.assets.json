@@ -245,7 +245,7 @@
           }
         }
       },
-      "Nigel.Basic/6.1.6": {
+      "Nigel.Basic/6.1.8": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -535,7 +535,7 @@
         "version.txt"
       ]
     },
-    "Nigel.Basic/6.1.6": {
+    "Nigel.Basic/6.1.8": {
       "type": "project",
       "path": "../../Source/Nigel.Basic/Nigel.Basic.csproj",
       "msbuildProject": "../../Source/Nigel.Basic/Nigel.Basic.csproj"
@@ -543,7 +543,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Nigel.Basic >= 6.1.6",
+      "Nigel.Basic >= 6.1.8",
       "Nigel.Security >= 6.0.1"
     ]
   },
