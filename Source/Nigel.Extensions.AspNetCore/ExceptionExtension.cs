@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 
-namespace Nigel.Basic.Exceptions
+namespace Nigel.Extensions.AspNetCore
 {
     /// <summary>
     /// Class ExceptionExtension.
@@ -12,7 +12,7 @@ namespace Nigel.Basic.Exceptions
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>IApplicationBuilder.</returns>
-        public static IApplicationBuilder UseCustomExceptionHandler(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseNigelExceptionHandler(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware(typeof(ExceptionHandlerMiddleware));
         }

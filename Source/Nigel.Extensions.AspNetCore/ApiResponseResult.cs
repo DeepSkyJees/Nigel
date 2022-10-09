@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
+using Nigel.Basic.Exceptions;
 
-namespace Nigel.Basic
+namespace Nigel.Extensions.AspNetCore
 {
     public class ApiResponseResult
     {
@@ -27,15 +23,15 @@ namespace Nigel.Basic
                 ResponseState = true
             };
         }
-        public static ApiErrResponseResult GetErrorResponseResult(int httpStatusCode = (int)HttpStatusCode.InternalServerError,int bizErrorCode = -9999,string bizErrorMessage="Biz Exception")
+        public static ApiErrResponseResult GetErrorResponseResult(int httpStatusCode = (int)HttpStatusCode.InternalServerError,string errorCode = nameof(ExceptionCode.SystemUnKnownError), string errorMessage= ExceptionCode.SystemUnKnownError)
         {
             return new ApiErrResponseResult
             {
                 Data = default(object),
                 HttpStatusCode = httpStatusCode,
                 ResponseState = false,
-                BizErrCode = bizErrorCode,
-                BizErrMessage = bizErrorMessage
+                ErrorCode = errorCode,
+                ErrorMessage = errorMessage
             };
         }
     }
@@ -71,13 +67,13 @@ namespace Nigel.Basic
         /// <summary>
         /// Gets or Sets the message code.
         /// </summary>
-        public int BizErrCode { get; set; }
+        public string ErrorCode { get; set; }
 
         /// <summary>
         ///     结果描述
         /// </summary>
         /// <value>The message.</value>
-        public string BizErrMessage { get; set; }
+        public string ErrorMessage { get; set; }
     }
 
 }

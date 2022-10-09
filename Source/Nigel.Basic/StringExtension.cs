@@ -195,6 +195,17 @@ namespace Nigel.Basic
         }
 
         /// <summary>
+        ///     Determines whether the specified unique identifier string is unique identifier.
+        /// </summary>
+        /// <param name="guidString">The unique identifier string.</param>
+        /// <returns><c>true</c> if the specified unique identifier string is unique identifier; otherwise, <c>false</c>.</returns>
+        public static bool IsGuid(this string guidString)
+        {
+            var isGuid = Guid.TryParse(guidString, out var guid);
+            return isGuid;
+        }
+
+        /// <summary>
         /// 不为Null,空字符串、空格
         /// </summary>
         /// <param name="strValue">The string value.</param>

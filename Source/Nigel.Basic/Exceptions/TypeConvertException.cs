@@ -6,30 +6,17 @@ namespace Nigel.Basic.Exceptions
     ///     Class TypeConvertException.
     /// </summary>
     /// <seealso cref="System.Exception" />
-    public class TypeConvertException : Exception
+    public class TypeConvertException : AppException
     {
-        public TypeConvertException(string message)
+        public TypeConvertException(string errorMessage)
         {
-            Message = message;
-            Code = (int)ExceptionCode.ConvertTypeError;
+            ErrorMessage = errorMessage.IsNotNullAll()
+                ? $"{ExceptionCode.ConvertTypeError},{errorMessage}"
+                : ExceptionCode.ConvertTypeError; ;
+            ErrorCode = nameof(ExceptionCode.ConvertTypeError);
         }
-
-        public TypeConvertException(int code, string message)
+        public TypeConvertException():base(nameof(ExceptionCode.ConvertTypeError),ExceptionCode.ConvertTypeError)
         {
-            Message = message;
-            Code = code;
         }
-
-        /// <summary>
-        ///     Gets a message that describes the current exception.
-        /// </summary>
-        /// <value>The message.</value>
-        public override string Message { get; }
-
-        /// <summary>
-        ///     Gets or sets the code.
-        /// </summary>
-        /// <value>The code.</value>
-        public int Code { get; set; }
     }
 }

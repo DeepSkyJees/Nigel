@@ -1,16 +1,15 @@
-﻿using Nigel.Extensions.EntityFramework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using Nigel.Basic;
-
-namespace HuaGui.BimModel.Data.MyMigration
+ 
+namespace Nigel.Extensions.EntityFramework
 {
     /// <summary>
     /// Class DbDescriptionHelper.
     /// </summary>
-    internal class DbDescriptionHelper
+    internal class NigelMigrationSqlGenerator
     {
         /// <summary>
         /// The database descriptions

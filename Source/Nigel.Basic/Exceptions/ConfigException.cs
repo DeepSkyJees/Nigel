@@ -3,31 +3,18 @@ using System.Globalization;
 
 namespace Nigel.Basic.Exceptions
 {
-    public class ConfigException : Exception
+    public class ConfigException : AppException
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BizException"/> class.
-        /// </summary>
-        public ConfigException()
-        {
+        public ConfigException():base(nameof(ExceptionCode.ConfigError), ExceptionCode.ConfigError)
+        { 
         }
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BizException"/> class.
-        /// </summary>
-        /// <param name="message">The message that describes the error.</param>
-        public ConfigException(string message) : base(message)
+        public ConfigException(string errorMessage)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BizException"/> class.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        /// <param name="args">The arguments.</param>
-        public ConfigException(string message, params object[] args)
-            : base(string.Format(CultureInfo.CurrentCulture, message, args))
-        {
+            ErrorMessage = errorMessage.IsNotNullAll()
+                ? $"{ExceptionCode.ConfigError},{errorMessage}"
+                : ExceptionCode.ConfigError; ;
+            ErrorCode = nameof(ExceptionCode.ConfigError);
         }
     }
 }

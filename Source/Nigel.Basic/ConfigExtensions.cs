@@ -25,7 +25,7 @@ namespace Nigel.Basic
                 envValue = config.GetSection(name.Replace("_",":")).Value;
                 if (envValue.IsNoneValue())
                 {
-                    throw new ConfigException("配置异常：{0}配置无效，请重新处理", name);
+                    throw new ConfigException("{0}配置无效，请重新处理".Format(name));
                 }
             }
             return envValue;
@@ -46,7 +46,7 @@ namespace Nigel.Basic
                 envValue = config.GetConnectionString(name);
                 if (envValue.IsNoneValue())
                 {
-                    throw new ConfigException("配置异常：{0}配置无效，请重新处理", name);
+                    throw new ConfigException("{0}配置无效，请重新处理".Format(name));
                 }
             }
             return envValue;

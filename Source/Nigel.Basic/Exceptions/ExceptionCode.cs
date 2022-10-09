@@ -1,19 +1,30 @@
 ﻿namespace Nigel.Basic.Exceptions
 {
-    public enum ExceptionCode
+    public class ExceptionCode
     {
         /// <summary>
         /// 认证失败
         /// </summary>
-        UnauthorizedFailed = -500,
+        public const string UnauthorizedFailed = "认证失败";
+
         /// <summary>
         /// 类型转换异常
         /// </summary>
-        ConvertTypeError = -1000,
+        public const string ConvertTypeError = "类型转换异常";
+
         /// <summary>
-        /// 系统位置级别异常
+        /// 系统配置错误
         /// </summary>
-        SystemUnKnownError = -9000
+        public const string ConfigError = "系统配置错误";
+
+        /// <summary>
+        /// 应用运行异常
+        /// </summary>
+        public const string AppError = "应用运行异常";
+        /// <summary>
+        /// 系统未知级别异常
+        /// </summary>
+        public const string SystemUnKnownError = "系统未知级别异常";
 
     }
 }

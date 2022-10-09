@@ -28,11 +28,12 @@ namespace Nigel.Security
         }
 
         /// <summary>
-        ///     NetCore RSA 加密
+        /// NetCore RSA 加密
         /// </summary>
         /// <param name="contentString">The content string.</param>
-        /// <param name="nRSAKey">The n RSA key.</param>
+        /// <param name="rsaKey">The RSA key.</param>
         /// <returns></returns>
+        /// <exception cref="System.ArgumentNullException">rsaKey</exception>
         /// <exception cref="ArgumentNullException">nRSAKey</exception>
         public static string ToRsaEncrypt(this string contentString, RsaKey rsaKey)
         {
