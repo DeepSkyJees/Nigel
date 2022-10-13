@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using Nigel.Basic.Exceptions;
+using Nigel.Basic.Jsons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -147,12 +149,43 @@ namespace Nigel.Basic
             return jObject;
         }
 
+        /// <summary>
+        ///  To the specified json converters.
+        /// CamelCasePropertyNamesContractResolver Json String
+        /// DefaultConverter:JsonBoolConverter(1,True),JsonDateConverter(yyyy-MM-dd HH:mm:ss)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="defaultString">The default string.</param>
+        /// <param name="jsonConverters">The json converters.</param>
+        /// <![CDATA[
+        /// JsonBoolConverter,JsonDateConverter
+        /// ]]>
+        /// <returns></returns>
+        public static T To<T>(this string defaultString, JsonConverter[] jsonConverters = default(JsonConverter[]))
+        {
+            jsonConverters ??= new JsonConverter[]
+            {
+                new JsonBoolConverter(),
+                new JsonDateConverter()
+            };
+
+            var tObj = JsonConvert.DeserializeObject<T>(defaultString, jsonConverters);
+
+            return tObj;
+        }
+        /// <summary>
+        ///  To the specified json converters.
+        /// CamelCasePropertyNamesContractResolver Json String
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="defaultString">The default string.</param>
+        /// <returns></returns>
         public static T To<T>(this string defaultString)
         {
-            var obj = JsonConvert.DeserializeObject<T>(defaultString);
-            return obj;
-        }
+            var tObj = JsonConvert.DeserializeObject<T>(defaultString);
 
+            return tObj;
+        }
         /// <summary>
         ///     To the list.
         /// </summary>

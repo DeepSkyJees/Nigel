@@ -15,15 +15,16 @@ namespace Nigel.Basic
         /// </summary>
         /// <param name="config">The configuration.</param>
         /// <param name="name">The name.</param>
+        /// <param name="isRequired">if set to <c>true</c> [is required].</param>
         /// <returns></returns>
         /// <exception cref="Nigel.Basic.Exceptions.ConfigException">配置异常：{0}配置无效，请重新处理</exception>
-        public static string GetEnvConfigValue(this IConfiguration config, string name)
+        public static string GetEnvConfigValue(this IConfiguration config, string name, bool isRequired = true)
         {
-            string envValue = Environment.GetEnvironmentVariable(name.Replace(":","_"));
+            string envValue = Environment.GetEnvironmentVariable(name.Replace(":", "_"));
             if (envValue.IsNoneValue())
             {
-                envValue = config.GetSection(name.Replace("_",":")).Value;
-                if (envValue.IsNoneValue())
+                envValue = config.GetSection(name.Replace("_", ":")).Value;
+                if (envValue.IsNoneValue() && isRequired)
                 {
                     throw new ConfigException("{0}配置无效，请重新处理".Format(name));
                 }
@@ -36,15 +37,16 @@ namespace Nigel.Basic
         /// </summary>
         /// <param name="config">The configuration.</param>
         /// <param name="name">The name.</param>
+        /// <param name="isRequired">if set to <c>true</c> [is required].</param>
         /// <returns></returns>
         /// <exception cref="Nigel.Basic.Exceptions.ConfigException">配置异常：{0}配置无效，请重新处理</exception>
-        public static string GetConnectionStringValue(this IConfiguration config, string name)
+        public static string GetConnectionStringValue(this IConfiguration config, string name, bool isRequired = true)
         {
             string envValue = Environment.GetEnvironmentVariable(name);
             if (envValue.IsNoneValue())
             {
                 envValue = config.GetConnectionString(name);
-                if (envValue.IsNoneValue())
+                if (envValue.IsNoneValue()&& isRequired)
                 {
                     throw new ConfigException("{0}配置无效，请重新处理".Format(name));
                 }
@@ -57,13 +59,14 @@ namespace Nigel.Basic
         /// </summary>
         /// <param name="config">The configuration.</param>
         /// <param name="nameList">The name list.</param>
+        /// <param name="isRequired">if set to <c>true</c> [is required].</param>
         /// <returns></returns>
-        public static Dictionary<string, string> GetEnvConfigListValue(this IConfiguration config, List<string> nameList)
+        public static Dictionary<string, string> GetEnvConfigListValue(this IConfiguration config, List<string> nameList, bool isRequired = true)
         {
             Dictionary<string, string> configDic = new Dictionary<string, string>();
             nameList.Distinct().ToList().ForEach(name =>
             {
-                var value = config.GetEnvConfigValue(name);
+                var value = config.GetEnvConfigValue(name,isRequired);
                 configDic.Add(name, value);
             });
             return configDic;
