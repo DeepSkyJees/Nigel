@@ -216,7 +216,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "Nigel.Basic/6.2.3": {
+      "Nigel.Basic/6.2.4": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -542,7 +542,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Nigel.Basic/6.2.3": {
+    "Nigel.Basic/6.2.4": {
       "type": "project",
       "path": "../../Source/Nigel.Basic/Nigel.Basic.csproj",
       "msbuildProject": "../../Source/Nigel.Basic/Nigel.Basic.csproj"
@@ -550,7 +550,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Nigel.Basic >= 6.2.3",
+      "Nigel.Basic >= 6.2.4",
       "Nigel.Security >= 6.0.1"
     ]
   },

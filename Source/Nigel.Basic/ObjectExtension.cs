@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Nigel.Basic.Jsons;
 using System;
 using System.Text.Json;
+using Nigel.Basic.JsonConverters;
 
 namespace Nigel.Basic
 {
