@@ -2,6 +2,7 @@
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using Nigel.Basic;
 using Nigel.Basic.Exceptions;
 
 namespace Nigel.Extensions.AspNetCore
@@ -74,14 +75,20 @@ namespace Nigel.Extensions.AspNetCore
                     //记录异常日志 
                     _logger.LogError($"ConfigException:StatueCode={statusCode},{e.ToString()}");
                     break;
+                //属于业务逻辑异常，将响应状态设置200
                 case AppException e when exceptionType == typeof(AppException):
-                    statusCode = (int)HttpStatusCode.InternalServerError;
+                    errorCode = e.ErrorCode;
+                    errorMessage = e.ErrorMessage;
+                    statusCode = (int)HttpStatusCode.OK;
                     _logger.LogError($"AppException:StatueCode={statusCode},{e.ToString()}");
                     break;
-
                 default:
+                    //属于业务逻辑异常，将响应状态设置200
                     if (exception is AppException customException)
                     {
+                        errorCode = customException.ErrorCode;
+                        errorMessage = customException.ErrorMessage;
+                        statusCode = (int)HttpStatusCode.OK;
                         _logger.LogError($"AppException:StatueCode={statusCode},{customException.ToString()}");
                     }
                     else
@@ -96,7 +103,7 @@ namespace Nigel.Extensions.AspNetCore
 
             // var response = new { code = statusCode, message = errorCode };
             var response = ApiResponseResult.GetErrorResponseResult(statusCode, errorCode, errorMessage);
-            var payload = JsonSerializer.Serialize(response);
+            var payload = response.ToJson();
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = (int)statusCode;
             return context.Response.WriteAsync(payload);

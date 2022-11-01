@@ -491,7 +491,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "6.2.4",
+    "version": "6.2.5-pre1",
     "restore": {
       "projectUniqueName": "F:\\Nigel\\Source\\Nigel.Basic\\Nigel.Basic.csproj",
       "projectName": "Nigel.Basic",

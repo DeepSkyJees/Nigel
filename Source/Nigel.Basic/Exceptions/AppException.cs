@@ -59,7 +59,7 @@ namespace Nigel.Basic.Exceptions
 
         public override string ToString()
         {
-            return $"ErrorCode:{this.ErrorCode},ErrorMessage:{ErrorMessage},ExceptionMessage:{this.Message}";
+            return $"ErrorCode:{this.ErrorCode},ErrorMessage:{ErrorMessage},ExceptionMessage:{this.StackTrace}";
         }
     }
 }
