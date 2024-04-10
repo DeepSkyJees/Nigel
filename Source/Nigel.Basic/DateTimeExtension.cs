@@ -50,6 +50,7 @@ namespace Nigel.Basic
             TimeSpan ts = (timeUTC - dd);
             return (Int64)ts.TotalMilliseconds;//精确到毫秒
         }
+
         /// <summary>
         /// 时间戳转本时区日期时间
         /// </summary>
@@ -58,7 +59,19 @@ namespace Nigel.Basic
         public static DateTime ToUtcDateTimeFromTimestamp(this string timeStamp)
         {
             DateTime dd = DateTime.SpecifyKind(new DateTime(1970, 1, 1, 0, 0, 0, 0), DateTimeKind.Utc);
-            long longTimeStamp = long.Parse(timeStamp + "0000");
+            long longTimeStamp = long.Parse(timeStamp + "0");
+            var timestampLength = timeStamp.Length;
+            switch (timestampLength)
+            {
+                case 10:
+                    longTimeStamp = long.Parse(timeStamp + "0000000");
+                    break;
+
+                case 13:
+                    longTimeStamp = long.Parse(timeStamp + "0000");
+                    break;
+            }
+
             TimeSpan ts = new TimeSpan(longTimeStamp);
             return dd.Add(ts);
         }
