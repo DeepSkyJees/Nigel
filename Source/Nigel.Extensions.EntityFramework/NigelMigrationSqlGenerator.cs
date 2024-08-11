@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using Nigel.Basic;
- 
+
 namespace Nigel.Extensions.EntityFramework
 {
     /// <summary>
@@ -25,10 +25,7 @@ namespace Nigel.Extensions.EntityFramework
         internal static string GetDescription(string tableName, string columnName = "")
         {
             //初始化信息，设为单例模式
-            if (_dbDescriptions == null)
-            {
-                _dbDescriptions = GetDescription();
-            }
+            _dbDescriptions ??= GetDescription();
 
             //根据条件取出描述信息并返回
             if (!tableName.IsNoneValue())
