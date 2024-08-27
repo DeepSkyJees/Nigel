@@ -36,8 +36,6 @@ namespace Nigel.Basic
             return false;
         }
 
-
-
         [Obsolete]
         public static bool IsNotNullOrEmpty(this string s)
         {
@@ -51,10 +49,11 @@ namespace Nigel.Basic
 
         public static DateTime ToDateTime(this string dateTimeString)
         {
+            if (dateTimeString.IsNoneValue()) return DateTime.MinValue;
             var isDateTime = DateTime.TryParse(dateTimeString, out var dt);
             if (isDateTime) return dt;
 
-            if (dateTimeString.Length == 8 || dateTimeString.Length == 14)
+            if (dateTimeString != null && (dateTimeString.Length == 8 || dateTimeString.Length == 14))
                 return NewDateTime(dateTimeString, dateTimeString.Length);
             throw new TypeConvertException("Invalid date string");
         }
@@ -93,7 +92,7 @@ namespace Nigel.Basic
             if (length == 14)
             {
                 var hour = dateTimeString.Substring(8, 2).ToInt();
-                if (hour < 0 || month > 23) throw new TypeConvertException("无效的小时");
+                if (hour < 0 || hour > 23) throw new TypeConvertException("无效的小时");
                 var minute = dateTimeString.Substring(10, 2).ToInt();
                 if (minute < 0 || minute > 59) throw new TypeConvertException("无效的分钟");
                 var second = dateTimeString.Substring(12, 2).ToInt();
@@ -173,6 +172,7 @@ namespace Nigel.Basic
 
             return tObj;
         }
+
         /// <summary>
         ///  To the specified json converters.
         /// CamelCasePropertyNamesContractResolver Json String
@@ -186,6 +186,7 @@ namespace Nigel.Basic
 
             return tObj;
         }
+
         /// <summary>
         ///     To the list.
         /// </summary>
@@ -338,7 +339,6 @@ namespace Nigel.Basic
 
             return word;
         }
-
 
         /// <summary>
         /// 计算字符串表达式的值。
@@ -647,6 +647,5 @@ namespace Nigel.Basic
             }
             return strNew.ToString();
         }
-
     }
 }

@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
+    "net8.0": {
       "Microsoft.Extensions.Configuration/6.0.1": {
         "type": "package",
         "dependencies": {
@@ -143,7 +143,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "NETCore.Encrypt/2.1.0": {
+      "NETCore.Encrypt/2.1.1": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "12.0.1"
@@ -168,7 +168,7 @@
           }
         }
       },
-      "Nigel.Basic/6.2.1": {
+      "Nigel.Basic/6.2.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration": "6.0.1",
@@ -427,15 +427,15 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "NETCore.Encrypt/2.1.0": {
-      "sha512": "ympQvdmUOTEzV21FG3iU+UikClN4wCZ/CLjdxDBNfNn1Jr4Nr9yrPoYyCMNYU0KIgsGTnrcIA8m0sS+ocf2YdA==",
+    "NETCore.Encrypt/2.1.1": {
+      "sha512": "qw6XuYTz7xtNSRWNm4BltmWTnUZvfI05mcd7NoheIBXmxICP1MpwiyGB8mrl7TLhi+WwUInuwsl69aV6ToqBOQ==",
       "type": "package",
-      "path": "netcore.encrypt/2.1.0",
+      "path": "netcore.encrypt/2.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.1/NETCore.Encrypt.dll",
-        "netcore.encrypt.2.1.0.nupkg.sha512",
+        "netcore.encrypt.2.1.1.nupkg.sha512",
         "netcore.encrypt.nuspec"
       ]
     },
@@ -466,15 +466,15 @@
         "packageIcon.png"
       ]
     },
-    "Nigel.Basic/6.2.1": {
-      "sha512": "KqYvdezwONURKIiVsEjWmxJt5n2/T4rXPof7Y55H/GxZsm1rSrxx+q1VaD/4IYEqSlwnUHwzdnTBdeFuAOtVYA==",
+    "Nigel.Basic/6.2.5": {
+      "sha512": "anF4tTzjNqOEsZXV8W7tRqPXWyzGO3U9MgSd1RubkqIwhh1CgJjX/UZH0DXg/7lod04idpL4Jdz6JJ0J29EHNg==",
       "type": "package",
-      "path": "nigel.basic/6.2.1",
+      "path": "nigel.basic/6.2.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net6.0/Nigel.Basic.dll",
-        "nigel.basic.6.2.1.nupkg.sha512",
+        "nigel.basic.6.2.5.nupkg.sha512",
         "nigel.basic.nuspec"
       ]
     },
@@ -530,9 +530,9 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "NETCore.Encrypt >= 2.1.0",
-      "Nigel.Basic >= 6.2.1"
+    "net8.0": [
+      "NETCore.Encrypt >= 2.1.1",
+      "Nigel.Basic >= 6.2.5"
     ]
   },
   "packageFolders": {
@@ -548,6 +548,7 @@
       "packagesPath": "C:\\Users\\yuliang\\.nuget\\packages\\",
       "outputPath": "F:\\Nigel\\Source\\Nigel.Security\\obj\\",
       "projectStyle": "PackageReference",
+      "centralPackageVersionsManagementEnabled": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
@@ -557,7 +558,7 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0"
+        "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -568,8 +569,8 @@
         "https://repo.huaweicloud.com/repository/nuget/v3/index.json": {}
       },
       "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {}
         }
       },
@@ -585,17 +586,42 @@
       }
     },
     "frameworks": {
-      "net6.0": {
-        "targetAlias": "net6.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
           "NETCore.Encrypt": {
             "target": "Package",
-            "version": "[2.1.0, )"
+            "version": "[2.1.1, )",
+            "versionCentrallyManaged": true
           },
           "Nigel.Basic": {
             "target": "Package",
-            "version": "[6.2.1, )"
+            "version": "[6.2.5, )",
+            "versionCentrallyManaged": true
           }
+        },
+        "centralPackageVersions": {
+          "ConfigureAwait.Fody": "3.3.2",
+          "DistributedLock.Redis": "1.0.3",
+          "Fody": "6.8.0",
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "Microsoft.NET.Test.Sdk": "17.11.0",
+          "NETCore.Encrypt": "2.1.1",
+          "Newtonsoft.Json": "13.0.3",
+          "Nigel.Basic": "6.2.5",
+          "Nigel.Security": "6.0.1",
+          "Polly": "8.4.0",
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
+          "Serilog.AspNetCore": "8.0.2",
+          "Serilog.Enrichers.Environment": "3.0.1",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "3.0.0",
+          "Serilog.Sinks.File": "6.0.0",
+          "SkiaSharp": "2.88.8",
+          "Swashbuckle.AspNetCore": "6.7.0",
+          "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "ZXing.Net": "0.16.9"
         },
         "imports": [
           "net461",
@@ -618,6 +644,12 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1507",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "配置中定义了4 个包源。使用中央包管理时，请使用包源映射映射你的包源(https://aka.ms/nuget-package-source-mapping)，或指定单个包源。以下源已定义: MyNuGet, cn, OrchardCore, huawei"
+    },
     {
       "code": "NU1803",
       "level": "Warning",

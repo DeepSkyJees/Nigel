@@ -19,15 +19,17 @@ namespace Nigel.Extensions.EntityFramework
         /// <summary>
         /// 获取描述信息
         /// </summary>
+        /// <param name="assemblyName"></param>
+        /// <param name="modelNamespace"></param>
         /// <param name="tableName">Name of the table.</param>
         /// <param name="columnName">Name of the column.</param>
         /// <returns>System.String.</returns>
-        internal static string GetDescription(string assemblyName, string modelNamespace,string tableName, string columnName = "")
+        internal static string GetDescription(string assemblyName, string modelNamespace, string tableName, string columnName = "")
         {
             //初始化信息，设为单例模式
             if (_dbDescriptions == null)
             {
-                _dbDescriptions = GetDescription(assemblyName,modelNamespace);
+                _dbDescriptions = GetDescription(assemblyName, modelNamespace);
             }
 
             //根据条件取出描述信息并返回
@@ -48,7 +50,7 @@ namespace Nigel.Extensions.EntityFramework
         /// 初始化得到全部的类和字段的描述信息
         /// </summary>
         /// <returns>List&lt;DbDescription&gt;.</returns>
-        internal static List<DbDescription> GetDescription(string assemblyName,string modelNamespace)
+        internal static List<DbDescription> GetDescription(string assemblyName, string modelNamespace)
         {
             var result = new List<DbDescription>();
             //加载dll

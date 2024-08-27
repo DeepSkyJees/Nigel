@@ -23,15 +23,14 @@ namespace Nigel.Extensions.AspNetCore
                 ResponseState = true
             };
         }
-        public static ApiErrResponseResult GetErrorResponseResult(int httpStatusCode = (int)HttpStatusCode.InternalServerError,string errorCode = nameof(ExceptionCode.SystemUnKnownError), string errorMessage= ExceptionCode.SystemUnKnownError)
+
+        public static ApiErrResponseResult GetErrorResponseResult(int httpStatusCode = (int)HttpStatusCode.InternalServerError, string errorCode = nameof(ExceptionCode.SystemUnKnownError), string errorMessage = ExceptionCode.SystemUnKnownError)
         {
-            return new ApiErrResponseResult
+            return new ApiErrResponseResult(errorCode, errorMessage)
             {
                 Data = default(object),
                 HttpStatusCode = httpStatusCode,
-                ResponseState = false,
-                ErrorCode = errorCode,
-                ErrorMessage = errorMessage
+                ResponseState = false
             };
         }
     }
@@ -46,7 +45,7 @@ namespace Nigel.Extensions.AspNetCore
         ///     返回数据
         /// </summary>
         /// <value>The data.</value>
-        public T Data { get; set; }
+        public T? Data { get; set; }
 
         /// <summary>
         ///     返回的编码
@@ -62,18 +61,17 @@ namespace Nigel.Extensions.AspNetCore
         public bool ResponseState { get; set; }
     }
 
-    public class ApiErrResponseResult: ApiResponseResult<object>
+    public class ApiErrResponseResult(string errorCode, string errorMessage) : ApiResponseResult<object>
     {
         /// <summary>
         /// Gets or Sets the message code.
         /// </summary>
-        public string ErrorCode { get; set; }
+        public string ErrorCode { get; set; } = errorCode;
 
         /// <summary>
         ///     结果描述
         /// </summary>
         /// <value>The message.</value>
-        public string ErrorMessage { get; set; }
+        public string ErrorMessage { get; set; } = errorMessage;
     }
-
 }

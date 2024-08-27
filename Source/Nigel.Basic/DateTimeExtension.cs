@@ -58,7 +58,7 @@ namespace Nigel.Basic
         /// <returns></returns>
         public static DateTime ToUtcDateTimeFromTimestamp(this string timeStamp)
         {
-            DateTime dd = DateTime.SpecifyKind(new DateTime(1970, 1, 1, 0, 0, 0, 0), DateTimeKind.Utc);
+            DateTime dd = DateTime.SpecifyKind(new DateTime(1970, 1, 1, 0, 0, 0, 0, 0), DateTimeKind.Utc);
             long longTimeStamp = long.Parse(timeStamp + "0");
             var timestampLength = timeStamp.Length;
             switch (timestampLength)

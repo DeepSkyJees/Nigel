@@ -17,7 +17,7 @@ namespace Nigel.Basic.JsonConverters
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(((bool)value) ? 1 : 0);
+            writer.WriteValue(value != null && ((bool)value) ? 1 : 0);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Nigel.FlakeGen
 {
     public static class Id64Gen
     {
-        private static Id64Generator id64Generator;
+        private static Id64Generator _id64Generator;
 
         public static long GetGenerateId()
         {
@@ -19,17 +19,7 @@ namespace Nigel.FlakeGen
             return Instance.Take(count);
         }
 
-        public static Id64Generator Instance
-        {
-            get
-            {
-                if (id64Generator == null)
-                {
-                    id64Generator = new Id64Generator();
-                }
-                return id64Generator;
-            }
-        }
+        public static Id64Generator Instance => _id64Generator ??= new Id64Generator();
     }
 
     /// <summary>
@@ -202,14 +192,9 @@ namespace Nigel.FlakeGen
 
         #region Private Properties
 
-        private static long CurrentTime
-        {
-            get { return (long)(DateTime.UtcNow - Jan1st1970).TotalMilliseconds; }
-        }
+        private static long CurrentTime => (long)(DateTime.UtcNow - Jan1st1970).TotalMilliseconds;
 
         #endregion Private Properties
-
-
 
         #region Private Methods
 
@@ -230,7 +215,8 @@ namespace Nigel.FlakeGen
 
             if (timestamp < lastTimestamp)
             {
-                throw new InvalidOperationException(string.Format("Clock moved backwards. Refusing to generate id for {0} milliseconds", (lastTimestamp - timestamp)));
+                throw new InvalidOperationException(
+                    $"Clock moved backwards. Refusing to generate id for {(lastTimestamp - timestamp)} milliseconds");
             }
 
             if (lastTimestamp == timestamp)

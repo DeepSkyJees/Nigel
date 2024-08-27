@@ -14,14 +14,13 @@ namespace Nigel.Basic.Utility
         /// <param name="fileName">Name of the file.</param>
         /// <param name="filePath">The file path.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static bool UploadFtpFile(string address, string fileName, string filePath)
         {
             MakeDirectory(address);
-            using (var webClient = new WebClient())
-            {
-                webClient.UploadFile($"{address}/{fileName}", filePath);
-                return true;
-            }
+            using var webClient = new WebClient();
+            webClient.UploadFile($"{address}/{fileName}", filePath);
+            return true;
         }
 
         /// <summary>
@@ -29,6 +28,7 @@ namespace Nigel.Basic.Utility
         /// </summary>
         /// <param name="address">The address.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static bool MakeDirectory(string address)
         {
             if (RemoteFtpDirExists(address))
@@ -56,6 +56,7 @@ namespace Nigel.Basic.Utility
         /// <param name="address">The address.</param>
         /// <param name="fileName">Name of the file.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static bool DeleteFtpFile(string address, string fileName)
         {
             var req = (FtpWebRequest)WebRequest.Create($"{address}/{fileName}");
@@ -88,6 +89,7 @@ namespace Nigel.Basic.Utility
         /// </summary>
         /// <param name="address">The address.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static bool RemoteFtpDirExists(string address)
         {
             var req = (FtpWebRequest)WebRequest.Create(address);
@@ -120,6 +122,7 @@ namespace Nigel.Basic.Utility
         /// <param name="ftpDirectoryFullPath">The FTP directory full path.</param>
         /// <param name="localDirectoryFullPath">The local directory full path.</param>
         /// <param name="fileName">Name of the file.</param>
+        [Obsolete("推荐使用FluentFTP")]
         public static void UploadFtpFile(string ftpUrl, string ftpDirectoryFullPath, string localDirectoryFullPath,
             string fileName)
         {
@@ -157,6 +160,7 @@ namespace Nigel.Basic.Utility
         /// <param name="fileExtension">The file extension.</param>
         /// <param name="fileNameList">The file name list.</param>
         /// <exception cref="ArgumentNullException">ftpWebRequest</exception>
+        [Obsolete("推荐使用FluentFTP")]
         public static void DownloadFtpFiles(
             FtpWebRequest ftpWebRequest,
             string ftpDirectoryFullPath,
@@ -187,6 +191,7 @@ namespace Nigel.Basic.Utility
         /// <param name="fileExtension">The file extension.</param>
         /// <returns>List&lt;System.String&gt;.</returns>
         /// <exception cref="ArgumentNullException">ftpWebRequest</exception>
+        [Obsolete("推荐使用FluentFTP")]
         public static List<string> GetFtpFileNameList(FtpWebRequest ftpWebRequest, string fileExtension)
         {
             if (ftpWebRequest == null) throw new ArgumentNullException(nameof(ftpWebRequest));
@@ -218,6 +223,7 @@ namespace Nigel.Basic.Utility
         /// <param name="ftpUrl">The FTP URL.</param>
         /// <param name="ftpDirectoryFullPath">The FTP directory full path.</param>
         /// <param name="fileExtension">The file extension.</param>
+        [Obsolete("推荐使用FluentFTP")]
         public static void DeleteFtpFilesThenDirectory(string ftpUrl, string ftpDirectoryFullPath,
             string fileExtension = "*.*")
         {
@@ -243,6 +249,7 @@ namespace Nigel.Basic.Utility
         /// <param name="userName">Name of the user.</param>
         /// <param name="password">The password.</param>
         /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static string CreateFtpDirectory(string ftpUrl, string ftpDirectoryFullPath,
             string userName = "Anonymous", string password = "")
         {
@@ -281,6 +288,7 @@ namespace Nigel.Basic.Utility
         /// <param name="localDirectoryPath">The local directory path.</param>
         /// <param name="fileName">Name of the file.</param>
         /// <returns>System.String.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static string DownloadFtpFile(string ftpUrl, string ftpDirectoryPath, string localDirectoryPath,
             string fileName)
         {
@@ -329,6 +337,7 @@ namespace Nigel.Basic.Utility
         /// <param name="fileName">Name of the file.</param>
         /// <param name="webRequestMethod">The web request method.</param>
         /// <returns>FtpWebRequest.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static FtpWebRequest CreateFtpWebRequest(
             string ftpUrl,
             string ftpDirectoryFullPath,
@@ -356,6 +365,7 @@ namespace Nigel.Basic.Utility
         /// <param name="password">The password.</param>
         /// <param name="ftpWebRequest">The FTP web request.</param>
         /// <returns>FtpWebRequest.</returns>
+        [Obsolete("推荐使用FluentFTP")]
         public static FtpWebRequest CreateFtpWebRequest(string ftpUrl,
             string ftpDirectoryFullPath,
             string userName,

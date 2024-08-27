@@ -164,6 +164,7 @@ namespace Nigel.Basic
 
         /// <summary>
         ///     Generates the time based unique identifier.
+        ///     重点：不用用于Parallel方式
         /// </summary>
         /// <returns>Guid.</returns>
         public static Guid GenerateTimeBasedGuid()
@@ -173,6 +174,7 @@ namespace Nigel.Basic
 
         /// <summary>
         ///     Generates the time based unique identifier.
+        ///     重点：不用用于Parallel方式
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <returns>Guid.</returns>
@@ -183,6 +185,7 @@ namespace Nigel.Basic
 
         /// <summary>
         ///     Generates the time based unique identifier.
+        ///     重点：不用用于Parallel方式
         /// </summary>
         /// <param name="dateTime">The date time.</param>
         /// <returns>Guid.</returns>
