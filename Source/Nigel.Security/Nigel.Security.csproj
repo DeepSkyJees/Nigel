@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NETCore.Encrypt" Version="2.1.1" />
-    <PackageReference Include="Nigel.Basic" Version="6.2.5" />
+    <PackageReference Include="NETCore.Encrypt" />
+    <PackageReference Include="Nigel.Basic" />
   </ItemGroup>
 
 </Project>

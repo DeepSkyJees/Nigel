@@ -32,13 +32,13 @@ namespace Nigel.Basic.Utility
         ///     A regular expression for validating IPAddresses. Taken from
         ///     http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
         /// </summary>
-        public static readonly Regex IPAddressRegex =
+        public static readonly Regex IpAddressRegex =
             new Regex(@"^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
 
         /// <summary>
         ///     The ip address regex string
         /// </summary>
-        public static readonly string IPAddressRegexString = IPAddressRegex.ToString();
+        public static readonly string IPAddressRegexString = IpAddressRegex.ToString();
 
         /// <summary>
         ///     A regular expression for validating that string is a positive number GREATER THAN zero.

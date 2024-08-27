@@ -33,9 +33,9 @@ namespace Nigel.Basic
         public static byte[] Compress(this byte[] rawData)
         {
             MemoryStream ms = new MemoryStream();
-            GZipStream compressedzipStream = new GZipStream(ms, CompressionMode.Compress, true);
-            compressedzipStream.Write(rawData, 0, rawData.Length);
-            compressedzipStream.Close();
+            GZipStream compressedZipStream = new GZipStream(ms, CompressionMode.Compress, true);
+            compressedZipStream.Write(rawData, 0, rawData.Length);
+            compressedZipStream.Close();
             return ms.ToArray();
         }
 
@@ -65,18 +65,18 @@ namespace Nigel.Basic
         public static byte[] Decompress(this byte[] zippedData)
         {
             MemoryStream ms = new MemoryStream(zippedData);
-            GZipStream compressedzipStream = new GZipStream(ms, CompressionMode.Decompress);
+            GZipStream compressedZipStream = new GZipStream(ms, CompressionMode.Decompress);
             MemoryStream outBuffer = new MemoryStream();
             byte[] block = new byte[1024];
             while (true)
             {
-                int bytesRead = compressedzipStream.Read(block, 0, block.Length);
+                int bytesRead = compressedZipStream.Read(block, 0, block.Length);
                 if (bytesRead <= 0)
                     break;
                 else
                     outBuffer.Write(block, 0, bytesRead);
             }
-            compressedzipStream.Close();
+            compressedZipStream.Close();
             return outBuffer.ToArray();
         }
     }

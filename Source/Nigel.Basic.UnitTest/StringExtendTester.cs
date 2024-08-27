@@ -14,6 +14,8 @@ namespace Nigel.Basic.UnitTest
             dateTime = "2018-07-07".ToDateTime();
 
             dateTime = "20180707000000".ToDateTime();
+
+            dateTime = "1722441611112111".ToUtcDateTimeFromTimestamp();
         }
     }
 }

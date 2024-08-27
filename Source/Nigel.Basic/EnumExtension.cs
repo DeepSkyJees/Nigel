@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 
 namespace Nigel.Basic
@@ -17,10 +18,10 @@ namespace Nigel.Basic
         /// <summary>
         ///     锁对象
         /// </summary>
-        private static object objLock = new object();
+        private static object _objLock = new object();
 
         /// <summary>
-        ///     获取枚举的描述信息(Descripion)。
+        ///     获取枚举的描述信息(Description)。
         ///     支持位域，如果是位域组合值，多个按分隔符组合。
         /// </summary>
         public static string GetDescription(this Enum @this)
@@ -92,14 +93,13 @@ namespace Nigel.Basic
             var dic = new Dictionary<string, string>();
             var typeDescription = typeof(DescriptionAttribute);
             var fields = enumType.GetFields();
-            var strText = string.Empty;
-            var strValue = string.Empty;
             foreach (var field in fields)
                 if (field.FieldType.IsEnum)
                 {
-                    strValue = ((int)enumType.InvokeMember(field.Name, BindingFlags.GetField, null, null, null))
+                    var strValue = ((int)enumType.InvokeMember(field.Name, BindingFlags.GetField, null, null, null)!)
                         .ToString();
                     var arr = field.GetCustomAttributes(typeDescription, true);
+                    string strText;
                     if (arr.Length > 0)
                     {
                         var aa = (DescriptionAttribute)arr[0];
@@ -125,9 +125,8 @@ namespace Nigel.Basic
         {
             return _concurrentDicDictionary.GetOrAdd(em, key =>
             {
-                var type = key.GetType();
-                if (_concurrentDicDictionary.ContainsKey(key))
-                    return _concurrentDicDictionary[key];
+                if (_concurrentDicDictionary.TryGetValue(key, out var expression))
+                    return expression;
                 return GetEnumItemValueDesc(em);
             });
         }
@@ -140,8 +139,8 @@ namespace Nigel.Basic
         public static Dictionary<string, string> GetEnumItemDesc(Type enumType)
         {
             var dic = new Dictionary<string, string>();
-            var fieldinfos = enumType.GetFields();
-            foreach (var field in fieldinfos)
+            var fieldInfoItems = enumType.GetFields();
+            foreach (var field in fieldInfoItems)
                 if (field.FieldType.IsEnum)
                 {
                     var objs = field.GetCustomAttributes(typeof(DescriptionAttribute), false);
@@ -159,12 +158,12 @@ namespace Nigel.Basic
         public static string GetEnumDesc(this Enum en)
         {
             var type = en.GetType();
-            var memInfo = type.GetMember(en.ToString());
-            if (memInfo != null && memInfo.Length > 0)
+            var memInfoItems = type.GetMember(en.ToString());
+            if (memInfoItems.Any())
             {
-                var attrs = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
-                if (attrs != null && attrs.Length > 0)
-                    return ((DescriptionAttribute)attrs[0]).Description;
+                var attrItems = memInfoItems[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                if (attrItems.Any())
+                    return ((DescriptionAttribute)attrItems[0]).Description;
             }
 
             return en.ToString();
@@ -189,18 +188,11 @@ namespace Nigel.Basic
         }
     }
 
-    public struct EnumModel
+    public struct EnumModel(Enum um)
     {
-        public EnumModel(Enum um)
-        {
-            value = (int)Convert.ChangeType(um, typeof(int));
-            name = um.ToString();
-            text = um.GetDescription();
-        }
-
-        public int value { get; set; }
-        public string name { get; set; }
-        public string text { get; set; }
+        public int Value { get; set; } = (int)Convert.ChangeType(um, typeof(int));
+        public string Name { get; set; } = um.ToString();
+        public string Text { get; set; } = um.GetDescription();
     }
 
     public struct EnumObject

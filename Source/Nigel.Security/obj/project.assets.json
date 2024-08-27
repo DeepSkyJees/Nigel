@@ -548,6 +548,7 @@
       "packagesPath": "C:\\Users\\yuliang\\.nuget\\packages\\",
       "outputPath": "F:\\Nigel\\Source\\Nigel.Security\\obj\\",
       "projectStyle": "PackageReference",
+      "centralPackageVersionsManagementEnabled": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
@@ -590,12 +591,37 @@
         "dependencies": {
           "NETCore.Encrypt": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "[2.1.1, )",
+            "versionCentrallyManaged": true
           },
           "Nigel.Basic": {
             "target": "Package",
-            "version": "[6.2.5, )"
+            "version": "[6.2.5, )",
+            "versionCentrallyManaged": true
           }
+        },
+        "centralPackageVersions": {
+          "ConfigureAwait.Fody": "3.3.2",
+          "DistributedLock.Redis": "1.0.3",
+          "Fody": "6.8.0",
+          "Microsoft.Extensions.Configuration": "8.0.0",
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "Microsoft.NET.Test.Sdk": "17.11.0",
+          "NETCore.Encrypt": "2.1.1",
+          "Newtonsoft.Json": "13.0.3",
+          "Nigel.Basic": "6.2.5",
+          "Nigel.Security": "6.0.1",
+          "Polly": "8.4.0",
+          "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
+          "Serilog.AspNetCore": "8.0.2",
+          "Serilog.Enrichers.Environment": "3.0.1",
+          "Serilog.Exceptions": "8.4.0",
+          "Serilog.Sinks.Debug": "3.0.0",
+          "Serilog.Sinks.File": "6.0.0",
+          "SkiaSharp": "2.88.8",
+          "Swashbuckle.AspNetCore": "6.7.0",
+          "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "ZXing.Net": "0.16.9"
         },
         "imports": [
           "net461",
@@ -618,6 +644,12 @@
     }
   },
   "logs": [
+    {
+      "code": "NU1507",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "配置中定义了4 个包源。使用中央包管理时，请使用包源映射映射你的包源(https://aka.ms/nuget-package-source-mapping)，或指定单个包源。以下源已定义: MyNuGet, cn, OrchardCore, huawei"
+    },
     {
       "code": "NU1803",
       "level": "Warning",

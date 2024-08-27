@@ -41,7 +41,6 @@ namespace Nigel.Basic
         ///     Intersects the specified t source list.
         /// </summary>
         /// <typeparam name="TSource">The type of the t source.</typeparam>
-        /// <param name="first">The first.</param>
         /// <param name="tSourceList">The t source list.</param>
         /// <param name="comparer">The comparer.</param>
         /// <returns>IEnumerable&lt;TSource&gt;.</returns>
@@ -62,7 +61,7 @@ namespace Nigel.Basic
                 if (sourceItem == null)
                     throw new ArgumentNullException(nameof(sourceItem));
                 var enumerable = sourceItem as TSource[] ?? sourceItem.ToArray();
-                if (intersectResult == null) intersectResult = enumerable;
+                intersectResult ??= enumerable;
 
                 intersectResult = intersectResult.Intersect(enumerable, comparer);
             }
@@ -108,11 +107,7 @@ namespace Nigel.Basic
 
         public static IEnumerable<TSource> ToNotNull<TSource>(this IEnumerable<TSource> source)
         {
-            if (source == null)
-            {
-                source = new List<TSource>();
-            }
-            return source;
+            return source ??= new List<TSource>();
         }
     }
 }

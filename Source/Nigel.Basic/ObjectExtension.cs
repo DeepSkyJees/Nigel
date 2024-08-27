@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿#nullable enable
+
+using Newtonsoft.Json;
 using System;
 using System.Text.Json;
 using Nigel.Basic.JsonConverters;
@@ -13,7 +15,7 @@ namespace Nigel.Basic
         /// <param name="obj">The object.</param>
         /// <param name="jsonConverters">The json converters.</param>
         /// <returns></returns>
-        public static string ToJson(this object obj, JsonConverter[] jsonConverters)
+        public static string ToJson(this object obj, JsonConverter[]? jsonConverters = null)
         {
             var setting = new JsonSerializerSettings
             {
@@ -27,19 +29,18 @@ namespace Nigel.Basic
             return JsonConvert.SerializeObject(obj, setting);
         }
 
-        /// <summary>
-        /// CamelCasePropertyNamesContractResolver
-        /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <returns></returns>
-        public static string ToJson(this object obj)
-        {
-            var setting = new JsonSerializerSettings
-            {
-                ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
-               
-            };
-            return JsonConvert.SerializeObject(obj, setting);
-        }
+        ///// <summary>
+        ///// CamelCasePropertyNamesContractResolver
+        ///// </summary>
+        ///// <param name="obj">The object.</param>
+        ///// <returns></returns>
+        //public static string ToJson(this object obj)
+        //{
+        //    var setting = new JsonSerializerSettings
+        //    {
+        //        ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+        //    };
+        //    return JsonConvert.SerializeObject(obj, setting);
+        //}
     }
 }
