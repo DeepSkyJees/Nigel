@@ -4,6 +4,7 @@
     <TargetFrameworks>net6.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>6.0.0</Version>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
 </Project>

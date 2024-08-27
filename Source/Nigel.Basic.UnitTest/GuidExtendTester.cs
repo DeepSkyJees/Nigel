@@ -41,13 +41,13 @@ namespace Nigel.Basic.UnitTest
             //    Debug.WriteLine($"{item.Key},{item.Count() > 1}");
             //}
             ConcurrentBag<Guid> conList = new ConcurrentBag<Guid>();
-            await Parallel.ForAsync(1, 10, async (item, _) =>
-            {
-                var dateTime = DateTime.Now.ToChinaDateTime();
-                var newGuid = GuidGenerator.GenerateTimeBasedGuid(dateTime);
-                conList.Add(newGuid);
-                await Task.CompletedTask;
-            });
+            Parallel.For(1, 10, async (item, _) =>
+           {
+               var dateTime = DateTime.Now.ToChinaDateTime();
+               var newGuid = GuidGenerator.GenerateTimeBasedGuid(dateTime);
+               conList.Add(newGuid);
+               await Task.CompletedTask;
+           });
 
             //foreach (var item in conList)
             //{
