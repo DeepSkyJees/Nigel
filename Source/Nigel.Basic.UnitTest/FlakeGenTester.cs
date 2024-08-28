@@ -5,12 +5,37 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Nigel.FlakeGen;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Nigel.Basic.UnitTest
 {
-    public class GuidExtendTester
+    public class FlakeGenTester(ITestOutputHelper testOutputHelper)
     {
+        [Fact]
+        public async Task GenId()
+        {
+            var idGenerator =
+                new IdStringGeneratorWrapper(
+                    new Id64Generator(), IdStringGeneratorWrapper.Base32);
+            ConcurrentBag<string> conList = new ConcurrentBag<string>();
+            await Parallel.ForAsync(0, 10000, async (item, _) =>
+            {
+                var id = idGenerator.GenerateId();
+                conList.Add(id);
+                await Task.CompletedTask;
+            });
+
+            if (conList.GroupBy(p => p).Count() == 10000)
+            {
+                foreach (var item in conList)
+                {
+                    testOutputHelper.WriteLine($"Id:{item}");
+                }
+            }
+        }
+
         [Fact]
         public void GenGuid()
         {
@@ -33,15 +58,12 @@ namespace Nigel.Basic.UnitTest
                 var newGuid = GuidGenerator.GenerateTimeBasedGuid(dateTime);
                 list.Add(newGuid);
             }
-            if (list.GroupBy(p => p).Count() == 100000)
-            {
-            }
             //foreach (var item in list.GroupBy(p => p))
             //{
             //    Debug.WriteLine($"{item.Key},{item.Count() > 1}");
             //}
             ConcurrentBag<Guid> conList = new ConcurrentBag<Guid>();
-            await Parallel.ForAsync(1, 10, async (item, _) =>
+            await Parallel.ForAsync(0, 10000, async (item, _) =>
             {
                 var dateTime = DateTime.Now.ToChinaDateTime();
                 var newGuid = GuidGenerator.GenerateTimeBasedGuid(dateTime);
@@ -49,10 +71,14 @@ namespace Nigel.Basic.UnitTest
                 await Task.CompletedTask;
             });
 
-            //foreach (var item in conList)
-            //{
-            //    Debug.WriteLine(item);
-            //}
+            if (conList.GroupBy(p => p).Count() == 10000)
+            {
+                foreach (var item in conList)
+                {
+                    var dateTimeResult = GuidGenerator.GetUtcDateTime(item).ToChinaDateTimeFormUtc();
+                    testOutputHelper.WriteLine($"GUID:{item},TIME:{dateTimeResult}");
+                }
+            }
         }
     }
 }

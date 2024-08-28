@@ -603,6 +603,8 @@
           "SkiaSharp": "2.88.8",
           "Swashbuckle.AspNetCore": "6.7.0",
           "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "xunit": "2.9.0",
+          "xunit.runner.visualstudio": "2.8.2",
           "ZXing.Net": "0.16.9"
         },
         "imports": [

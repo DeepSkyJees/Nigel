@@ -20,7 +20,7 @@ namespace Nigel.Basic.UnitTest;
 public class ObjectExtensionTester
 {
     [Fact]
-    public void GenGuid()
+    public void GenJson()
     {
         var jsonObject = new
         {
