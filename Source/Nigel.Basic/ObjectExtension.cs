@@ -17,7 +17,7 @@ namespace Nigel.Basic
         /// <param name="obj">The object.</param>
         /// <param name="jsonConverters">The json converters.</param>
         /// <returns></returns>
-        public static string ToJson(this object obj, JsonConverter[]? jsonConverters = null)
+        public static string ToJson(this object obj, JsonConverter[] jsonConverters)
         {
             var setting = new JsonSerializerSettings
             {
