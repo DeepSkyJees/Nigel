@@ -20,10 +20,31 @@ namespace Nigel.Basic.UnitTest
                 new IdStringGeneratorWrapper(
                     new Id64Generator(), IdStringGeneratorWrapper.Base32);
             ConcurrentBag<string> conList = new ConcurrentBag<string>();
-            await Parallel.ForAsync(0, 10000, async (item, _) =>
+            await Parallel.ForAsync(0, 100000, async (item, _) =>
             {
                 var id = idGenerator.GenerateId();
                 conList.Add(id);
+                await Task.CompletedTask;
+            });
+
+            if (conList.GroupBy(p => p).Count() == 100000)
+            {
+                foreach (var item in conList)
+                {
+                    testOutputHelper.WriteLine($"Id:{item}");
+                }
+            }
+        }
+
+        [Fact]
+        public async Task GenId2()
+        {
+            var idGenerator = new IdGuidGenerator(20, DateTime.Now);
+            ConcurrentBag<string> conList = new ConcurrentBag<string>();
+            await Parallel.ForAsync(0, 10000, async (item, _) =>
+            {
+                var id = idGenerator.GenerateId();
+                conList.Add(id.ToGuidString());
                 await Task.CompletedTask;
             });
 

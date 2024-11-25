@@ -564,8 +564,8 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "http://192.168.1.108:10081/repository/nuget-hosted": {},
+        "https://mirrors.cloud.tencent.com/nuget": {},
         "https://nuget.cdn.azure.cn/v3/index.json": {},
-        "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {},
         "https://repo.huaweicloud.com/repository/nuget/v3/index.json": {}
       },
       "frameworks": {
@@ -604,6 +604,8 @@
           "ConfigureAwait.Fody": "3.3.2",
           "DistributedLock.Redis": "1.0.3",
           "Fody": "6.8.0",
+          "MessagePack": "2.5.192",
+          "MessagePackAnalyzer": "2.5.192",
           "Microsoft.Extensions.Configuration": "8.0.0",
           "Microsoft.Extensions.Logging": "8.0.0",
           "Microsoft.NET.Test.Sdk": "17.11.0",
@@ -641,7 +643,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -650,7 +652,7 @@
       "code": "NU1507",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "配置中定义了4 个包源。使用中央包管理时，请使用包源映射映射你的包源(https://aka.ms/nuget-package-source-mapping)，或指定单个包源。以下源已定义: MyNuGet, cn, OrchardCore, huawei"
+      "message": "配置中定义了4 个包源。使用中央包管理时，请使用包源映射映射你的包源(https://aka.ms/nuget-package-source-mapping)，或指定单个包源。以下源已定义: MyNuGet, huawei, tecent, azure"
     },
     {
       "code": "NU1803",

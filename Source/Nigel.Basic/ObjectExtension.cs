@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using System;
 using System.Text.Json;
 using Nigel.Basic.JsonConverters;
+using MessagePack;
+using MessagePack.Resolvers;
 
 namespace Nigel.Basic
 {
@@ -29,6 +31,17 @@ namespace Nigel.Basic
             return JsonConvert.SerializeObject(obj, setting);
         }
 
+        public static string ToMsgPackJson(this object obj, MessagePackSerializerOptions options = null)
+        { 
+        
+            if (options == null)
+            {
+                options = MessagePack.Resolvers.ContractlessStandardResolver.Options;
+            }
+            var blob = MessagePackSerializer.Serialize(obj, options);
+            return MessagePackSerializer.ConvertToJson(blob, options);
+        }
+
         ///// <summary>
         ///// CamelCasePropertyNamesContractResolver
         ///// </summary>
@@ -42,5 +55,11 @@ namespace Nigel.Basic
         //    };
         //    return JsonConvert.SerializeObject(obj, setting);
         //}
+    }
+
+    public class ContractlessSample
+    {
+        public int MyProperty1 { get; set; }
+        public int MyProperty2 { get; set; }
     }
 }

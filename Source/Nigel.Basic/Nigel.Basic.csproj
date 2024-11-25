@@ -2,14 +2,19 @@
 	<Import Project="..\..\common.props" />
 
 	<PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Version>8.0.0</Version>
+    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <Version>8.0.1</Version>
     <PackageProjectUrl>https://github.com/NigelYu/Nigel/tree/master/Source/Nigel.Basic</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>基本操作类库</Description>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MessagePack" />
+    <PackageReference Include="MessagePackAnalyzer">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.Logging" />
     <PackageReference Include="Newtonsoft.Json" />
