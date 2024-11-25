@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    "net6.0": {
       "SkiaSharp/2.88.8": {
         "type": "package",
         "dependencies": {
@@ -60,19 +60,19 @@
       "ZXing.Net/0.16.9": {
         "type": "package",
         "compile": {
-          "lib/net7.0/zxing.dll": {
+          "lib/net6.0/zxing.dll": {
             "related": ".XML"
           }
         },
         "runtime": {
-          "lib/net7.0/zxing.dll": {
+          "lib/net6.0/zxing.dll": {
             "related": ".XML"
           }
         }
       },
       "Nigel.QrCode/6.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "SkiaSharp": "2.88.8",
           "ZXing.Net": "0.16.9"
@@ -299,7 +299,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    "net6.0": [
       "Nigel.QrCode >= 6.0.0"
     ]
   },
@@ -326,19 +326,19 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
         "http://192.168.1.108:10081/repository/nuget-hosted": {},
+        "https://mirrors.cloud.tencent.com/nuget": {},
         "https://nuget.cdn.azure.cn/v3/index.json": {},
-        "https://nuget.cloudsmith.io/orchardcore/preview/v3/index.json": {},
         "https://repo.huaweicloud.com/repository/nuget/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
             "F:\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj": {
               "projectPath": "F:\\Nigel\\Source\\Nigel.QrCode\\Nigel.QrCode.csproj"
@@ -358,21 +358,23 @@
       }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "centralPackageVersions": {
           "ConfigureAwait.Fody": "3.3.2",
           "DistributedLock.Redis": "1.0.3",
           "Fody": "6.8.0",
-          "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.Logging": "8.0.0",
+          "MessagePack": "2.5.192",
+          "MessagePackAnalyzer": "2.5.192",
+          "Microsoft.Extensions.Configuration": "6.0.0",
+          "Microsoft.Extensions.Logging": "6.0.0",
           "Microsoft.NET.Test.Sdk": "17.11.0",
           "NETCore.Encrypt": "2.1.1",
           "Newtonsoft.Json": "13.0.3",
           "Nigel.Basic": "6.2.5",
           "Nigel.Security": "6.0.1",
           "Polly": "8.4.0",
-          "Pomelo.EntityFrameworkCore.MySql": "8.0.2",
+          "Pomelo.EntityFrameworkCore.MySql": "6.0.2",
           "Serilog.AspNetCore": "8.0.2",
           "Serilog.Enrichers.Environment": "3.0.1",
           "Serilog.Exceptions": "8.4.0",
@@ -399,7 +401,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -408,7 +410,7 @@
       "code": "NU1507",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "配置中定义了4 个包源。使用中央包管理时，请使用包源映射映射你的包源(https://aka.ms/nuget-package-source-mapping)，或指定单个包源。以下源已定义: MyNuGet, cn, OrchardCore, huawei"
+      "message": "配置中定义了4 个包源。使用中央包管理时，请使用包源映射映射你的包源(https://aka.ms/nuget-package-source-mapping)，或指定单个包源。以下源已定义: MyNuGet, huawei, tecent, azure"
     },
     {
       "code": "NU1803",
