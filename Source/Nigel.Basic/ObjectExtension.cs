@@ -42,19 +42,19 @@ namespace Nigel.Basic
             return MessagePackSerializer.ConvertToJson(blob, options);
         }
 
-        ///// <summary>
-        ///// CamelCasePropertyNamesContractResolver
-        ///// </summary>
-        ///// <param name="obj">The object.</param>
-        ///// <returns></returns>
-        //public static string ToJson(this object obj)
-        //{
-        //    var setting = new JsonSerializerSettings
-        //    {
-        //        ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
-        //    };
-        //    return JsonConvert.SerializeObject(obj, setting);
-        //}
+        /// <summary>
+        /// CamelCasePropertyNamesContractResolver
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <returns></returns>
+        public static string ToJson(this object obj)
+        {
+            var setting = new JsonSerializerSettings
+            {
+                ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver(),
+            };
+            return JsonConvert.SerializeObject(obj, setting);
+        }
     }
 
     public class ContractlessSample

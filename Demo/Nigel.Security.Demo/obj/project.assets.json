@@ -233,7 +233,7 @@
           "lib/net6.0/Nigel.Security.dll": {}
         }
       },
-      "Nigel.Basic/8.0.1": {
+      "Nigel.Basic/8.1.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -671,7 +671,7 @@
         "nigel.security.nuspec"
       ]
     },
-    "Nigel.Basic/8.0.1": {
+    "Nigel.Basic/8.1.0": {
       "type": "project",
       "path": "../../Source/Nigel.Basic/Nigel.Basic.csproj",
       "msbuildProject": "../../Source/Nigel.Basic/Nigel.Basic.csproj"
@@ -679,7 +679,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "Nigel.Basic >= 8.0.1",
+      "Nigel.Basic >= 8.1.0",
       "Nigel.Security >= 6.0.1"
     ]
   },
