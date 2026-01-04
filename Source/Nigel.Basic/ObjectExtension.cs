@@ -1,8 +1,6 @@
 ﻿#nullable enable
 
 using Newtonsoft.Json;
-using System;
-using System.Text.Json;
 using Nigel.Basic.JsonConverters;
 using MessagePack;
 
