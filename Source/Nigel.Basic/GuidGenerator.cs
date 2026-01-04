@@ -7,6 +7,8 @@ namespace Nigel.Basic
     /// </summary>
     public static class GuidGenerator
     {
+        private static readonly object _monitor = new object();
+
         // number of bytes in guid
         /// <summary>
         ///     The byte array size
@@ -226,43 +228,46 @@ namespace Nigel.Basic
         /// </exception>
         public static Guid GenerateTimeBasedGuid(DateTimeOffset dateTime, byte[] clockSequence, byte[] node)
         {
-            if (seedDateTime == null) seedDateTime = dateTime.DateTime;
+            lock (_monitor)
+            {
+                if (seedDateTime == null) seedDateTime = dateTime.DateTime;
 
-            if (seedDateTime.Value.Second != dateTime.Second) seedDateTime = dateTime.DateTime;
-            dateTime = seedDateTime.Value.AddTicks(1);
-            if (clockSequence == null)
-                throw new ArgumentNullException(nameof(clockSequence));
+                if (seedDateTime.Value.Second != dateTime.Second) seedDateTime = dateTime.DateTime;
+                dateTime = seedDateTime.Value.AddTicks(1);
+                if (clockSequence == null)
+                    throw new ArgumentNullException(nameof(clockSequence));
 
-            if (node == null)
-                throw new ArgumentNullException(nameof(node));
+                if (node == null)
+                    throw new ArgumentNullException(nameof(node));
 
-            if (clockSequence.Length != 2)
-                throw new ArgumentOutOfRangeException(nameof(clockSequence), "The clockSequence must be 2 bytes.");
+                if (clockSequence.Length != 2)
+                    throw new ArgumentOutOfRangeException(nameof(clockSequence), "The clockSequence must be 2 bytes.");
 
-            if (node.Length != 6)
-                throw new ArgumentOutOfRangeException(nameof(node), "The node must be 6 bytes.");
+                if (node.Length != 6)
+                    throw new ArgumentOutOfRangeException(nameof(node), "The node must be 6 bytes.");
 
-            var ticks = (dateTime - GregorianCalendarStart).Ticks;
-            var guid = new byte[ByteArraySize];
-            var timestamps = BitConverter.GetBytes(ticks);
+                var ticks = (dateTime - GregorianCalendarStart).Ticks;
+                var guid = new byte[ByteArraySize];
+                var timestamps = BitConverter.GetBytes(ticks);
 
-            // copy node
-            Array.Copy(node, 0, guid, NodeByte, Math.Min(6, node.Length));
+                // copy node
+                Array.Copy(node, 0, guid, NodeByte, Math.Min(6, node.Length));
 
-            // copy clock sequence
-            Array.Copy(clockSequence, 0, guid, GuidClockSequenceByte, Math.Min(2, clockSequence.Length));
+                // copy clock sequence
+                Array.Copy(clockSequence, 0, guid, GuidClockSequenceByte, Math.Min(2, clockSequence.Length));
 
-            // copy time stamp
-            Array.Copy(timestamps, 0, guid, TimestampsByte, Math.Min(8, timestamps.Length));
-            // set the variant
-            guid[VariantByte] &= VariantByteMask;
-            guid[VariantByte] |= VariantByteShift;
+                // copy time stamp
+                Array.Copy(timestamps, 0, guid, TimestampsByte, Math.Min(8, timestamps.Length));
+                // set the variant
+                guid[VariantByte] &= VariantByteMask;
+                guid[VariantByte] |= VariantByteShift;
 
-            // set the version
-            guid[VersionByte] &= VersionByteMask;
-            guid[VersionByte] |= (byte)GuidVersion.TimeBased << VersionByteShift;
-            seedDateTime = seedDateTime.Value.AddTicks(1);
-            return new Guid(guid);
+                // set the version
+                guid[VersionByte] &= VersionByteMask;
+                guid[VersionByte] |= (byte)GuidVersion.TimeBased << VersionByteShift;
+                seedDateTime = seedDateTime.Value.AddTicks(1);
+                return new Guid(guid);
+            }
         }
     }
 

@@ -9,6 +9,10 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Nigel.Basic.JsonConverters;
+using MessagePack;
+using Microsoft.Extensions.Options;
+using System.IO;
+using MessagePack.Resolvers;
 
 namespace Nigel.Basic
 {
@@ -172,6 +176,14 @@ namespace Nigel.Basic
 
             return tObj;
         }
+        //public static T ToWithMsgPack<T>(this string defaultString, MessagePackSerializerOptions options = default(MessagePackSerializerOptions))
+        //{ 
+        //    var options = MessagePackSerializerOptions.Standard.WithResolver(StaticCompositeResolver.Instance);
+
+        //    T ds = MsgPackSerializer.Deserialize<T>(defaultString, options);
+
+        //    return obj;
+        //}
 
         /// <summary>
         ///  To the specified json converters.
@@ -199,7 +211,7 @@ namespace Nigel.Basic
             return stringList;
         }
 
-        public static bool Contains(this String str, String substring,
+        public static bool Contains(this string str, string substring,
                                    StringComparison comp)
         {
             if (substring == null)
@@ -212,7 +224,7 @@ namespace Nigel.Basic
             return str.IndexOf(substring, comp) >= 0;
         }
 
-        public static bool Contains(this String str, String substring)
+        public static bool Contains(this string str, string substring)
         {
             if (substring == null)
                 throw new ArgumentNullException("substring",

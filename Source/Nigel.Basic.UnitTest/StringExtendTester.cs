@@ -17,5 +17,19 @@ namespace Nigel.Basic.UnitTest
 
             dateTime = "1722441611112111".ToUtcDateTimeFromTimestamp();
         }
+
+        [Fact]
+        public void ToWithMsgPack()
+        {
+            var jsonObject = new JsonObject
+            {
+                Name = "Nigel",
+                IsTrue = true,
+                Birth = "2018/07/07".ToDateTime().ToChinaDateTime(),
+            };
+            var jsonString = jsonObject.ToMsgPackJson();
+            var obj = jsonString.To<JsonObject>();
+
+        }
     }
 }
