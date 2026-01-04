@@ -1,9 +1,9 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Nigel.FlakeGen;
 using Xunit;
@@ -20,11 +20,13 @@ namespace Nigel.Basic.UnitTest
                 new IdStringGeneratorWrapper(
                     new Id64Generator(), IdStringGeneratorWrapper.Base32);
             ConcurrentBag<string> conList = new ConcurrentBag<string>();
-            await Parallel.ForAsync(0, 100000, async (item, _) =>
+            await Task.Run(() =>
             {
-                var id = idGenerator.GenerateId();
-                conList.Add(id);
-                await Task.CompletedTask;
+                Parallel.For(0, 100000, item =>
+                {
+                    var id = idGenerator.GenerateId();
+                    conList.Add(id);
+                });
             });
 
             if (conList.GroupBy(p => p).Count() == 100000)
@@ -41,11 +43,13 @@ namespace Nigel.Basic.UnitTest
         {
             var idGenerator = new IdGuidGenerator(20, DateTime.Now);
             ConcurrentBag<string> conList = new ConcurrentBag<string>();
-            await Parallel.ForAsync(0, 10000, async (item, _) =>
+            await Task.Run(() =>
             {
-                var id = idGenerator.GenerateId();
-                conList.Add(id.ToGuidString());
-                await Task.CompletedTask;
+                Parallel.For(0, 10000, item =>
+                {
+                    var id = idGenerator.GenerateId();
+                    conList.Add(id.ToGuidString());
+                });
             });
 
             if (conList.GroupBy(p => p).Count() == 10000)
@@ -84,12 +88,14 @@ namespace Nigel.Basic.UnitTest
             //    Debug.WriteLine($"{item.Key},{item.Count() > 1}");
             //}
             ConcurrentBag<Guid> conList = new ConcurrentBag<Guid>();
-            await Parallel.ForAsync(0, 10000, async (item, _) =>
+            await Task.Run(() =>
             {
-                var dateTime = DateTime.Now.ToChinaDateTime();
-                var newGuid = GuidGenerator.GenerateTimeBasedGuid(dateTime);
-                conList.Add(newGuid);
-                await Task.CompletedTask;
+                Parallel.For(0, 10000, item =>
+                {
+                    var dateTime = DateTime.Now.ToChinaDateTime();
+                    var newGuid = GuidGenerator.GenerateTimeBasedGuid(dateTime);
+                    conList.Add(newGuid);
+                });
             });
 
             if (conList.GroupBy(p => p).Count() == 10000)

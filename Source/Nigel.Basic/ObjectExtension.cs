@@ -39,16 +39,6 @@ namespace Nigel.Basic
             return MessagePackSerializer.ConvertToJson(blob, options);
         }
 
-        public static string ToMsgPackJson(this object obj, MessagePackSerializerOptions options = null)
-        {
-
-            if (options == null)
-            {
-                options = MessagePack.Resolvers.ContractlessStandardResolver.Options;
-            }
-            var blob = MessagePackSerializer.Serialize(obj, options);
-            return MessagePackSerializer.ConvertToJson(blob, options);
-        }
 
         /// <summary>
         /// CamelCasePropertyNamesContractResolver
