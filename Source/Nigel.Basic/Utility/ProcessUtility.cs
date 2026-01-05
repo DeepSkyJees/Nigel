@@ -15,7 +15,7 @@ namespace Nigel.Basic.Utility
         /// </summary>
         /// <param name="processName"></param>
         /// <returns></returns>
-        public static int GetProcessIdByName(string processName)
+        public static (int, DateTime) GetProcessIdAndStartTimeByName(string processName)
         {
             // 如果传入的是带.exe的名称，可以移除扩展名
             processName = Path.GetFileNameWithoutExtension(processName);
@@ -24,11 +24,12 @@ namespace Nigel.Basic.Utility
 
             if (processes.Any())
             {
+                var first = processes.FirstOrDefault();
                 // 返回第一个找到的进程ID
-                return processes.FirstOrDefault().Id;
+                return (first.Id, first.StartTime);
             }
 
-            return -1; // 未找到进程
+            return (-1, DateTime.Parse("1900-01-01")); // 未找到进程
         }
 
 
