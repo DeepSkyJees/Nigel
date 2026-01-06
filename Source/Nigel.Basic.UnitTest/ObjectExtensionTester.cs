@@ -29,11 +29,12 @@ public class ObjectExtensionTester
             Birth = "2018/07/07".ToDateTime().ToChinaDateTime(),
         };
         var jsonString = jsonObject.ToJson();
-        Assert.Equal(jsonString, "{\"name\":\"Nigel\",\"isTrue\":1,\"birth\":\"2018-07-07T00:00:00Z\"}");
+        Assert.Equal(jsonString, "{\"name\":\"Nigel\",\"isTrue\":true,\"birth\":\"2018-07-07T00:00:00Z\"}");
     }
 
     [Fact]
-    public void ToMsgPackJson() {
+    public void ToMsgPackJson()
+    {
         var jsonObject = new JsonObject
         {
             Name = "Nigel",
@@ -41,7 +42,7 @@ public class ObjectExtensionTester
             Birth = "2018/07/07".ToDateTime().ToChinaDateTime(),
         };
         var jsonString = jsonObject.ToMsgPackJson();
-        Assert.Equal(jsonString, "{\"Name\":\"Nigel\",\"IsTrue\":true,\"Birth\":5248351202427387904}");
+        Assert.Equal(jsonString, "{\"Name\":\"Nigel\",\"IsTrue\":true,\"Birth\":\"2018-07-07T00:00:00.0000000Z\"}");
 
     }
 }

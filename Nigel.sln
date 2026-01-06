@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32922.545
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{B2473A9B-63C9-4B13-AAE8-37F549F130B8}"
 EndProject
@@ -36,6 +36,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.WebApi.Demo", "Demo\Nigel.WebApi.Demo\Nigel.WebApi.Demo.csproj", "{67A13023-A3A4-4B23-A91B-9EE0304AB1C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nigel.Extensions.AspNetCore", "Source\Nigel.Extensions.AspNetCore\Nigel.Extensions.AspNetCore.csproj", "{4106C694-228D-48FA-BEC1-7BC8CEF67C27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nigel.Process.Demo", "Nigel.Process.Demo\Nigel.Process.Demo.csproj", "{4F7519F0-959E-402A-B3CB-642AC9716B28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{4106C694-228D-48FA-BEC1-7BC8CEF67C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4106C694-228D-48FA-BEC1-7BC8CEF67C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4106C694-228D-48FA-BEC1-7BC8CEF67C27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F7519F0-959E-402A-B3CB-642AC9716B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F7519F0-959E-402A-B3CB-642AC9716B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F7519F0-959E-402A-B3CB-642AC9716B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F7519F0-959E-402A-B3CB-642AC9716B28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{45529DBB-A21F-413B-A746-56395984A4BF} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
 		{67A13023-A3A4-4B23-A91B-9EE0304AB1C7} = {B2473A9B-63C9-4B13-AAE8-37F549F130B8}
 		{4106C694-228D-48FA-BEC1-7BC8CEF67C27} = {0684DF7F-BBF8-46FD-B6C9-AE04697186C8}
+		{4F7519F0-959E-402A-B3CB-642AC9716B28} = {B2473A9B-63C9-4B13-AAE8-37F549F130B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BE926658-DE37-49DB-B45B-98E1592EAF16}

@@ -1082,7 +1082,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net6.0": {
@@ -1101,6 +1101,7 @@
         },
         "centralPackageVersions": {
           "ConfigureAwait.Fody": "3.3.2",
+          "CZGL.SystemInfo": "2.2.0",
           "DistributedLock.Redis": "1.0.3",
           "Fody": "6.8.0",
           "MessagePack": "2.5.192",
@@ -1110,7 +1111,7 @@
           "Microsoft.NET.Test.Sdk": "17.11.0",
           "NETCore.Encrypt": "2.1.1",
           "Newtonsoft.Json": "13.0.3",
-          "Nigel.Basic": "6.2.5",
+          "Nigel.Basic": "8.2.0",
           "Nigel.Security": "6.0.1",
           "Polly": "8.4.0",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.2",
@@ -1122,6 +1123,7 @@
           "SkiaSharp": "2.88.8",
           "Swashbuckle.AspNetCore": "6.7.0",
           "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "System.Management": "10.0.1",
           "ZXing.Net": "0.16.9"
         },
         "imports": [
@@ -1140,7 +1142,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
       },
       "net8.0": {
         "targetAlias": "net8.0",
@@ -1158,6 +1160,7 @@
         },
         "centralPackageVersions": {
           "ConfigureAwait.Fody": "3.3.2",
+          "CZGL.SystemInfo": "2.2.0",
           "DistributedLock.Redis": "1.0.3",
           "Fody": "6.8.0",
           "MessagePack": "2.5.192",
@@ -1167,7 +1170,7 @@
           "Microsoft.NET.Test.Sdk": "17.11.0",
           "NETCore.Encrypt": "2.1.1",
           "Newtonsoft.Json": "13.0.3",
-          "Nigel.Basic": "6.2.5",
+          "Nigel.Basic": "8.2.0",
           "Nigel.Security": "6.0.1",
           "Polly": "8.4.0",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.2",
@@ -1179,6 +1182,7 @@
           "SkiaSharp": "2.88.8",
           "Swashbuckle.AspNetCore": "6.7.0",
           "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "System.Management": "10.0.1",
           "ZXing.Net": "0.16.9"
         },
         "imports": [
@@ -1197,7 +1201,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       },
       "netstandard2.0": {
         "targetAlias": "netstandard2.0",
@@ -1221,6 +1225,7 @@
         },
         "centralPackageVersions": {
           "ConfigureAwait.Fody": "3.3.2",
+          "CZGL.SystemInfo": "2.2.0",
           "DistributedLock.Redis": "1.0.3",
           "Fody": "6.8.0",
           "MessagePack": "2.5.192",
@@ -1230,7 +1235,7 @@
           "Microsoft.NET.Test.Sdk": "17.11.0",
           "NETCore.Encrypt": "2.1.1",
           "Newtonsoft.Json": "13.0.3",
-          "Nigel.Basic": "6.2.5",
+          "Nigel.Basic": "8.2.0",
           "Nigel.Security": "6.0.1",
           "Polly": "8.4.0",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.2",
@@ -1242,6 +1247,7 @@
           "SkiaSharp": "2.88.8",
           "Swashbuckle.AspNetCore": "6.7.0",
           "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "System.Management": "10.0.1",
           "ZXing.Net": "0.16.9"
         },
         "imports": [
@@ -1255,7 +1261,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
       },
       "netstandard2.1": {
         "targetAlias": "netstandard2.1",
@@ -1273,6 +1279,7 @@
         },
         "centralPackageVersions": {
           "ConfigureAwait.Fody": "3.3.2",
+          "CZGL.SystemInfo": "2.2.0",
           "DistributedLock.Redis": "1.0.3",
           "Fody": "6.8.0",
           "MessagePack": "2.5.192",
@@ -1282,7 +1289,7 @@
           "Microsoft.NET.Test.Sdk": "17.11.0",
           "NETCore.Encrypt": "2.1.1",
           "Newtonsoft.Json": "13.0.3",
-          "Nigel.Basic": "6.2.5",
+          "Nigel.Basic": "8.2.0",
           "Nigel.Security": "6.0.1",
           "Polly": "8.4.0",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.2",
@@ -1294,6 +1301,7 @@
           "SkiaSharp": "2.88.8",
           "Swashbuckle.AspNetCore": "6.7.0",
           "Swashbuckle.AspNetCore.ReDoc": "6.7.0",
+          "System.Management": "10.0.1",
           "ZXing.Net": "0.16.9"
         },
         "imports": [
@@ -1312,7 +1320,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },

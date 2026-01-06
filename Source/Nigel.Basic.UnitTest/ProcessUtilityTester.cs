@@ -13,8 +13,8 @@ namespace Nigel.Basic.UnitTest
         [Fact]
         public async Task GetCodeProcessId()
         {
-            var id = ProcessUtility.GetProcessIdByName("Code.exe");
-            Assert.NotNull(id);
+            var (pid, startName) = ProcessUtility.GetProcessIdAndStartTime("code");
+            Assert.NotEqual(pid, -1);
         }
     }
 }

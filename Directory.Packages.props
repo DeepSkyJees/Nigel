@@ -4,6 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- Microsoft -->
+    <PackageVersion Include="CZGL.SystemInfo" Version="2.2.0" />
     <PackageVersion Include="MessagePack" Version="2.5.192" />
     <PackageVersion Include="MessagePackAnalyzer" Version="2.5.192" />
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="6.0.0" />
@@ -21,10 +22,11 @@
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="DistributedLock.Redis" Version="1.0.3" />
     <PackageVersion Include="Fody" Version="6.8.0" />
-    <PackageVersion Include="Nigel.Basic" Version="6.2.5" />
+    <PackageVersion Include="Nigel.Basic" Version="8.2.0" />
     <PackageVersion Include="Polly" Version="8.4.0" />
     <PackageVersion Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.2" />
     <PackageVersion Include="SkiaSharp" Version="2.88.8" />
+    <PackageVersion Include="System.Management" Version="10.0.1" />
     <PackageVersion Include="ZXing.Net" Version="0.16.9" />
     <PackageVersion Include="NETCore.Encrypt" Version="2.1.1" />
     <PackageVersion Include="Nigel.Security" Version="6.0.1" />
